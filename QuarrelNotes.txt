@@ -1,0 +1,46 @@
+Man wakes up.
+Man needs to find Girl.
+Man finds Girl.
+
+Noir:
+    (Scene I) <The Closet: Trapped>
+    Man wakes up trapped by Girl's henchmen in Archive Closet. Man needs to find Girl, whom is murderer.
+        Puzzles:
+            Open Safe (Find Combo?) -> Get Gun -> Shoot Lock
+            Get Boots -> Kickdown Door
+    
+    (Scene II) <PI Office>
+    Man escapes and searched for clues of Girl's recent attacks.
+        Puzzles:
+            Find Scattered Files about case (three?) -> Leave
+            
+    (Scene III) <The Park: Midnight>
+    Man finds latest victim of Girl.
+        
+    
+    (Scene IV)
+    Man finds Girl:
+        Man killed by Murderous Girl.
+        Man elopes with Murderous Girl.
+
+Romance:
+    (Scene I) <The Closet: Trapped>
+    Man wakes up trapped after party. Man needs to find Girl, whom he met at party.
+        Puzzles:
+            Find Paper -> Find Writing Implement (Mop?) -> Write Note -> Slide under Door
+                
+    (Scene II) <Accounting Office>
+    Man escapes into Office, needs to find information on Girl.
+        Puzzles:
+            Find Girl's Cubicle -> Read Girl's Mail -> Leave
+            
+    (Scene III) <The Park: Noon>
+    Man meets up with girl's frenemy.
+        Puzzles:
+            Girl Confesses to Man -> Dialogue Tree: (Flirt with her <Noir>) / (Self-Deprecate <Romance>) -> Find Girl's Location -> Leave
+    
+    (Scene IV) <Exposition with fake interaction>
+    Man finds Girl:
+        Man gets the girl for being bad guy.
+        Man befriends the girl for being good guy.
+        
