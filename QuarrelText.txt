@@ -1,0 +1,153 @@
+"The Quarrel" by Zane Mariano & Jon Gill
+
+Include Basic Screen Effects by Emily Short.
+Include Reactable Quips by Michael Martin.
+Release along with an interpreter, the source text and a website.
+Use no scoring.
+
+Chapter I - Values
+
+[Data]
+Genre_value is a number that varies.
+
+currRoom is a number that varies.
+Connection relates various rooms to one number. 
+The verb to be connected to implies the connection relation.
+
+[Scenes]
+Intro is connected to 0.
+NoirScene1 is connected to 1.
+NoirScene2 is connected to 2.
+NoirScene3a is connected to 3.
+NoirScene3b is connected to 4.
+
+
+Chapter II - Actions
+
+[REWIND Action]
+Rewinding is an action applying to nothing.
+Understand "rewind" as rewinding.
+
+Before rewinding:
+	say "[RED LETTERS]Yes, yes, that's not how it happened.[BLACK LETTERS][BLUE LETTERS] No! Yes it was! Are you sure you want to rewind?[BLACK LETTERS]";
+	if the player consents:
+		now currRoom is currRoom - 1;
+		say "[currRoom]".
+		
+Fastforwarding is an action applying to nothing.
+Understand "fastforward" as fastforwarding.
+
+Before fastforwarding:
+	say "FastForwarding...".
+
+After fastforwarding:
+	now currRoom is currRoom + 1;
+	say "[currRoom]";
+
+	
+[Miscellaneous]
+
+Helping is an action applying to nothing. Understand "help" as helping.
+After helping when genre_value is less than 0:
+	say "[RED LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
+After helping when genre_value is 0:
+	say "This is generic help text.";
+After helping when genre_value is greater than 0:
+	say "This is romantic help text.";
+
+Instead of examining player when genre_value is less than 0: say "Noir description."
+Instead of examining player when genre_value is 0: say "Generic description."
+Instead of examining player when genre_value is greater than 0: say "Romance description."
+
+Instead of going when genre_value is less than 0: say "[RED LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
+Instead of going when genre_value is 0: say "[BLUE LETTERS]Oh, bother!  You still have  [RED LETTERS] work to do.  Messy work.[BLACK LETTERS]".
+Instead of going when genre_value is greater than 0: say "Romance going."
+
+[Instead of doing something other than looking, examining, asking, telling, or going, say "HAHAHA NO."]
+
+Chapter III - Conversations
+
+    Table of Ask Results (continued)
+  	NPC  		topic  					result  
+  	Charles	  	"his face" or "ugliness"			hate my face
+	Charles		"the_default"				want to die
+
+    Table of Tell Results (continued)
+  	NPC  		topic			  		result  
+  	Charles  		"sucks"				  	hate my face
+
+    Table of Quip Texts (continued)
+  	quip  		quiptext  
+  	hate my face	"Yeah, it kind of sucks.  I'm pretty hideous."
+	want to die	"You're right.  I should kill myself."
+
+    Table of Quip Followups (continued)
+  	quip  		option  					result  
+  	hate my face  	"Life isn't really worth living for you."		want to die
+  	hate my face  	"You're freaking hideous man."  		want to die
+
+Charles is a person.
+
+[Before taking a noun, instead try jumping.
+[Before asking, instead try asking Charles about "the_default".]
+Before asking [someone] about [a noun], instead try talking to [someone].
+
+Talking to is an action applying to one thing.
+Understand "talk to" as talking to.
+Carry out talking to: say "Dicks."]
+
+    After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
+
+
+Chapter IV - Rooms
+
+Intro is a room with printed name "The Closet: Trapped".
+Understand "The Closet" and "Closet" as Intro.
+The description of Intro is "You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks."
+
+
+[Noir Scenes]
+NoirScene1 is a room with printed name "PI Office".
+Understand "PI Office" as NoirScene1.
+The description of NoirScene1 is "THIS IS A TEMP DESCRIPTION!!!".
+
+NoirScene2 is a room with printed name "The Park: Midnight".
+Understand "The Park" and "Park" and "Midnight" as NoirScene2.
+The description of NoirScene2 is "THIS IS A TEMP DESCRIPTION!!!".
+
+NoirScene3a is a room with printed name "Victim's House".
+Understand "Victim's House" as NoirScene3a.
+The description of NoirScene3a is "THIS IS A TEMP DESCRIPTION!!!".
+
+NoirScene3b is a room with printed name "Celine's Hotel".
+Understand "Celine's Hotel" as NoirScene3b.
+The description of NoirScene3b is "THIS IS A TEMP DESCRIPTION!!!".
+
+
+[Romance Scenes]
+RomScene1 is room with printed name "Accounting Office".
+Understand "Accounting Office" as RomScene1.
+The description of RomScene1 is "THIS IS A TEMP DESCRIPTION!!!".
+
+RomScene2 is room with printed name "The Park: Noon".
+Understand "The Park" and "Park" and "Noon" as RomScene2.
+The description of RomScene2 is "THIS IS A TEMP DESCRIPTION!!!".
+
+RomScene3a is room with printed name "Celine's Bedroom".
+Understand "Celine's Bedroom" as RomScene3a.
+The description of RomScene3a is "THIS IS A TEMP DESCRIPTION!!!".
+
+RomScene3b is room with printed name "Celine's Driveway".
+Understand "Celine's Driveway" as RomScene3b.
+The description of RomScene3b is "THIS IS A TEMP DESCRIPTION!!!".
+
+
+Chapter V - Game Setup
+
+The player is in Intro.
+
+[GAME START]
+When play begins:
+	now currRoom is 0;
+	now genre_value is 0.
+
