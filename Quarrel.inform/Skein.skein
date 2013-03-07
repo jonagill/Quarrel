@@ -1,13 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Skein rootNode="node-0x028E2CF0" xmlns="http://www.logicalshift.org.uk/IF/Skein">
   <generator>Inform 7 for Windows</generator>
-  <activeNode nodeId="node-0x028E2CF0"/>
+  <activeNode nodeId="node-0x02924DE8"/>
   <item nodeId="node-0x028E2CF0">
     <command xml:space="preserve">- start -</command>
-    <result xml:space="preserve"></result>
+    <result xml:space="preserve">The Quarrel&#x000A;An Interactive Fiction by Zane Mariano &amp; Jon Gill&#x000A;Release 1 / Serial number 130306 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD&#x000A;&#x000A;The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
-    <changed>YES</changed>
+    <changed>NO</changed>
     <temporary score="0">NO</temporary>
+    <children>
+      <child nodeId="node-0x028EB870"/>
+      <child nodeId="node-0x028F66C0"/>
+      <child nodeId="node-0x028F6490"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028EB870">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">The Closet: Trapped&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028EB040"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028EB040">
+    <command xml:space="preserve">x</command>
+    <result xml:space="preserve">What do you want to examine?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028EB0B0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028EB0B0">
+    <command xml:space="preserve">m</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028E31D0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028E31D0">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">The Closet: Trapped&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x028F66C0">
+    <command xml:space="preserve">x me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6730"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6730">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x028F6490">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6500"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6500">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6570"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6570">
+    <command xml:space="preserve">x me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F67A0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F67A0">
+    <command xml:space="preserve">exmine me</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6810"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6810">
+    <command xml:space="preserve">examine me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6880"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6880">
+    <command xml:space="preserve">examine </command>
+    <result xml:space="preserve">What do you want to examine?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F68F0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F68F0">
+    <command xml:space="preserve">x</command>
+    <result xml:space="preserve">What do you want to examine?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6960"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6960">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F69D0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F69D0">
+    <command xml:space="preserve">l</command>
+    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6A40"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6A40">
+    <command xml:space="preserve">inventory</command>
+    <result xml:space="preserve">You are carrying nothing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6AB0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6AB0">
+    <command xml:space="preserve">i</command>
+    <result xml:space="preserve">You are carrying nothing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6B20"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6B20">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x028F6B90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x028F6B90">
+    <command xml:space="preserve">s</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924C98"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924C98">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924D08"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924D08">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924D78"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924D78">
+    <command xml:space="preserve">x me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924DE8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924DE8">
+    <command xml:space="preserve">x me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
   </item>
 </Skein>

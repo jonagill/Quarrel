@@ -1,0 +1,55 @@
+! Blurb file created by Inform build 6G60
+
+status "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\CblorbModel.html" "C:\Users\Tranas\Desktop\Quarrel\Quarrel.inform\Build\StatusCblorb.html"
+
+
+! Identification
+
+project folder "C:\Users\Tranas\Desktop\Quarrel\Quarrel.inform"
+release to "C:\Users\Tranas\Desktop\Quarrel\Quarrel Materials\Release"
+
+! Blorb instructions
+
+storyfile leafname "The Quarrel.zblorb"
+storyfile "C:\Users\Tranas\Desktop\Quarrel\Quarrel.inform\Build\output.z5" include
+ifiction "C:\Users\Tranas\Desktop\Quarrel\Quarrel.inform\Metadata.iFiction" include
+cover "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\DefaultCover.jpg"
+picture 1 "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\DefaultCover.jpg"
+release file "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\Cover.jpg"
+release file "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\Small Cover.jpg"
+
+! Placeholder variables
+
+placeholder [IFID] = "E2507BA9-38B6-43FE-9755-F1300B5CCF9E"
+placeholder [RELEASE] = "1"
+placeholder [YEAR] = "2013"
+placeholder [TITLE] = "The Quarrel"
+placeholder [AUTHOR] = "Zane Mariano &amp; Jon Gill"
+placeholder [BLURB] = "A work of interactive fiction."
+
+! Other material to release
+
+source public
+
+! Website instructions
+
+placeholder [ENCODEDSTORYFILE] = "The Quarrel.zblorb.js"
+template path "C:\Users\Tranas\Desktop\Quarrel\Quarrel Materials\Templates"
+template path "C:\Users\Tranas\Documents\Inform\Templates"
+template path "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\Templates"
+interpreter "Parchment" "z"
+base64 "C:\Users\Tranas\Desktop\Quarrel\Quarrel.inform\Build\output.z5" to "C:\Users\Tranas\Desktop\Quarrel\Quarrel Materials\Release\interpreter\The Quarrel.zblorb.js"
+
+! Website instructions
+
+template path "C:\Users\Tranas\Desktop\Quarrel\Quarrel Materials\Templates"
+template path "C:\Users\Tranas\Documents\Inform\Templates"
+template path "C:\Program Files (x86)\Inform 7\Inform7\Extensions\Reserved\Templates"
+css
+website "Standard"
+status instruction ||&nbsp;<a href="source:story.ni#line4"><img border=0 src=inform:/Reveal.png></a>||
+status alternative ||Using 'Release along with cover art', to provide something more distinctive than the default artwork above&nbsp;<a href=inform:/doc391.html><img border=0 src=inform:/help.png></a>||
+status alternative ||Using 'Release along with the "Such-and-Such" file called "whatever.pdf"', perhaps to add a manual, or a welcoming note&nbsp;<a href=inform:/doc389.html><img border=0 src=inform:/help.png></a>||
+status alternative ||Using 'Release along with a solution'&nbsp;<a href=inform:/doc398.html><img border=0 src=inform:/help.png></a>||
+status alternative ||Using 'Release along with the library card'&nbsp;<a href=inform:/doc399.html><img border=0 src=inform:/help.png></a>||
+status alternative ||Using 'Release along with the introductory booklet'&nbsp;<a href=inform:/doc392.html><img border=0 src=inform:/help.png></a>||
