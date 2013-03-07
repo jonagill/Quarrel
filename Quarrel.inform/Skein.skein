@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Skein rootNode="node-0x028E2CF0" xmlns="http://www.logicalshift.org.uk/IF/Skein">
   <generator>Inform 7 for Windows</generator>
-  <activeNode nodeId="node-0x02924DE8"/>
+  <activeNode nodeId="node-0x02945D08"/>
   <item nodeId="node-0x028E2CF0">
     <command xml:space="preserve">- start -</command>
     <result xml:space="preserve">The Quarrel&#x000A;An Interactive Fiction by Zane Mariano &amp; Jon Gill&#x000A;Release 1 / Serial number 130306 / Inform 7 build 6G60 (I6/v6.32 lib 6/12N) SD&#x000A;&#x000A;The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
@@ -13,6 +13,8 @@
       <child nodeId="node-0x028EB870"/>
       <child nodeId="node-0x028F66C0"/>
       <child nodeId="node-0x028F6490"/>
+      <child nodeId="node-0x02910130"/>
+      <child nodeId="node-0x0295A9A8"/>
     </children>
   </item>
   <item nodeId="node-0x028EB870">
@@ -77,18 +79,19 @@
   </item>
   <item nodeId="node-0x028F6490">
     <command xml:space="preserve">rewind</command>
-    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
-    <changed>NO</changed>
+    <changed>YES</changed>
     <temporary score="0">YES</temporary>
     <children>
       <child nodeId="node-0x028F6500"/>
+      <child nodeId="node-0x0295AA18"/>
     </children>
   </item>
   <item nodeId="node-0x028F6500">
     <command xml:space="preserve">l</command>
-    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -99,7 +102,7 @@
   </item>
   <item nodeId="node-0x028F6570">
     <command xml:space="preserve">x me</command>
-    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -110,7 +113,7 @@
   </item>
   <item nodeId="node-0x028F67A0">
     <command xml:space="preserve">exmine me</command>
-    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -121,7 +124,7 @@
   </item>
   <item nodeId="node-0x028F6810">
     <command xml:space="preserve">examine me</command>
-    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -132,7 +135,7 @@
   </item>
   <item nodeId="node-0x028F6880">
     <command xml:space="preserve">examine </command>
-    <result xml:space="preserve">What do you want to examine?&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -143,7 +146,7 @@
   </item>
   <item nodeId="node-0x028F68F0">
     <command xml:space="preserve">x</command>
-    <result xml:space="preserve">What do you want to examine?&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -154,7 +157,7 @@
   </item>
   <item nodeId="node-0x028F6960">
     <command xml:space="preserve">look</command>
-    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -165,7 +168,7 @@
   </item>
   <item nodeId="node-0x028F69D0">
     <command xml:space="preserve">l</command>
-    <result xml:space="preserve">The Closet: Trapped&#x000A;You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -176,7 +179,7 @@
   </item>
   <item nodeId="node-0x028F6A40">
     <command xml:space="preserve">inventory</command>
-    <result xml:space="preserve">You are carrying nothing.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -187,7 +190,7 @@
   </item>
   <item nodeId="node-0x028F6AB0">
     <command xml:space="preserve">i</command>
-    <result xml:space="preserve">You are carrying nothing.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -198,7 +201,7 @@
   </item>
   <item nodeId="node-0x028F6B20">
     <command xml:space="preserve">e</command>
-    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -209,7 +212,7 @@
   </item>
   <item nodeId="node-0x028F6B90">
     <command xml:space="preserve">s</command>
-    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -220,7 +223,7 @@
   </item>
   <item nodeId="node-0x02924C98">
     <command xml:space="preserve">w</command>
-    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -231,7 +234,7 @@
   </item>
   <item nodeId="node-0x02924D08">
     <command xml:space="preserve"></command>
-    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -242,7 +245,7 @@
   </item>
   <item nodeId="node-0x02924D78">
     <command xml:space="preserve">x me</command>
-    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
@@ -253,7 +256,436 @@
   </item>
   <item nodeId="node-0x02924DE8">
     <command xml:space="preserve">x me</command>
-    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924E58"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924E58">
+    <command xml:space="preserve">yes</command>
+    <result xml:space="preserve">Here we go!&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924EC8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924EC8">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924F38"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924F38">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">Here we go!&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02924FA8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02924FA8">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925018"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925018">
+    <command xml:space="preserve">f</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925088"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925088">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x029250F8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x029250F8">
+    <command xml:space="preserve">r</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925168"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925168">
+    <command xml:space="preserve">t</command>
+    <result xml:space="preserve">Please answer yes or no.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x029251D8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x029251D8">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">Here we go!&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925248"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925248">
+    <command xml:space="preserve">h</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x029252B8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x029252B8">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02925328"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02925328">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x0295AA18">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">-1&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AA88"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AA88">
+    <command xml:space="preserve">fastforward</command>
+    <result xml:space="preserve">FastForwarding...&#x000A;&#x000A;0&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AAF8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AAF8">
+    <command xml:space="preserve">fastforward</command>
+    <result xml:space="preserve">FastForwarding...&#x000A;&#x000A;1&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AB68"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AB68">
+    <command xml:space="preserve">fastforward</command>
+    <result xml:space="preserve">FastForwarding...&#x000A;&#x000A;2&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295ABD8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295ABD8">
+    <command xml:space="preserve">fastforward</command>
+    <result xml:space="preserve">FastForwarding...&#x000A;&#x000A;3&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AC48"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AC48">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295ACB8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295ACB8">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">2&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AD28"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AD28">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AD98"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AD98">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">1&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AE08"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AE08">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295AE78"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295AE78">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">0&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02910130">
+    <command xml:space="preserve">j</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x029101A0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x029101A0">
+    <command xml:space="preserve">jump</command>
+    <result xml:space="preserve">You jump on the spot, fruitlessly.&#x000A;&#x000A;Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02910210"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02910210">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02910280"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02910280">
+    <command xml:space="preserve">go</command>
+    <result xml:space="preserve">You'll have to say which compass direction to go in.&#x000A;&#x000A;Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x029102F0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x029102F0">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295A708"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295A708">
+    <command xml:space="preserve">transitioning</command>
+    <result xml:space="preserve">What do you want to transitio?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295A778"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295A778">
+    <command xml:space="preserve">transit</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295A7E8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295A7E8">
+    <command xml:space="preserve">transition</command>
+    <result xml:space="preserve">What do you want to transitio?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295A858"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295A858">
+    <command xml:space="preserve">transitioning</command>
+    <result xml:space="preserve">What do you want to transitio?&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295A8C8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295A8C8">
+    <command xml:space="preserve">progress room3</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x0295A9A8">
+    <command xml:space="preserve">fastforward</command>
+    <result xml:space="preserve">FastForwarding...&#x000A;&#x000A;1&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x0295A938"/>
+      <child nodeId="node-0x02945B48"/>
+    </children>
+  </item>
+  <item nodeId="node-0x0295A938">
+    <command xml:space="preserve">fastforward</command>
+    <result xml:space="preserve">FastForwarding...&#x000A;&#x000A;2&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+  </item>
+  <item nodeId="node-0x02945B48">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02945BB8"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02945BB8">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">0&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02945C28"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02945C28">
+    <command xml:space="preserve">rewind</command>
+    <result xml:space="preserve">Yes, yes, that's not how it happened.&#x000A; No! Yes it was! Are you sure you want to rewind?</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02945C98"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02945C98">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">-1&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <children>
+      <child nodeId="node-0x02945D08"/>
+    </children>
+  </item>
+  <item nodeId="node-0x02945D08">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <played>YES</played>
     <changed>NO</changed>
