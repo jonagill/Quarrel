@@ -10,43 +10,63 @@ Chapter I - Values
 [Data]
 Genre_value is a number that varies.
 
-currRoom is a number that varies.
-Connection relates various rooms to one number. 
-The verb to be connected to implies the connection relation.
-
-[Scenes]
-Intro is connected to 0.
-NoirScene1 is connected to 1.
-NoirScene2 is connected to 2.
-NoirScene3a is connected to 3.
-NoirScene3b is connected to 4.
-
-
 Chapter II - Actions
+	
+[FASTFORWARD Action]	
+Fastforwarding is an action applying to nothing.
+Understand "do_fastforward" as fastforwarding.
+
+move_to_room is a room that varies.
+Instead of fastforwarding:
+	let is_next_room be false;
+	if location is solved_noir:
+		let is_next_room be whether or not there is a next_room_noir corresponding to a curr_room of the location in the table of room connections;
+		if is_next_room is true:
+			now move_to_room is the next_room_noir corresponding to a curr_room of the location in the table of room connections;
+		otherwise:
+			say "Nowhere to go.";
+	otherwise if location is solved_romance:
+		let is_next_room be whether or not there is a next_room_romance corresponding to a curr_room of the location in the table of room connections;
+		if is_next_room is true:
+			now move_to_room is the next_room_romance corresponding to a curr_room of the location in the table of room connections;
+		otherwise:
+			say "Drat!  There's nowhere for you to go.";
+	otherwise:
+		say "There's still work to be done here.";
+	if is_next_room is true:
+		move the player to move_to_room, without printing a room description;
+		try resetting;
+		move the player to move_to_room;
+		
 
 [REWIND Action]
 Rewinding is an action applying to nothing.
 Understand "rewind" as rewinding.
 
-Before rewinding:
-	say "[RED LETTERS]Yes, yes, that's not how it happened.[BLACK LETTERS][BLUE LETTERS] No! Yes it was! Are you sure you want to rewind?[BLACK LETTERS]";
-	if the player consents:
-		now currRoom is currRoom - 1;
-		say "[currRoom]".
-		
-Fastforwarding is an action applying to nothing.
-Understand "fastforward" as fastforwarding.
-
-Before fastforwarding:
-	say "FastForwarding...".
-
-After fastforwarding:
-	now currRoom is currRoom + 1;
-	say "[currRoom]";
-
+prev_room_trans is text that varies.
+Instead of rewinding:
+	let is_prev_room be false;
+	let is_prev_room be whether or not there is a prev_room corresponding to a curr_room of the location in the table of room connections;
+	if is_prev_room is true:
+		say the description corresponding to a curr_room of the location in the table of rewind descriptions;
+		if the player consents:
+			now move_to_room is the prev_room corresponding to a curr_room of the location in the table of room connections;
+			move the player to move_to_room, without printing a room description;
+			try resetting;
+			move the player to move_to_room;
+	otherwise:
+		say "This is where it all began…";
 	
-[Miscellaneous]
 
+[RESET Action]
+Resetting is an action applying to nothing.
+Understand "test_reset" as resetting.
+[Override RESET for each specific room.]
+	
+
+[Miscellaneous Action Descriptions]
+
+[HELP]
 Helping is an action applying to nothing. Understand "help" as helping.
 After helping when genre_value is less than 0:
 	say "[RED LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
@@ -55,10 +75,12 @@ After helping when genre_value is 0:
 After helping when genre_value is greater than 0:
 	say "This is romantic help text.";
 
+[EXAMINE ME]
 Instead of examining player when genre_value is less than 0: say "Noir description."
 Instead of examining player when genre_value is 0: say "Generic description."
 Instead of examining player when genre_value is greater than 0: say "Romance description."
 
+[GO N/S/E/W]
 Instead of going when genre_value is less than 0: say "[RED LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
 Instead of going when genre_value is 0: say "[BLUE LETTERS]Oh, bother!  You still have  [RED LETTERS] work to do.  Messy work.[BLACK LETTERS]".
 Instead of going when genre_value is greater than 0: say "Romance going."
@@ -66,6 +88,13 @@ Instead of going when genre_value is greater than 0: say "Romance going."
 [Instead of doing something other than looking, examining, asking, telling, or going, say "HAHAHA NO."]
 
 Chapter III - Conversations
+
+[TALKING Action]
+Talking is an action applying to one thing.
+Understand "talk [something]" and "talk to [something]" as talking.
+Check talking: try asking the noun about "the_default".
+
+[Conversation Content -- Can be continued in other Chapters]
 
     Table of Ask Results (continued)
   	NPC  		topic  					result  
@@ -86,24 +115,39 @@ Chapter III - Conversations
   	hate my face  	"Life isn't really worth living for you."		want to die
   	hate my face  	"You're freaking hideous man."  		want to die
 
-Charles is a person.
-
-[Before taking a noun, instead try jumping.
-[Before asking, instead try asking Charles about "the_default".]
-Before asking [someone] about [a noun], instead try talking to [someone].
-
-Talking to is an action applying to one thing.
-Understand "talk to" as talking to.
-Carry out talking to: say "Dicks."]
+[Quip Results]
 
     After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
 
+Charles is a person.
 
 Chapter IV - Rooms
+
+[Room state]
+A room can be unsolved, solved_noir, or solved_romance.  A room is usually unsolved.
+
+[Room Relations]
+    Table of Room Connections
+	curr_room		next_room_noir	next_room_romance		prev_room
+	Intro		Test		Test			--
+	Test		--		--			Intro
+	
+    Table of Rewind Descriptions
+	curr_room		description
+	Intro		--
+	Test		"Going back?  "
+
 
 Intro is a room with printed name "The Closet: Trapped".
 Understand "The Closet" and "Closet" as Intro.
 The description of Intro is "You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks."
+
+[Test Scenario]
+Intro is solved_noir.
+
+Test is east of Intro.
+The knife is an object in Test.
+Carry out resetting when the player is in Test: now the knife is in Test; now genre_value is 1.
 
 
 [Noir Scenes]
@@ -148,6 +192,5 @@ The player is in Intro.
 
 [GAME START]
 When play begins:
-	now currRoom is 0;
 	now genre_value is 0.
 
