@@ -62,11 +62,44 @@ Instead of rewinding:
 Resetting is an action applying to nothing.
 Understand "test_reset" as resetting.
 [Override RESET for each specific room.]
+
 	
 
-[Miscellaneous Action Descriptions]
+[--------------- Player Action Descriptions ---------------]
+
+
+[UTILIZE]
+
+[Utilize is the version of Use that applies to a single object]
+Utilizing is an action applying to one visible thing.
+Understand "utilize [something]" as utilizing.
+Understand "use [something]" as utilizing.
+
+[Implement precise use cases in-line when necessary by including lines like those below:]
+Carry out utilizing:
+    if the noun is the knife, say "You pick your teeth with the blade." instead.
+
+
+[USE]
+
+[Use affects one object with another]
+Using is an action applying to two visible things.
+Understand "use [something] on [something]" as using.
+Understand "use [something] with [something]" as using.
+Understand "apply [something] to [something]" as using.
+
+[Implement precise use cases in-line when necessary by including lines like those below:]
+Check using: 
+    if the noun is the knife and the second noun is Charles, say "Good idea." instead;
+    if the noun is the knife, say "That would hurt." instead.
+
+[We can use as many Check using blocks as we need.]
+Check using:
+    if the noun is Charles, say "There is no use for Charles." instead.
+
 
 [HELP]
+
 Helping is an action applying to nothing. Understand "help" as helping.
 After helping when genre_value is less than 0:
 	say "[RED LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
@@ -75,12 +108,16 @@ After helping when genre_value is 0:
 After helping when genre_value is greater than 0:
 	say "This is romantic help text.";
 
+
 [EXAMINE ME]
+
 Instead of examining player when genre_value is less than 0: say "Noir description."
 Instead of examining player when genre_value is 0: say "Generic description."
 Instead of examining player when genre_value is greater than 0: say "Romance description."
 
+
 [GO N/S/E/W]
+
 Instead of going when genre_value is less than 0: say "[RED LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
 Instead of going when genre_value is 0: say "[BLUE LETTERS]Oh, bother!  You still have  [RED LETTERS] work to do.  Messy work.[BLACK LETTERS]".
 Instead of going when genre_value is greater than 0: say "Romance going."
@@ -89,12 +126,16 @@ Instead of going when genre_value is greater than 0: say "Romance going."
 
 Chapter III - Conversations
 
+
 [TALKING Action]
+
 Talking is an action applying to one thing.
 Understand "talk [something]" and "talk to [something]" as talking.
 Check talking: try asking the noun about "the_default".
 
-[Conversation Content -- Can be continued in other Chapters]
+
+[--------------- Conversation Content -- Can be continued in other Chapters ---------------]
+
 
     Table of Ask Results (continued)
   	NPC  		topic  					result  
@@ -119,7 +160,7 @@ Check talking: try asking the noun about "the_default".
 
     After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
 
-Charles is a person.
+Charles is a person.  Charles is in Test.
 
 Chapter IV - Rooms
 
