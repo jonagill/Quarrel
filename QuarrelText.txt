@@ -235,7 +235,7 @@ The description of NoirScene3b is "THIS IS A TEMP DESCRIPTION!!!".
 
 
 [Romance Scenes]
-RomScene1 is room with printed name "Accounting Office".
+RomScene1 is room with printed name "The Offices of Charles and Charles, Accounting LLC".
 Understand "Accounting Office" as RomScene1.
 The description of RomScene1 is "THIS IS A TEMP DESCRIPTION!!!".
 
@@ -259,7 +259,11 @@ The player is in Intro.
 [GAME START]
 When play begins:
 	now genre_value is 0;
-	say "[BLUE LETTERS]I woke up in a haze, at that moment - memory wasn't exactly my strong suit. Quite a shame, when you're in the type of business I'm in, your memory is your only friend. My head was pounding, was I hit? Did someone ambush me? Where was I even? It was dark, that's for sure. The kind of jarring, confusing darkness that encrouches on your and sucks every bit of your breath like a void. A void, huh? Reminds me of my most recent case, Celene - a vicious, femme fatale known in twelve states for triple homicides. One can only imagine the void that lives inside that girl's heart, but that ain't my problem. My problem is bringing her whereabouts to light because that's who I am, a PI, the only light that can deshroud this dark, dank city. Speaking of light, about time I grab that trusty lighter of mine and figure out where I am.[BLACK LETTERS]";
+	say "[BLUE LETTERS]I woke up in a haze, at that moment - memory wasn't exactly my strong suit. Quite a shame, when you're in the type of business I'm in, your memory is your only friend. My head was pounding, was I hit? Did someone ambush me? Where was I even? It was dark, that's for sure. The kind of jarring, confusing darkness that encrouches on your and sucks every bit of your breath like a void. A void, huh? Reminds me of my most recent case, Celine - a vicious, femme fatale known in twelve states for triple homicides. One can only imagine the void that lives inside that girl's heart, but that ain't my problem. My problem is bringing her whereabouts to light because that's who I am, a PI, the only light that can deshroud this dark, dank city. Speaking of light, about time I grab that trusty lighter of mine and figure out where I am.[BLACK LETTERS]";
 	center "[line break]Press SPACE key to begin.";
+	wait for the SPACE key;
+	say "[line break][line break] [RED LETTERS]I'm not sure about this at all.  No, let's try that again.  How about this: you awake to find yourself in the dark — not in a figurative dark, of course, for that would be nothing out of the ordinary — but a real heavy, stifling dark, thick and treacly enough to cut with knife and serve with a lump of hot butter.  Your thoughts swim as your hands grope blindly.  You brain seems to be operating in low gear as you search for your last clear memory.  Blurred lights and swirling colors solidify in your mind into a face:  Celine!  That charming girl from marketing that you met at the office Christmas party.  You hit it off, she smiled that sweet smile, and she told you to meet her tonight at — where was it again?  And for that matter, where the blazes were you?";
+	center "[line break][RED LETTERS]Alright, that sounds a bit better.  Carry on.[BLACK LETTERS]";
+	center "[line break]Press SPACE key to begin."; 
 	wait for the SPACE key;
 	clear the screen;
