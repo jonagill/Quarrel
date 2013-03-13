@@ -90,7 +90,7 @@ Understand "use [something]" as utilizing.
 
 [Implement precise use cases in-line when necessary by including lines like those below:]
 Carry out utilizing:
-    if the noun is the knife, say "You pick your teeth with the blade." instead.
+	if the noun is the knife, say "You pick your teeth with the blade." instead.
 
 
 [USE]
@@ -103,19 +103,19 @@ Understand "apply [something] to [something]" as using.
 
 [Implement precise use cases in-line when necessary by including lines like those below:]
 Check using: 
-    if the noun is the knife and the second noun is Charles, say "Good idea." instead;
-    if the noun is the knife, say "That would hurt." instead.
+	if the noun is the knife and the second noun is Charles, say "Good idea." instead;
+	if the noun is the knife, say "That would hurt." instead.
 
 [We can use as many Check using blocks as we need.]
 Check using:
-    if the noun is Charles, say "There is no use for Charles." instead.
+	if the noun is Charles, say "There is no use for Charles." instead.
 
 
 [HELP]
 
 Helping is an action applying to nothing. Understand "help" as helping.
 After helping when genre_value is less than 0:
-	say "[RED LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
+	say "[BLUE LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
 After helping when genre_value is 0:
 	say "This is generic help text.";
 After helping when genre_value is greater than 0:
@@ -131,8 +131,8 @@ Instead of examining player when genre_value is greater than 0: say "Romance des
 
 [GO N/S/E/W]
 
-Instead of going when genre_value is less than 0: say "[RED LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
-Instead of going when genre_value is 0: say "[BLUE LETTERS]Oh, bother!  You still have  [RED LETTERS] work to do.  Messy work.[BLACK LETTERS]".
+Instead of going when genre_value is less than 0: say "[BLUE LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
+Instead of going when genre_value is 0: say "[RED LETTERS]Oh, bother!  You still have [BLUE LETTERS]work to do.  Messy work.[BLACK LETTERS]".
 Instead of going when genre_value is greater than 0: say "Romance going."
 
 [Instead of doing something other than looking, examining, asking, telling, or going, say "HAHAHA NO."]
@@ -150,28 +150,28 @@ Check talking: try asking the noun about "the_default".
 [--------------- Conversation Content -- Can be continued in other Chapters ---------------]
 
 
-    Table of Ask Results (continued)
+	Table of Ask Results (continued)
   	NPC  		topic  					result  
   	Charles	  	"his face" or "ugliness"			hate my face
 	Charles		"the_default"				want to die
 
-    Table of Tell Results (continued)
+	Table of Tell Results (continued)
   	NPC  		topic			  		result  
   	Charles  		"sucks"				  	hate my face
 
-    Table of Quip Texts (continued)
+	Table of Quip Texts (continued)
   	quip  		quiptext  
   	hate my face	"Yeah, it kind of sucks.  I'm pretty hideous."
 	want to die	"You're right.  I should kill myself."
 
-    Table of Quip Followups (continued)
+	Table of Quip Followups (continued)
   	quip  		option  					result  
   	hate my face  	"Life isn't really worth living for you."		want to die
   	hate my face  	"You're freaking hideous man."  		want to die
 
 [Quip Results]
 
-    After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
+	After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
 
 Charles is a person.  Charles is in Test.
 
@@ -184,20 +184,23 @@ Rooms have a number called ending_turns.
 Rooms can be ending_room. A room is usually not ending_room.
 
 [Room Relations]
-    Table of Room Connections
+	Table of Room Connections
 	curr_room		next_room_noir	next_room_romance		prev_room
-	Intro		Test		Test			--
-	Test		--		--			Intro
+	Intro			NoirScene1		RomScene1				--
+	NoirScene1		NoirScene2		--						Intro
+	NoirScene2		NoirScene3a		NoirScene3b				NoirScene1
+	RomScene1		--				RomScene2				Intro
+	RomScene2		RomScene3b		RomScene3a				RomScene1				
 	
-    Table of Rewind Descriptions
+	Table of Rewind Descriptions
 	curr_room		description
 	Intro		--
-	Test		"Going back?  "
+	Test		"Going back? "
 
 
 Intro is a room with printed name "The Closet: Trapped".
 Understand "The Closet" and "Closet" as Intro.
-The description of Intro is "You wake up in a room surrounded by shit and stuff. It's also pretty dark in here. Sucks."
+The description of Intro is "[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. Don't bother trying the door-knob though, it was locked tight.[BLACK  LETTERS]"
 
 [Test Scenario]
 Intro is solved_noir.
@@ -216,15 +219,15 @@ Carry out resetting when the player is in Test:
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
-The description of NoirScene1 is "THIS IS A TEMP DESCRIPTION!!!".
+The description of NoirScene1 is "[BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that you loved. It was cozy, dimly light and always had a slight, frigid bite that kept your nerves a bit on edge - just the way you like it. The fan overhead cut through the dry air with every beat of your own black heart leaving shadows dancing around the room from the light that hung just above it. It was time you got to business, finding Celene. Last you remember, you had three vital pieces of information on her. Unfortunately, after coming onto your secretary last week, she hasn't been back to clean up your mess. Who knows where those files could be, better start looking.[BLACK LETTERS]."
 
 NoirScene2 is a room with printed name "The Park: Midnight".
 Understand "The Park" and "Park" and "Midnight" as NoirScene2.
-The description of NoirScene2 is "THIS IS A TEMP DESCRIPTION!!!".
+The description of NoirScene2 is "[BLUE LETTERS]It's always sad when she gets the young ones. Staring at the most recent victim underneath this star-less nights, you can't help but look deeply into her cold, lifeless eyes  forcing you into a reflective trance. How many girls had it been, Celene? 20? 30? Will your bloodthirst never stop? This young beauty must have had the world open to her, so full of promise and you struck her down - for what? You could still smell Celene's infamous perfume in the air; she can't be far now - it's time to end this, if only you could find some clue to her whereabouts.[BLACK LETTERS]".
 
 NoirScene3a is a room with printed name "Victim's House".
 Understand "Victim's House" as NoirScene3a.
-The description of NoirScene3a is "THIS IS A TEMP DESCRIPTION!!!".
+The description of NoirScene3a is "[BLUE LETTERS]You could feel it, on the otherside of the door - everything you worked for, it all culminated to what was behind that door, Celene. You had finally tracked her down and it was time for the final showdown. Taking one last deep breath, you open the door and bathed in the stark, white light that flooded the room. [line break][line break]'The Jig is up, Celene.' you claimed, brandishing your trusty six-shooter towards Celene. [line break][line break]She laughs at your petty attempts to arrest her, 'Really? The jig is up? Please, do you honestly think I wasn't prepared for you? You follow someone for this long, you know they're going to notice.' You could see her own weapon pointed straight at that sweet spot between your eyes. Your eyes couldn't help but focus down the barrel, how many poor girls had seen this same scene? [line break][line break]'I see. So I guess we have ourselves a stand-off. So tell me, Celene - why did you do it? Why so many young ladies? What did they do wrong?' your questions cut through her like razor blades of ice and it was obvious.   [line break][line break]'What did they do WRONG!? You blithering idiot, you've chased my tail for ten years and you still haven't figured that much out?' her voice was raspt, wicked with hatred. [line break][line break]'Ten years is a long time Celene. Ever since you left my bed that morning and never came back - you changed. I don't even remember who you are anymore.' you said, each word filled with memories of passion, now tinted with disgust. [line break][line break]'It is a long time. You never got over me, did you? Still you lay up at night, longing for my kiss, my touch. I can see it in your hands even as you hold that pistol. You don't have the nerve to shoot me. You'll die a sad man, never knowing what happened to your wife or why she became the greatest serial killer this world had ever seen.' she finished, her thin lips now forming into a wicked smile. It was true, everything she said. You couldn't help but notice your right-hand, gripping the pistol so tightly it shaked with fear and cowardice. But before you even had time to react, a loud bang punctuated the night. It was all over. [line break][line break]You could hear her high-heels click and clack behind you as the door closed to not only end this chapter on your life, but the whole book.[BLACK LETTERS]".
 
 NoirScene3b is a room with printed name "Celine's Hotel".
 Understand "Celine's Hotel" as NoirScene3b.
@@ -255,5 +258,8 @@ The player is in Intro.
 
 [GAME START]
 When play begins:
-	now genre_value is 0.
-
+	now genre_value is 0;
+	say "[BLUE LETTERS]I woke up in a haze, at that moment - memory wasn't exactly my strong suit. Quite a shame, when you're in the type of business I'm in, your memory is your only friend. My head was pounding, was I hit? Did someone ambush me? Where was I even? It was dark, that's for sure. The kind of jarring, confusing darkness that encrouches on your and sucks every bit of your breath like a void. A void, huh? Reminds me of my most recent case, Celene - a vicious, femme fatale known in twelve states for triple homicides. One can only imagine the void that lives inside that girl's heart, but that ain't my problem. My problem is bringing her whereabouts to light because that's who I am, a PI, the only light that can deshroud this dark, dank city. Speaking of light, about time I grab that trusty lighter of mine and figure out where I am.[BLACK LETTERS]";
+	center "[line break]Press SPACE key to begin.";
+	wait for the SPACE key;
+	clear the screen;
