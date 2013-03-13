@@ -61,8 +61,21 @@ Instead of rewinding:
 [RESET Action]
 Resetting is an action applying to nothing.
 Understand "test_reset" as resetting.
+	
 [Override RESET for each specific room.]
 
+
+[Ending the game]
+Ending_text_room is a room that varies.
+After resetting when the location is ending_room:
+	now ending_text_room is the location;
+	the fat lady sings in the ending_turns of the location - 1 turns from now.
+
+Every turn when the location is ending_text_room:
+	say "[the ending_text of ending_text_room]";
+	
+At the time when the fat lady sings:
+	end the game saying "THE END".
 	
 
 [--------------- Player Action Descriptions ---------------]
@@ -166,6 +179,9 @@ Chapter IV - Rooms
 
 [Room state]
 A room can be unsolved, solved_noir, or solved_romance.  A room is usually unsolved.
+Rooms have a text called ending_text.
+Rooms have a number called ending_turns.
+Rooms can be ending_room. A room is usually not ending_room.
 
 [Room Relations]
     Table of Room Connections
@@ -188,7 +204,13 @@ Intro is solved_noir.
 
 Test is east of Intro.
 The knife is an object in Test.
-Carry out resetting when the player is in Test: now the knife is in Test; now genre_value is 1.
+
+Test is ending_room.
+The ending_text of Test is "[one of]Helloooo![or]Is anybody there?[or]Well, this is it.[stopping]".
+The ending_turns of Test is 3.
+Carry out resetting when the player is in Test: 
+	now the knife is in Test;
+	now genre_value is 1.
 
 
 [Noir Scenes]
