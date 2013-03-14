@@ -2,27 +2,56 @@ Man wakes up.
 Man needs to find Girl.
 Man finds Girl.
 
+Intro Exposition:
+    I woke up in a haze, at that moment - memory wasn't exactly my strong suit. Quite a shame, when you're in the type of business I'm in, your memory is your only friend. My head was pounding, was I hit? Did someone ambush me? Where was I even? It was dark, that's for sure. The kind of jarring, confusing darkness that encrouches on your and sucks every bit of your breath like a void. A void, huh? Reminds me of my most recent case, Celene - a vicious, femme fatale known in twelve states for triple homicides. One can only imagine the void that lives inside that girl's heart, but that ain't my problem. My problem is bringing her whereabouts to light because that's who I am, a PI, the only light that can deshroud this dark, dank city. Speaking of light, about time I grab that trusty lighter of mine and figure out where I am.
+            
+
 Noir:
     (Scene I) <The Closet: Trapped>
     Man wakes up trapped by Girl's henchmen in Archive Closet. Man needs to find Girl, whom is murderer.
         Puzzles:
             Open Safe (Find Combo?) -> Get Gun -> Shoot Lock
             Get Boots -> Kickdown Door
+        Description:
+            You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. Don't bother trying the door-knob though, it was locked tight. [file cabinet][broom case][gun safe]
     
     (Scene II) <PI Office>
     Man escapes and searched for clues of Girl's recent attacks.
         Puzzles:
             Find Scattered Files about case (three?) -> Leave
             
+        Description:
+            Ahhh, the old office. This place never lacked the charm that you loved. It was cozy, dimly light and always had a slight, frigid bite that kept your nerves a bit on edge - just the way you like it. The fan overhead cut through the dry air with every beat of your own black heart leaving shadows dancing around the room from the light that hung just above it. It was time you got to business, finding Celene. Last you remember, you had three vital pieces of information on her. Unfortunately, after coming onto your secretary last week, she hasn't been back to clean up your mess. Who knows where those files could be, better start looking. [bookshelf][desk[top drawer, middle drawer, lower drawer]][computer][trashcan][liquorcabinet]
+            
     (Scene III) <The Park: Midnight>
     Man finds latest victim of Girl.
-        
+        Search body for clues, search area for clues, etc.
     
+        Description:
+            It's always sad when she gets the young ones. Staring at the most recent victim underneath this star-less nights, you can't help but look deeply into her cold, lifeless eyes  forcing you into a reflective trance. How many girls had it been, Celene? 20? 30? Will your bloodthirst never stop? This young beauty must have had the world open to her, so full of promise and you struck her down - for what? You could still smell Celene's infamous perfume in the air; she can't be far now - it's time to end this, if only you could find some clue to her whereabouts. [girl clothes][girl purse[wallet, keys, photo]][kiss mark on girl cheek][footprints in grass][perfume] 
+        
     (Scene IV)
     Man finds Girl:
         Man killed by Murderous Girl.
+        
+        Exposition:
+            You could feel it, on the otherside of the door - everything you worked for, it all culminated to what was behind that door, Celene. You had finally tracked her down and it was time for the final showdown. Taking one last deep breath, you open the door and bathed in the stark, white light that flooded the room.
+            
+            "The Jig is up, Celene." you claimed, brandishing your trusty six-shooter towards Celene.
+            She laughs at your petty attempts to arrest her, "Really? The jig is up? Please, do you honestly think I wasn't prepared for you? You follow someone for this long, you know they're going to notice." You could see her own weapon pointed straight at that sweet spot between your eyes. Your eyes couldn't help but focus down the barrel, how many poor girls had seen this same scene?
+            "I see. So I guess we have ourselves a stand-off. So tell me, Celene - why did you do it? Why so many young ladies? What did they do wrong?" your questions cut through her like razor blades of ice and it was obvious.
+            "What did they do WRONG!? You blithering idiot, you've chased my tail for ten years and you still haven't figured that much out?" her voice was raspt, wicked with hatred.
+            "Ten years is a long time Celene. Ever since you left my bed that morning and never came back - you changed. I don't even remember who you are anymore." you said, each word filled with memories of passion, now tinted with disgust.
+            "It is a long time. You never got over me, did you? Still you lay up at night, longing for my kiss, my touch. I can see it in your hands even as you hold that pistol. You don't have the nerve to shoot me. You'll die a sad man, never knowing what happened to your wife or why she became the greatest serial killer this world had ever seen." she finished, her thin lips now forming into a wicked smile. It was true, everything she said. You couldn't help but notice your right-hand, gripping the pistol so tightly it shaked with fear and cowardice. But before you even had time to react, a loud bang punctuated the night. It was all over.
+            
+            You could hear her high-heels click and clack behind you as the door closed to not only end this chapter on your life, but the whole book.
+        
+        
         Man elopes with Murderous Girl.
+        I guess death wouldn't be so bad if it was started with a kiss from those beautiful lips of your's, Celene.
 
+        
+        
 Romance:
     (Scene I) <The Closet: Trapped>
     Man wakes up trapped after party. Man needs to find Girl, whom he met at party.
@@ -43,4 +72,8 @@ Romance:
     Man finds Girl:
         Man gets the girl for being bad guy.
         Man befriends the girl for being good guy.
+        
+
+        
+        
         
