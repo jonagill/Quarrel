@@ -82,45 +82,19 @@ At the time when the fat lady sings:
 
 
 [UTILIZE]
-
 [Utilize is the version of Use that applies to a single object]
 Utilizing is an action applying to one visible thing.
 Understand "utilize [something]" as utilizing.
 Understand "use [something]" as utilizing.
 
-[Implement precise use cases in-line when necessary by including lines like those below:]
-Carry out utilizing:
-	if the noun is the knife, say "You pick your teeth with the blade." instead.
-
-
 [USE]
-
 [Use affects one object with another]
 Using is an action applying to two visible things.
 Understand "use [something] on [something]" as using.
 Understand "use [something] with [something]" as using.
 Understand "apply [something] to [something]" as using.
 
-[Implement precise use cases in-line when necessary by including lines like those below:]
-Check using: 
-	if the noun is Boots and the second noun is Flimsy Doorknob, 
-		say "TEXT FOR SOLVING PUZZLE WITH BOOTS ON DOORKNOB";
-		now Intro is solved_noir;
-		try fastforwarding;
-	if the noun is Loaded Gun and the second noun is Flimsy Doorknob,
-		say "TEXT FOR SOLVING PUZZLE WITH LOADED GUN ON DOORKNOB";
-		now Intro is solved_noir;
-		try fastforwarding;
-	if the noun is the knife and the second noun is Charles, say "Good idea." instead;
-	if the noun is the knife, say "That would hurt." instead.
-
-[We can use as many Check using blocks as we need.]
-Check using:
-	if the noun is Charles, say "There is no use for Charles." instead.
-
-
 [HELP]
-
 Helping is an action applying to nothing. Understand "help" as helping.
 After helping when genre_value is less than 0:
 	say "[BLUE LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
@@ -181,7 +155,7 @@ Check talking: try asking the noun about "the_default".
 
 	After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
 
-Charles is a person.  Charles is in Test.
+Charles is a person.  The knife is an object.
 
 Chapter IV - Rooms
 
@@ -205,33 +179,125 @@ Rooms can be ending_room. A room is usually not ending_room.
 	Intro			--
 	NoirScene1		"TEMP REWIND FROM NOIRSCENE1 TEXT"
 	NoirScene2		"TEMP REWIND FROM NOIRSCENE2 TEXT"
-	RomScene1		"TEMP REWIND FROM ROMSCENE1 TEXT"
-	RomScene2		"TEMP REWIND FROM ROMSCENE2 TEXT"
-	Test			"Going back?"
+	RomScene1		"[RED LETTERS]Wait, don't — [BLUE LETTERS]I shook the quaint, weirdly English daydream from my head.  Clearly I'd been hitting the pills too hard again.  Now, where was I?[BLACK LETTERS]"
+	RomScene2		"[RED LETTERS]That's not quite how it happened, though, was it?  Let's try that last bit again…[BLACK LETTERS]"
 
-[Test Scenario]
-Test is east of Intro.
-The knife is an object in Test.
-
-Test is ending_room.
-The ending_text of Test is "[one of]Helloooo![or]Is anybody there?[or]Well, this is it.[stopping]".
-The ending_turns of Test is 3.
-Carry out resetting when the player is in Test: 
-	now the knife is in Test;
-	now genre_value is 1.
+[Intro Scene]
+Intro is unsolved.
 
 Intro is a room with printed name "The Closet: Trapped".
 Understand "The Closet" and "Closet" as Intro.
-The description of Intro is "[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. Don't bother trying the door-knob though, it was locked tight.[BLACK  LETTERS]".
 
+The description of Intro is "[one of]
+	[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. [RED LETTERS] Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
+	[or][BLUE LETTERS]The closet is dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
+
+Carry out resetting in Intro:
+	[----RomItems----]
+	now the filing cabinet is closed;
+	now the filing cabinet is not pushed;
+	now the crumpled paper is off-stage;
+	now the crumpled paper is not written on;
+	now the basket is in Intro;
+	now the mop is in Intro;
+	[----NoirItems----]
+	now Boots is in Intro;
+	now Flimsy Doorknob is in Intro;
+	now Gun Safe is in Intro;
+	now Loaded Gun is in Gun Safe;
+	
+The filing cabinet is a container in Intro. 
+The filing cabinet is not portable.
+The filing cabinet is closed and openable.
+"A filing cabinet".
+The filing cabinet can be pushed.  The filing cabinet is not pushed.
+Carry out examining filing cabinet:
+	if filing cabinet is closed, say "[BLUE LETTERS]Closed, like the door to this closet.[BLACK LETTERS]" instead;
+	if filing cabinet is open, say "[BLUE LETTERS]Nothing in here but my hopes and dreams.  Which is to say, nothing in here.[BLACK LETTERS]". 
+Instead of pulling filing cabinet:
+	say "[RED LETTERS]Despite your thrice-weekly squash practices, you are unable to get a strong enough grip to pull the cabinet towards you.[BLACK LETTERS]" instead.
+Instead of pushing filing cabinet:
+	if the filing cabinet is not pushed:
+		say "[RED LETTERS]You set your back against the cabinet, brace your legs against the wall, and give it the old college try.  You think you feel a blood vessel pop in your forehead, but you succeed in moving the cabinet a few inches.  As you regather your breath, you notice that a small piece of paper is sticking out from behind the cabinet.[BLACK LETTERS]";
+		now the crumpled paper is in Intro;
+		now the filing cabinet is pushed;
+	otherwise:
+		say "[RED LETTERS]You give the cabinet another push, wondering what else you might find behind it.  A tenner maybe?  Despite your hopes, though, the cabinet refuses to yield further ground.[BLACK LETTERS]".
+	
+The basket is a container in Intro.  "A basket for pens and things".
+Before examining the basket:
+	say "[RED LETTERS]Although it was intended to store pens, it has long-since been emptied by the sinister hand of petty corporate theft.[BLACK LETTERS]".
+	
+A crumpled paper is a thing.  "A crumpled sheet of paper".
+The paper can be written on.  The paper is not written on.
+Carry out examining crumpled paper:
+	if crumpled paper is not written on:
+		say "[RED LETTERS]Somebody's typewritten notes.  Some rot about a case or a dame or something.  Had Jenkins been working on his novel during work hours again?[BLACK LETTERS]" instead;
+	otherwise:
+		say "[RED LETTERS]A ratty piece of paper with the word HELP scrawled across it in stinking mop goo.[BLACK LETTERS]" instead.
+
+The dirty mop is a thing in Intro.  "An old dirty mop."
+Carry out examining the mop:
+	say "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of viscous black goop." instead.
+Carry out taking the mop:
+	say "[RED LETTERS]You stifle a yelp as a splinter a centimeter long embeds itself in your palm.[BLACK LETTERS]."
+	
+Goop is a part of the mop.  Understand "slime" and "goo" and "gunk" as goop.
+Carry out examining goop:
+	say "[RED LETTERS]An disgusting, inky slime coating the fibers of the mop.[BLACK LETTERS]".
+
+Check using:
+	if the noun is mop:
+		try utilizing the noun instead;
+	if the noun is goop and the second noun is crumpled paper:
+		now crumpled paper is written on;
+		say "[RED LETTERS]You suppress a shudder as you rub the tarry substance over the paper.  When you are done your hands are stained and the word HELP is scrawled across the sheet, crude and malodrous.[BLACK LETTERS]" instead;
+	if the noun is crumpled paper and the second noun is crack:
+		if crumpled paper is not written on:
+			say "[RED LETTERS]You begin to slide the paper under the door, but realize that sharing someone else's notes with the wider world will not do much to aid you in your current predicament.  You withdraw the paper from the crack.[BLACK LETTERS]" instead;
+		otherwise:
+			say "[RED LETTERS]You slide your desperate missive through the crack beneath the door.  After a few minutes, you hear someone walk towards the door, pick up the note, and pause.  A few seconds later, the latch clicks, the door opens, and you are blinded by the bright light that spills into the closet from outside.[BLACK LETTERS]";
+			now Intro is solved_romance;
+			try fastforwarding instead;
+	if the noun is crumpled paper and crumpled paper is not written on:
+		try utilizing crumpled paper instead;
+
+Check utilizing:
+	if the noun is mop:
+		say "[RED LETTERS]There's nothing to clean.  Besides, that goop on the end of it would probably leave more of a mess than was already there.[BLACK LETTERS]" instead;
+	if the noun is crumpled paper:
+		say "[BLUE LETTERS]Just ancient history now.[BLACK LETTERS]";
+				
+The closet door is an object in Intro.  "The closet door".
+Carry out examining the closet door: say "[RED LETTERS]Heavy, wooden, entirely unyielding.  Much like your boss when you asked for that raise. Light spills in through a tiny crack along the bottom of it.[BLACK LETTERS]" instead.
+Carry out pushing the closet door: say "[RED LETTERS]You press your shoulder against the wood and heave.  You achieve nothing more than a stiff back.[BLACK LETTERS]" instead.
+Carry out opening the closet door: say "[RED LETTERS]You give the handle a frustrated jiggle, but it is definitely locked.[BLACK LETTERS]" instead.
+
+The crack is part of the closet door.
+Carry out examining the crack: say "[RED LETTERS]It's wide enough to slip something through, like a note or ribald birthday card.[BLACK LETTERS]" instead.
+
+Check attacking closet door:
+	say "[RED LETTERS]You would, but you don't want to bruise your hands.  That door looks hard.[BLACK LETTERS]" instead.
+
+[ ----- Noir Solution for Intro ----- ]
+	
 Boots are a thing in Intro. The description is "BOOTS TEMP DESCRIPTION".
 Flimsy Doorknob is a thing in Intro. The description is "DOORKNOB TEMP DESCRIPTION".
 Gun Safe is a container in Intro. The description is "GUN SAFE TEMP DESCRIPTION".
 Gun Safe is openable, closed, opaque and fixed in place.
 Loaded Gun is a thing in Gun Safe. The description is "LOADED GUN TEMP DESCRIPTION".
 
+Check using: 
+	if the noun is Boots and the second noun is Flimsy Doorknob, 
+		say "TEXT FOR SOLVING PUZZLE WITH BOOTS ON DOORKNOB";
+		now Intro is solved_noir;
+		try fastforwarding;
+	if the noun is Loaded Gun and the second noun is Flimsy Doorknob,
+		say "TEXT FOR SOLVING PUZZLE WITH LOADED GUN ON DOORKNOB";
+		now Intro is solved_noir;
+		try fastforwarding;
 
-
+	
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
@@ -255,16 +321,26 @@ RomScene1 is room with printed name "The Offices of Charles and Charles, Account
 Understand "Accounting Office" as RomScene1.
 The description of RomScene1 is "THIS IS A TEMP DESCRIPTION!!!".
 
+Carry out resetting when the player is in RomScene1: 
+	now Charles is in RomScene1;
+	now genre_value is 1.
+
 RomScene2 is room with printed name "The Park: Noon".
 Understand "The Park" and "Park" and "Noon" as RomScene2.
 The description of RomScene2 is "THIS IS A TEMP DESCRIPTION!!!".
 
 RomScene3a is room with printed name "Celine's Bedroom".
 Understand "Celine's Bedroom" as RomScene3a.
+The ending_text of RomScene3a is "[one of]Oh my[stopping]".
+The ending_turns of RomScene3a is 1.
+RomScene3a is ending_room.
 The description of RomScene3a is "THIS IS A TEMP DESCRIPTION!!!".
 
 RomScene3b is room with printed name "Celine's Driveway".
 Understand "Celine's Driveway" as RomScene3b.
+RomScene3b is ending_room.
+The ending_text of RomScene3b is "[one of]Oh my[stopping]".
+The ending_turns of RomScene3b is 1.
 The description of RomScene3b is "THIS IS A TEMP DESCRIPTION!!!".
 
 
@@ -272,14 +348,23 @@ Chapter V - Game Setup
 
 The player is in Intro.
 
-[GAME START]
 When play begins:
 	now genre_value is 0;
 	say "[BLUE LETTERS]I woke up in a haze, at that moment - memory wasn't exactly my strong suit. Quite a shame, when you're in the type of business I'm in, your memory is your only friend. My head was pounding, was I hit? Did someone ambush me? Where was I even? It was dark, that's for sure. The kind of jarring, confusing darkness that encrouches on your and sucks every bit of your breath like a void. A void, huh? Reminds me of my most recent case, Celine - a vicious, femme fatale known in twelve states for triple homicides. One can only imagine the void that lives inside that girl's heart, but that ain't my problem. My problem is bringing her whereabouts to light because that's who I am, a PI, the only light that can deshroud this dark, dank city. Speaking of light, about time I grab that trusty lighter of mine and figure out where I am.[BLACK LETTERS]";
 	center "[line break]Press SPACE key to begin.";
 	wait for the SPACE key;
-	say "[line break][line break] [RED LETTERS]I'm not sure about this at all.  No, let's try that again.  How about this: you awake to find yourself in the dark — not in a figurative dark, of course, for that would be nothing out of the ordinary — but a real heavy, stifling dark, thick and treacly enough to cut with knife and serve with a lump of hot butter.  Your thoughts swim as your hands grope blindly.  You brain seems to be operating in low gear as you search for your last clear memory.  Blurred lights and swirling colors solidify in your mind into a face:  Celine!  That charming girl from marketing that you met at the office Christmas party.  You hit it off, she smiled that sweet smile, and she told you to meet her tonight at — where was it again?  And for that matter, where the blazes were you?";
+	say "[line break][line break] [RED LETTERS]I'm not sure about that at all.  No, let's try that again.  How about this: you awake to find yourself in the dark — not in a figurative dark, of course, for that would be nothing out of the ordinary — but a real heavy, stifling dark, thick and treacly enough to cut with knife and serve with a lump of hot butter.  Your thoughts swim as your hands grope blindly.  You brain seems to be operating in low gear as you search for your last clear memory.  Blurred lights and swirling colors solidify in your mind into a face:  Celine!  That charming girl from marketing that you met at the office Christmas party.  You hit it off, she smiled that sweet smile, and she told you to meet her tonight at — where was it again?  And for that matter, where the blazes were you?";
 	center "[line break][RED LETTERS]Alright, that sounds a bit better.  Carry on.[BLACK LETTERS]";
 	center "[line break]Press SPACE key to begin."; 
 	wait for the SPACE key;
 	clear the screen;
+
+Chapter VI - Action Defaults
+
+[These defaults have to be at the end to avoid overriding other actions.]
+
+Check utilizing:
+	say "I can't use [the noun]." instead.
+
+Check using: 
+	say "I can't use those things like that." instead.
