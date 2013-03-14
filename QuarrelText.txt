@@ -177,8 +177,8 @@ Rooms can be ending_room. A room is usually not ending_room.
 	Table of Rewind Descriptions
 	curr_room		description
 	Intro			--
-	NoirScene1		"TEMP REWIND FROM NOIRSCENE1 TEXT"
-	NoirScene2		"TEMP REWIND FROM NOIRSCENE2 TEXT"
+	NoirScene1		"[BLUE LETTERS] Like the Stygian Void, my memories are a whirlpool of uncertainty. Perhaps we should revisit them once more.[BLACK LETTERS]"
+	NoirScene2		"[BLUE LETTERS] I feel close to the end, but as my fear overwhelms me - I can't help but wonder if that was really how the past happened. Shall we try again?[BLACK LETTERS]"
 	RomScene1		"[RED LETTERS]Wait, don't — [BLUE LETTERS]I shook the quaint, weirdly English daydream from my head.  Clearly I'd been hitting the pills too hard again.  Now, where was I?[BLACK LETTERS]"
 	RomScene2		"[RED LETTERS]That's not quite how it happened, though, was it?  Let's try that last bit again…[BLACK LETTERS]"
 
@@ -189,8 +189,8 @@ Intro is a room with printed name "The Closet: Trapped".
 Understand "The Closet" and "Closet" as Intro.
 
 The description of Intro is "[one of]
-	[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. [RED LETTERS] Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
-	[or][BLUE LETTERS]The closet is dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
+	[BLUE LETTERS]I find myself locked in a closet. You'd be surprised how often someone like I finds myself in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock me away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was my speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where my secretary would store all the old case files from my brilliant triumphs and utter failures. [RED LETTERS]Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
+	[or][BLUE LETTERS]The closet is as dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
 
 Carry out resetting in Intro:
 	[----RomItems----]
@@ -206,10 +206,24 @@ Carry out resetting in Intro:
 	now Gun Safe is in Intro;
 	now Loaded Gun is in Gun Safe;
 	
+[---- Romance Solution for Intro ----]
 The filing cabinet is a container in Intro. 
 The filing cabinet is not portable.
 The filing cabinet is closed and openable.
 The filing cabinet can be pushed.  The filing cabinet is not pushed.
+The basket is a container in Intro.
+The description of the basket is "[RED LETTERS]Although it was intended to store pens, it has long-since been emptied by the sinister hand of petty corporate theft.[BLACK LETTERS]".
+A crumpled paper is a thing.
+The description of the crumpled paper is "A crumpled sheet of paper".
+The paper can be written on.  The paper is not written on.
+The dirty mop is a thing in Intro.
+The description of the mop is "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of viscous black goop.[BLACK LETTERS]".
+Goop is a part of the mop.  Understand "slime" and "goo" and "gunk" as goop.
+The description of the goop is "[RED LETTERS]An disgusting, inky slime coating the fibers of the mop.[BLACK LETTERS]".
+The closet door is an object in Intro. It is fixed in place.
+The description of the closet door is "[RED LETTERS]Heavy, wooden, entirely unyielding.  Much like your boss when you asked for that raise. Light spills in through a tiny crack along the bottom of it.[BLACK LETTERS]".
+The crack is part of the closet door.
+
 Carry out examining filing cabinet:
 	if filing cabinet is closed, say "[BLUE LETTERS]Closed, like the door to this closet.[BLACK LETTERS]" instead;
 	if filing cabinet is open, say "[BLUE LETTERS]Nothing in here but my hopes and dreams.  Which is to say, nothing in here.[BLACK LETTERS]". 
@@ -222,27 +236,26 @@ Instead of pushing filing cabinet:
 		now the filing cabinet is pushed;
 	otherwise:
 		say "[RED LETTERS]You give the cabinet another push, wondering what else you might find behind it.  A tenner maybe?  Despite your hopes, though, the cabinet refuses to yield further ground.[BLACK LETTERS]".
-	
-The basket is a container in Intro.
-The description of the basket is "[RED LETTERS]Although it was intended to store pens, it has long-since been emptied by the sinister hand of petty corporate theft.[BLACK LETTERS]"
-	
-A crumpled paper is a thing.
-The description of the crumpled paper is "A crumpled sheet of paper".
-The paper can be written on.  The paper is not written on.
+
 Carry out examining crumpled paper:
 	if crumpled paper is not written on:
 		say "[RED LETTERS]Somebody's typewritten notes.  Some rot about a case or a dame or something.  Had Jenkins been working on his novel during work hours again?[BLACK LETTERS]" instead;
 	otherwise:
 		say "[RED LETTERS]A ratty piece of paper with the word HELP scrawled across it in stinking mop goo.[BLACK LETTERS]" instead.
 
-The dirty mop is a thing in Intro.
-The description of the mop is "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of viscous black goop."
 Carry out taking the mop:
 	say "[RED LETTERS]You stifle a yelp as a splinter a centimeter long embeds itself in your palm.[BLACK LETTERS]."
-	
-Goop is a part of the mop.  Understand "slime" and "goo" and "gunk" as goop.
-The description of the goop is "[RED LETTERS]An disgusting, inky slime coating the fibers of the mop.[BLACK LETTERS]".
+				
+Carry out pushing the closet door: 
+	say "[RED LETTERS]You press your shoulder against the wood and heave.  You achieve nothing more than a stiff back.[BLACK LETTERS]" instead.
+Carry out opening the closet door: 
+	say "[RED LETTERS]You give the handle a frustrated jiggle, but it is definitely locked.[BLACK LETTERS]" instead.
+Carry out examining the crack: 
+	say "[RED LETTERS]It's wide enough to slip something through, like a note or ribald birthday card.[BLACK LETTERS]" instead.
 
+Check attacking closet door:
+	say "[RED LETTERS]You would, but you don't want to bruise your hands.  That door looks hard.[BLACK LETTERS]" instead.
+	
 Check using:
 	if the noun is mop:
 		try utilizing the noun instead;
@@ -264,33 +277,23 @@ Check utilizing:
 		say "[RED LETTERS]There's nothing to clean.  Besides, that goop on the end of it would probably leave more of a mess than was already there.[BLACK LETTERS]" instead;
 	if the noun is crumpled paper:
 		say "[BLUE LETTERS]Just ancient history now.[BLACK LETTERS]";
-				
-The closet door is an object in Intro.
-The description of the closet door is "[RED LETTERS]Heavy, wooden, entirely unyielding.  Much like your boss when you asked for that raise. Light spills in through a tiny crack along the bottom of it.[BLACK LETTERS]".
-Carry out pushing the closet door: say "[RED LETTERS]You press your shoulder against the wood and heave.  You achieve nothing more than a stiff back.[BLACK LETTERS]" instead.
-Carry out opening the closet door: say "[RED LETTERS]You give the handle a frustrated jiggle, but it is definitely locked.[BLACK LETTERS]" instead.
-
-The crack is part of the closet door.
-Carry out examining the crack: say "[RED LETTERS]It's wide enough to slip something through, like a note or ribald birthday card.[BLACK LETTERS]" instead.
-
-Check attacking closet door:
-	say "[RED LETTERS]You would, but you don't want to bruise your hands.  That door looks hard.[BLACK LETTERS]" instead.
 
 [ ----- Noir Solution for Intro ----- ]
 	
-Boots are a thing in Intro. The description is "BOOTS TEMP DESCRIPTION".
-Flimsy Doorknob is a thing in Intro. The description is "DOORKNOB TEMP DESCRIPTION".
-Gun Safe is a container in Intro. The description is "GUN SAFE TEMP DESCRIPTION".
-Gun Safe is openable, closed, opaque and fixed in place.
-Loaded Gun is a thing in Gun Safe. The description is "LOADED GUN TEMP DESCRIPTION".
+The pair of boots are a thing in Intro. The description is "[BLUE LETTERS]So this is where you left those trusty pair of boots. Kind of a strange place, but hey - at least they're sturdy. Just looking at them reminds you of the good times you two had together, kicking down doors to gangster's houses and the such.[BLACK LETTERS]".
+The flimsy doorknob is a thing in Intro. The description is "[BLUE LETTERS]When you run a PI firm, you don't really have the kind of money to fix doorknobs.  This one has always been especially flimsy.[BLACK LETTERS]".
+The flimsy doorknob is fixed in place.
+The gun safe is a container in Intro. The description is "[BLUE LETTERS]Ahhh, the gun safe. You never kept it locked because honestly, if someone broke into your Office - you deserved to be shot. Better to keep it unlocked to grab that loaded revolver in times of emergency.[BLACK LETTERS]".
+The gun safe is openable, closed, opaque and fixed in place.
+The loaded gun is a thing in the gun safe. The description is "[BLUE LETTERS]The cold steel of the revolver is something all too familiar to you. While this one isn't your main weapon, she's seen you through some tough times all the same. You always keep her clean, freshly greased and ready to blow.[BLACK LETTERS]".
 
 Check using: 
-	if the noun is Boots and the second noun is Flimsy Doorknob, 
-		say "TEXT FOR SOLVING PUZZLE WITH BOOTS ON DOORKNOB";
+	if the noun is the pair of boots and the second noun is the flimsy doorknob, 
+		say "[BLUE LETTERS]Strapping the sturdy boots on your feet, you feel revitalized. With a quick heavy and hoe, that flimsy doorknob shatters straight off the door. That's about enough excitment for one day, best to strap down with a victory whiskey in your office. But I guess there's still Celine to find...[BLACK LETTERS]";
 		now Intro is solved_noir;
 		try fastforwarding;
-	if the noun is Loaded Gun and the second noun is Flimsy Doorknob,
-		say "TEXT FOR SOLVING PUZZLE WITH LOADED GUN ON DOORKNOB";
+	if the noun is the loaded gun and the second noun is the flimsy doorknob,
+		say "[BLUE LETTERS]You look at the gun in your hand, and then to the doorknob. It seems like a simple solution, but probably not the greatest. You're gonna need a big glass of whiskey to get rid of the banging hangover that this is going to leave you with. But fuck it, you've got to get out of there somehow. *BANG*, the revolver explodes with a bright light, smoke, and a painful ringing in your ears. Obviously, there's no evidence left of the doorknob's once residence on that door. Time to get to work, right after you take care of that headache.[BLACK LETTERS]";
 		now Intro is solved_noir;
 		try fastforwarding;
 
@@ -298,7 +301,56 @@ Check using:
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
-The description of NoirScene1 is "[BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that you loved. It was cozy, dimly light and always had a slight, frigid bite that kept your nerves a bit on edge - just the way you like it. The fan overhead cut through the dry air with every beat of your own black heart leaving shadows dancing around the room from the light that hung just above it. It was time you got to business, finding Celene. Last you remember, you had three vital pieces of information on her. Unfortunately, after coming onto your secretary last week, she hasn't been back to clean up your mess. Who knows where those files could be, better start looking.[BLACK LETTERS]."
+The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that you loved. It was cozy, dimly light and always had a slight, frigid bite that kept your nerves a bit on edge - just the way you like it. The fan overhead cut through the dry air with every beat of your own black heart leaving shadows dancing around the room from the light that hung just above it. It was time you got to business, finding Celene. Last you remember, you had three vital pieces of information on her. Unfortunately, after coming onto your secretary last week, she hasn't been back to clean up your mess. Who knows where those files could be, better start looking.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celene.[BLACK LETTERS][stopping]".
+
+Carry out resetting in NoirScene1:
+	now Celene's Secret is off-stage;
+	now empty bottle of whiskey is off-stage.
+	
+The bookshelf is a container in NoirScene1. It is opaque, openable, closed and fixed in place.
+The description is "TEMP DESCRIPTION BOOKSHELF".
+The desk is a container in NoirScene1. It is transparent, openable, and fixed in place.
+The description is "TEMP DESK DESCRIPTION".
+The top drawer is a container in the desk. It is opaque, openable, closed and fixed in place.
+The description is "TOP DRAWER DESCRIPTION".
+The middle drawer is a container in the desk. It is opaque, openable, closed, locked and fixed in place.
+The description is "MIDDLE DRAWER DESCRIPTION".
+The lower drawer is a container in the desk. It is opaque, openable, closed and fixed in place.
+The description is "LOWER DRAWER DESCRIPTION".
+The computer is a thing in NoirScene1. It is fixed in place.
+The description is "COMPUTER DESCRIPTION".
+The trash can is a container in NoirScene1.  It is transparent and fixed in place.
+The description is "TRASHCAN DESCRIPTION".
+The ball of paper is a container in the trash can. It is opaque , openable and closed.
+The description is "BALLOFPAPER DESCRIPTION".
+The bronze key is a thing in the ball of paper.
+The description is "[BLUE LETTERS]This was probably your secretaries' doing".
+The picture of Celene is in the middle drawer.
+The description is "[BLUE LETTERS]She was beautiful, no - beautiful doesn't begin to describe a gal like Celene. Asphyxiating is more like, so beautiful she'll rend the life out of every pore of your body if you even give her a second. Looking at her face feels you with a morose, solemn darkness - but is that really anything new for you?[BLACK LETTERS]".
+The important email is a thing in the computer. It is fixed in place.
+The description is "[BLUE LETTERS]The email was sent from an anonymous address. It only reads 'The Park, 12:00PM.' Better check it out.[BLACK LETTERS]".
+The nearly finished bottle of whiskey is a thing in the lower drawer.
+The description is "[BLUE LETTERS]What's it been, three days? Maybe you have a problem, but who cares. This line of work, you're the problem if you don't have one. Speaking of, maybe you could use a drink.[BLACK LETTERS]".
+The Celene's Secret is a thing in NoirScene1.
+The description is "[BLUE LETTERS]Without even having to think about it, you know exactly what this means. It can, after-all, mean only one thing - the way you're going to get Celene.[BLACK LETTERS]".
+The empty bottle of whiskey is a thing in the trash can.
+The description is "[BLUE LETTERS]That trusty whiskey bottle served you well, if only for a few days. There will always be others.[BLACK LETTERS]".
+
+Check utilizing:
+	if the noun is nearly finished bottle of whiskey:
+		say "[BLUE LETTERS]A good drink is just what you need to get your head straight. You take a look at the small sum left, shrug, and kill it. The jarring humm in your mind that's nearly infinite is quieted down allowing you to think clearly. Just as you're about to trash the bottle of whiskey, you spy writing on the inside of the label. Looks important, better take it.[BLACK LETTERS]";
+		now Celene's Secret is on-stage;
+		try taking Celene's Secret;
+		now nearly finished bottle of whiskey is off-stage;
+		now empty bottle of whiskey is on-stage;
+		now empty bottle of whiskey is in the trash can.
+		
+Check using:
+	if the noun is bronze key and the second noun is middle drawer:
+		say "[BLUE LETTERS]**CLICK**. You unlock the drawer with ease. Sliding it out, you can hear the rain beat down on the world outside, it feels like with every motion you take, it only grows stronger. The lightning flashes outside and your eyes re-focus on the picture of the beautiful Celene staring back at you.[BLACK LETTERS]";
+		now the middle drawer is unlocked;
+		now the middle drawer is open.
+
 
 NoirScene2 is a room with printed name "The Park: Midnight".
 Understand "The Park" and "Park" and "Midnight" as NoirScene2.
@@ -314,7 +366,7 @@ The description of NoirScene3b is "THIS IS A TEMP DESCRIPTION!!!".
 
 
 [Romance Scenes]
-RomScene1 is room with printed name "".
+RomScene1 is room with printed name "Accounting Office".
 Understand "Office" as RomScene1.
 Understand "Accounting Office" as RomScene1.
 The description of RomScene1 is 
