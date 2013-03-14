@@ -103,6 +103,14 @@ Understand "apply [something] to [something]" as using.
 
 [Implement precise use cases in-line when necessary by including lines like those below:]
 Check using: 
+	if the noun is Boots and the second noun is Flimsy Doorknob, 
+		say "TEXT FOR SOLVING PUZZLE WITH BOOTS ON DOORKNOB";
+		now Intro is solved_noir;
+		try fastforwarding;
+	if the noun is Loaded Gun and the second noun is Flimsy Doorknob,
+		say "TEXT FOR SOLVING PUZZLE WITH LOADED GUN ON DOORKNOB";
+		now Intro is solved_noir;
+		try fastforwarding;
 	if the noun is the knife and the second noun is Charles, say "Good idea." instead;
 	if the noun is the knife, say "That would hurt." instead.
 
@@ -194,17 +202,14 @@ Rooms can be ending_room. A room is usually not ending_room.
 	
 	Table of Rewind Descriptions
 	curr_room		description
-	Intro		--
-	Test		"Going back? "
-
-
-Intro is a room with printed name "The Closet: Trapped".
-Understand "The Closet" and "Closet" as Intro.
-The description of Intro is "[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. Don't bother trying the door-knob though, it was locked tight.[BLACK  LETTERS]"
+	Intro			--
+	NoirScene1		"TEMP REWIND FROM NOIRSCENE1 TEXT"
+	NoirScene2		"TEMP REWIND FROM NOIRSCENE2 TEXT"
+	RomScene1		"TEMP REWIND FROM ROMSCENE1 TEXT"
+	RomScene2		"TEMP REWIND FROM ROMSCENE2 TEXT"
+	Test			"Going back?"
 
 [Test Scenario]
-Intro is solved_noir.
-
 Test is east of Intro.
 The knife is an object in Test.
 
@@ -214,6 +219,17 @@ The ending_turns of Test is 3.
 Carry out resetting when the player is in Test: 
 	now the knife is in Test;
 	now genre_value is 1.
+
+Intro is a room with printed name "The Closet: Trapped".
+Understand "The Closet" and "Closet" as Intro.
+The description of Intro is "[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. Don't bother trying the door-knob though, it was locked tight.[BLACK  LETTERS]".
+
+Boots are a thing in Intro. The description is "BOOTS TEMP DESCRIPTION".
+Flimsy Doorknob is a thing in Intro. The description is "DOORKNOB TEMP DESCRIPTION".
+Gun Safe is a container in Intro. The description is "GUN SAFE TEMP DESCRIPTION".
+Gun Safe is openable, closed, opaque and fixed in place.
+Loaded Gun is a thing in Gun Safe. The description is "LOADED GUN TEMP DESCRIPTION".
+
 
 
 [Noir Scenes]
