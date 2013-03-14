@@ -206,7 +206,6 @@ Carry out resetting in Intro:
 The filing cabinet is a container in Intro. 
 The filing cabinet is not portable.
 The filing cabinet is closed and openable.
-"A filing cabinet".
 The filing cabinet can be pushed.  The filing cabinet is not pushed.
 Carry out examining filing cabinet:
 	if filing cabinet is closed, say "[BLUE LETTERS]Closed, like the door to this closet.[BLACK LETTERS]" instead;
@@ -221,11 +220,11 @@ Instead of pushing filing cabinet:
 	otherwise:
 		say "[RED LETTERS]You give the cabinet another push, wondering what else you might find behind it.  A tenner maybe?  Despite your hopes, though, the cabinet refuses to yield further ground.[BLACK LETTERS]".
 	
-The basket is a container in Intro.  "A basket for pens and things".
-Before examining the basket:
-	say "[RED LETTERS]Although it was intended to store pens, it has long-since been emptied by the sinister hand of petty corporate theft.[BLACK LETTERS]".
+The basket is a container in Intro.
+The description of the basket is "[RED LETTERS]Although it was intended to store pens, it has long-since been emptied by the sinister hand of petty corporate theft.[BLACK LETTERS]"
 	
-A crumpled paper is a thing.  "A crumpled sheet of paper".
+A crumpled paper is a thing.
+The description of the crumpled paper is "A crumpled sheet of paper".
 The paper can be written on.  The paper is not written on.
 Carry out examining crumpled paper:
 	if crumpled paper is not written on:
@@ -233,15 +232,13 @@ Carry out examining crumpled paper:
 	otherwise:
 		say "[RED LETTERS]A ratty piece of paper with the word HELP scrawled across it in stinking mop goo.[BLACK LETTERS]" instead.
 
-The dirty mop is a thing in Intro.  "An old dirty mop."
-Carry out examining the mop:
-	say "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of viscous black goop." instead.
+The dirty mop is a thing in Intro.
+The description of the mop is "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of viscous black goop."
 Carry out taking the mop:
 	say "[RED LETTERS]You stifle a yelp as a splinter a centimeter long embeds itself in your palm.[BLACK LETTERS]."
 	
 Goop is a part of the mop.  Understand "slime" and "goo" and "gunk" as goop.
-Carry out examining goop:
-	say "[RED LETTERS]An disgusting, inky slime coating the fibers of the mop.[BLACK LETTERS]".
+The description of the goop is "[RED LETTERS]An disgusting, inky slime coating the fibers of the mop.[BLACK LETTERS]".
 
 Check using:
 	if the noun is mop:
@@ -265,8 +262,8 @@ Check utilizing:
 	if the noun is crumpled paper:
 		say "[BLUE LETTERS]Just ancient history now.[BLACK LETTERS]";
 				
-The closet door is an object in Intro.  "The closet door".
-Carry out examining the closet door: say "[RED LETTERS]Heavy, wooden, entirely unyielding.  Much like your boss when you asked for that raise. Light spills in through a tiny crack along the bottom of it.[BLACK LETTERS]" instead.
+The closet door is an object in Intro.
+The description of the closet door is "[RED LETTERS]Heavy, wooden, entirely unyielding.  Much like your boss when you asked for that raise. Light spills in through a tiny crack along the bottom of it.[BLACK LETTERS]".
 Carry out pushing the closet door: say "[RED LETTERS]You press your shoulder against the wood and heave.  You achieve nothing more than a stiff back.[BLACK LETTERS]" instead.
 Carry out opening the closet door: say "[RED LETTERS]You give the handle a frustrated jiggle, but it is definitely locked.[BLACK LETTERS]" instead.
 
