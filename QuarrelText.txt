@@ -82,24 +82,19 @@ At the time when the fat lady sings:
 
 
 [UTILIZE]
-
 [Utilize is the version of Use that applies to a single object]
 Utilizing is an action applying to one visible thing.
 Understand "utilize [something]" as utilizing.
 Understand "use [something]" as utilizing.
 
 [USE]
-
 [Use affects one object with another]
 Using is an action applying to two visible things.
 Understand "use [something] on [something]" as using.
 Understand "use [something] with [something]" as using.
 Understand "apply [something] to [something]" as using.
 
-
-
 [HELP]
-
 Helping is an action applying to nothing. Understand "help" as helping.
 After helping when genre_value is less than 0:
 	say "[BLUE LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
@@ -181,28 +176,36 @@ Rooms can be ending_room. A room is usually not ending_room.
 	
 	Table of Rewind Descriptions
 	curr_room		description
-	Intro		--
-	RomScene1	"[RED LETTERS]Wait, don't — [BLUE LETTERS]I shook the quaint, weirdly English daydream from my head.  Clearly I'd been hitting the pills too hard again.  Now, where was I?[BLACK LETTERS]"
-	RomScene2	"[RED LETTERS]That's not quite how it happened, though, was it?  Let's try that last bit again…[BLACK LETTERS]"
-
-
-Intro is a room with printed name "The Closet: Trapped".
-Understand "The Closet" and "Closet" as Intro.
-The description of Intro is "[one of]
-	[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. [RED LETTERS] Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
-	[or][BLUE LETTERS]The closet is dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
+	Intro			--
+	NoirScene1		"TEMP REWIND FROM NOIRSCENE1 TEXT"
+	NoirScene2		"TEMP REWIND FROM NOIRSCENE2 TEXT"
+	RomScene1		"[RED LETTERS]Wait, don't — [BLUE LETTERS]I shook the quaint, weirdly English daydream from my head.  Clearly I'd been hitting the pills too hard again.  Now, where was I?[BLACK LETTERS]"
+	RomScene2		"[RED LETTERS]That's not quite how it happened, though, was it?  Let's try that last bit again…[BLACK LETTERS]"
 
 [Intro Scene]
 Intro is unsolved.
 
+Intro is a room with printed name "The Closet: Trapped".
+Understand "The Closet" and "Closet" as Intro.
+
+The description of Intro is "[one of]
+	[BLUE LETTERS]You find yourself locked in a closet. You'd be surprised how often someone like yourself finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock you away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was your speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where your secretary would store all the old case files from your brilliant triumphs and utter failures. [RED LETTERS] Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
+	[or][BLUE LETTERS]The closet is dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
+
 Carry out resetting in Intro:
+	[----RomItems----]
 	now the filing cabinet is closed;
 	now the filing cabinet is not pushed;
 	now the crumpled paper is off-stage;
 	now the crumpled paper is not written on;
 	now the basket is in Intro;
 	now the mop is in Intro;
-
+	[----NoirItems----]
+	now Boots is in Intro;
+	now Flimsy Doorknob is in Intro;
+	now Gun Safe is in Intro;
+	now Loaded Gun is in Gun Safe;
+	
 The filing cabinet is a container in Intro. 
 The filing cabinet is not portable.
 The filing cabinet is closed and openable.
@@ -273,7 +276,25 @@ Carry out examining the crack: say "[RED LETTERS]It's wide enough to slip someth
 Check attacking closet door:
 	say "[RED LETTERS]You would, but you don't want to bruise your hands.  That door looks hard.[BLACK LETTERS]" instead.
 
+[ ----- Noir Solution for Intro ----- ]
+	
+Boots are a thing in Intro. The description is "BOOTS TEMP DESCRIPTION".
+Flimsy Doorknob is a thing in Intro. The description is "DOORKNOB TEMP DESCRIPTION".
+Gun Safe is a container in Intro. The description is "GUN SAFE TEMP DESCRIPTION".
+Gun Safe is openable, closed, opaque and fixed in place.
+Loaded Gun is a thing in Gun Safe. The description is "LOADED GUN TEMP DESCRIPTION".
 
+Check using: 
+	if the noun is Boots and the second noun is Flimsy Doorknob, 
+		say "TEXT FOR SOLVING PUZZLE WITH BOOTS ON DOORKNOB";
+		now Intro is solved_noir;
+		try fastforwarding;
+	if the noun is Loaded Gun and the second noun is Flimsy Doorknob,
+		say "TEXT FOR SOLVING PUZZLE WITH LOADED GUN ON DOORKNOB";
+		now Intro is solved_noir;
+		try fastforwarding;
+
+	
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
@@ -324,7 +345,6 @@ Chapter V - Game Setup
 
 The player is in Intro.
 
-[GAME START]
 When play begins:
 	now genre_value is 0;
 	say "[BLUE LETTERS]I woke up in a haze, at that moment - memory wasn't exactly my strong suit. Quite a shame, when you're in the type of business I'm in, your memory is your only friend. My head was pounding, was I hit? Did someone ambush me? Where was I even? It was dark, that's for sure. The kind of jarring, confusing darkness that encrouches on your and sucks every bit of your breath like a void. A void, huh? Reminds me of my most recent case, Celine - a vicious, femme fatale known in twelve states for triple homicides. One can only imagine the void that lives inside that girl's heart, but that ain't my problem. My problem is bringing her whereabouts to light because that's who I am, a PI, the only light that can deshroud this dark, dank city. Speaking of light, about time I grab that trusty lighter of mine and figure out where I am.[BLACK LETTERS]";
