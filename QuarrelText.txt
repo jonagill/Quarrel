@@ -37,6 +37,9 @@ Instead of fastforwarding:
 		move the player to move_to_room, without printing a room description;
 		try resetting;
 		move the player to move_to_room;
+
+Every turn when the location is not unsolved:
+	try fastforwarding;
 		
 
 [REWIND Action]
@@ -49,11 +52,11 @@ Instead of rewinding:
 	let is_prev_room be whether or not there is a prev_room corresponding to a curr_room of the location in the table of room connections;
 	if is_prev_room is true:
 		say the description corresponding to a curr_room of the location in the table of rewind descriptions;
-		if the player consents:
-			now move_to_room is the prev_room corresponding to a curr_room of the location in the table of room connections;
-			move the player to move_to_room, without printing a room description;
-			try resetting;
-			move the player to move_to_room;
+		[if the player consents:]
+		now move_to_room is the prev_room corresponding to a curr_room of the location in the table of room connections;
+		move the player to move_to_room, without printing a room description;
+		try resetting;
+		move the player to move_to_room;
 	otherwise:
 		say "This is where it all began…";
 	
@@ -86,6 +89,7 @@ At the time when the fat lady sings:
 Utilizing is an action applying to one visible thing.
 Understand "utilize [something]" as utilizing.
 Understand "use [something]" as utilizing.
+Understand "turn on [something]" as utilizing.
 
 [USE]
 [Use affects one object with another]
@@ -127,6 +131,13 @@ Chapter III - Conversations
 Talking is an action applying to one thing.
 Understand "talk [something]" and "talk to [something]" as talking.
 Check talking: try asking the noun about "the_default".
+Check asking:
+	if the text is "conversation_starter":
+		continue the action;
+	if the text is not "the_default":
+		try asking the noun about "the_default".
+Check telling:
+	try asking the noun about "the_default".	
 
 
 [--------------- Conversation Content -- Can be continued in other Chapters ---------------]
@@ -134,26 +145,65 @@ Check talking: try asking the noun about "the_default".
 
 	Table of Ask Results (continued)
   	NPC  		topic  					result  
-  	Charles	  	"his face" or "ugliness"			hate my face
-	Charles		"the_default"				want to die
+	Margaret		"conversation_starter"			hello there
+	Margaret		"the_default"				hub
 
 	Table of Tell Results (continued)
   	NPC  		topic			  		result  
-  	Charles  		"sucks"				  	hate my face
+  	Margaret  		"conversation_starter"		  	hub
 
 	Table of Quip Texts (continued)
   	quip  		quiptext  
-  	hate my face	"Yeah, it kind of sucks.  I'm pretty hideous."
-	want to die	"You're right.  I should kill myself."
+	hello there	"[RED LETTERS]'Oh, it's you!' gasps the girl breathlessly as she bounds up towards you.  'Fancy meeting you here!'  She eyes your rumpled clothes suspiciously.  'Have you not changed since the office party, you naughty boy?'  She does not have a lisp, but somehow she manages to deliver the last line as if she did.  You stammer a little as you try to compose a response.[BLACK LETTERS]"
+	failed hello	"[RED LETTERS]You manage to mumble out some sort of greeting, but then your words fail.  The girl is looking at you with such excitement in her eyes that you really can't think of anything else to say.[BLACK LETTERS]"
+	noir opening	""
+	what did you call me	"[RED LETTERS]'Pardon, what did you call me?' the girl asks quizzically.  You gulp awkwardly and go back to examining your shoe laces.[BLACK LETTERS]"
+	hub		"[RED LETTERS]The girl — [the printed name of Margaret] or whatever her name is — looks at you expectantly as you open your mouth.  The words almost seize up in your throat at that alone, but you manage to spit them out eventually.[BLACK LETTERS]"
+	oh my		"[RED LETTERS]The girl covers her gasp with her hands, but it does little to hide the sly smile that spreads across her face.  'Well, you are forward, aren't you?' she mews.  'Do you really mean that?'[BLACK LETTERS]"
+	noir continued	"[RED LETTERS]The girl puts her hand on her hip in what you assume she thinks is an alluring manner.  She makes a strange noise in the back of her throat, something that might have once been intended to be a growl but ended up as more of a strangled gargle.  'Hello, sailor,' she says.  'And how can I help you today?'[BLACK LETTERS]"
+	why do you ask	"[RED LETTERS]The girl's eyes narrow.  'Might be I know where Celine lives.  Why do you ask?'[BLACK LETTERS]"
+	i might know	"[RED LETTERS]She twirls a strand of her around her finger thoughtfully.  'And if I do tell you where Celine is?  What's in it for me?' she asks.[BLACK LETTERS]"
+	disappointed	"[RED LETTERS]The girl's expression turns sour at that.  'Oh.'  She says sadly.  'I don't think I can help you there, then.'  The conversation dies with her smile, and you're left gazing awkwardly about the park again.[BLACK LETTERS]"
+	noir success	"[BLUE LETTERS]The broad's smile grows so wide I wouldn't be surprised if it met round the back and half her head fell of.  'Alright, big boy,' she says, and I can barely keep from rolling my eyes.  'I'll take you to Celine's.  You'll owe me, though.  Maybe take me somewhere else after, hrm?'  I manage to hold back the gag, pulling a face that she takes for a grin.  Then she takes my hand and pulls be towards what I can only hope is Celine's.[BLACK LETTERS]"
+	romance success	"[RED LETTERS]The girl pulls a face.  'I was wrong about you.  You have to be the dullest man alive,' she comments.  You'd be insulted, but you're not sure she's wrong.  'But if you'll do me a favor like that, I suppose I may as well help you out.  Come on, I'll show you where Celine lives.  God help her if she sees anything in you, though.'  She heads off down the path, and you follow feeling slightly diminished.[BLACK LETTERS]"
+	
 
 	Table of Quip Followups (continued)
-  	quip  		option  					result  
-  	hate my face  	"Life isn't really worth living for you."		want to die
-  	hate my face  	"You're freaking hideous man."  		want to die
+  	quip  		option  								result  
+  	hello there	 "[RED LETTERS]Oh, hello…[BLACK LETTERS]"				failed hello
+  	hello there	 "[RED LETTERS]Fancy meeting you here…[BLACK LETTERS]"			failed hello
+  	hello there	 "[RED LETTERS]Nice day, isn't it?[BLACK LETTERS]"				failed hello
+  	hello there	 "[BLUE LETTERS]Well hey there…[BLACK LETTERS]"				noir opening
+	noir opening	 "[BLUE LETTERS]…sweet cheeks.[BLACK LETTERS]"				noir continued
+	noir opening	 "[BLUE LETTERS]… you saucy dame.[BLACK LETTERS]"			noir continued
+	noir opening	 "[RED LETTERS]… [the printed name of Margaret].[BLACK LETTERS]"		what did you call me
+	hub		"[RED LETTERS]Hello, [the printed name of Margaret].[BLACK LETTERS]"		what did you call me
+	hub		"[RED LETTERS]Do you know Celine from work?[BLACK LETTERS]"		why do you ask
+	hub		"[BLUE LETTERS]You. Me. Drinks. Now.[BLACK LETTERS]"			oh my
+	oh my		"[BLUE LETTERS]You bet your sweet ass I do.[BLACK LETTERS]"		noir success
+	oh my		"[RED LETTERS]Certainly. What else are friends for?[BLACK LETTERS]"		disappointed
+	oh my		"[RED LETTERS]Well, Mr Charles gave me all this extra work to do, and I could use an extra brain to help me sort through it…[BLACK LETTERS]"	disappointed
+	noir continued	"[RED LETTERS]I'm so sorry, that was terribly rude of me.[BLACK LETTERS]"	disappointed
+	noir continued	"[BLUE LETTERS]Listen bright eyes, I'm looking for a dame.  Name of Celine.  Know her?[BLACK LETTERS]"	disappointed
+	noir continued	"[RED LETTERS]I said, uh, [the printed name of Margaret].  Sorry, no, I meant [the printed name of Margaret].[BLACK LETTERS]"	what did you call me
+	noir continued	"[BLUE LETTERS]You heard me.  Where can we go that's more private than the duck pond?[BLACK LETTERS]"	noir success
+	why do you ask	"[RED LETTERS]She invited me to her party to night, but dash it if I can't remember her address.[BLACK LETTERS]"	I might know
+	why do you ask	"[BLUE LETTERS]Girl's having a party tonight. Asked me along. Sounds like a dive, but that's how I like it.[BLACK LETTERS]"	I might know
+	why do you ask	"[RED LETTERS]The truth of it is, I'm in love with her.[BLACK LETTERS]"		disappointed
+	why do you ask	"[RED LETTERS]I was hoping you'd come with me to her party, [the printed name of Margaret].[BLACK LETTERS]"	what did you call me
+	i might know	"[RED LETTERS]I'll do all your TP-14 forms for a month![BLACK LETTERS]"	romance success
+	i might know	"[RED LETTERS]I'll put in a good word for you with Old Charles.[BLACK LETTERS]"	romance success
+	i might know	"[BLUE LETTERS]Maybe you'll find out tonight.[BLACK LETTERS]"		noir success
+
+	
 
 [Quip Results]
 
-	After quipping when the current quip is want to die: end the story saying "Charles goes off to hang himself.  Rough.".
+Before quipping when the current quip is romance success:
+	say "ROMANCE SUCCESS SOMEHOW";
+	now RomScene2 is solved_romance;
+Before quipping when the current quip is noir success:
+	now RomScene2 is solved_noir;
 
 Charles is a person.  The knife is an object.
 
@@ -172,7 +222,7 @@ Rooms can be ending_room. A room is usually not ending_room.
 	NoirScene1		NoirScene2		--						Intro
 	NoirScene2		NoirScene3a		NoirScene3b				NoirScene1
 	RomScene1		--				RomScene2				Intro
-	RomScene2		RomScene3b		RomScene3a				RomScene1				
+	RomScene2		RomScene3a		RomScene3b				RomScene1				
 	
 	Table of Rewind Descriptions
 	curr_room		description
@@ -193,6 +243,7 @@ The description of Intro is "[one of]
 	[or][BLUE LETTERS]The closet is as dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
 
 Carry out resetting in Intro:
+	now Intro is unsolved;
 	[----RomItems----]
 	now the filing cabinet is closed;
 	now the filing cabinet is not pushed;
@@ -217,7 +268,7 @@ A crumpled paper is a thing.
 The description of the crumpled paper is "A crumpled sheet of paper".
 The paper can be written on.  The paper is not written on.
 The dirty mop is a thing in Intro.
-The description of the mop is "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of viscous black goop.[BLACK LETTERS]".
+The description of the mop is "[RED LETTERS]The janitor's mop.  Ragged, splintery, and covered in some kind of inky black goop.[BLACK LETTERS]".
 Goop is a part of the mop.  Understand "slime" and "goo" and "gunk" as goop.
 The description of the goop is "[RED LETTERS]An disgusting, inky slime coating the fibers of the mop.[BLACK LETTERS]".
 The closet door is an object in Intro. It is fixed in place.
@@ -225,8 +276,8 @@ The description of the closet door is "[RED LETTERS]Heavy, wooden, entirely unyi
 The crack is part of the closet door.
 
 Carry out examining filing cabinet:
-	if filing cabinet is closed, say "[BLUE LETTERS]Closed, like the door to this closet.[BLACK LETTERS]" instead;
-	if filing cabinet is open, say "[BLUE LETTERS]Nothing in here but my hopes and dreams.  Which is to say, nothing in here.[BLACK LETTERS]". 
+	if filing cabinet is closed, say "[BLUE LETTERS]Closed, like the door to this closet.[RED LETTERS] You can make out the white corner of a scrap of paper sticking out from behind the cabinet, too small to grip with your fingers.[BLACK LETTERS]" instead;
+	if filing cabinet is open, say "[BLUE LETTERS]Nothing in there but your hopes and dreams.  Which is to say, nothing in there.[BLACK LETTERS]". 
 Instead of pulling filing cabinet:
 	say "[RED LETTERS]Despite your thrice-weekly squash practices, you are unable to get a strong enough grip to pull the cabinet towards you.[BLACK LETTERS]" instead.
 Instead of pushing filing cabinet:
@@ -236,6 +287,9 @@ Instead of pushing filing cabinet:
 		now the filing cabinet is pushed;
 	otherwise:
 		say "[RED LETTERS]You give the cabinet another push, wondering what else you might find behind it.  A tenner maybe?  Despite your hopes, though, the cabinet refuses to yield further ground.[BLACK LETTERS]".
+
+Check examining crumpled paper when crumpled paper is off-stage:
+	say "[RED LETTERS]A tiny white triangle of paper is visible, poking out from behind the filing cabinet.[BLACK LETTERS]" instead.
 
 Carry out examining crumpled paper:
 	if crumpled paper is not written on:
@@ -376,26 +430,182 @@ The description of RomScene1 is
 	[RED LETTERS]Your much-despised workplace.  Specifically, the offices of human resources, where Celine has her desk, which might have a clue as to where she'll be tonight.[BLACK LETTERS][stopping]".
 
 Carry out resetting when the player is in RomScene1: 
-	now Charles is in RomScene1;
+	now the pink flower is on the light brown desk;
+	now the pink day planner is on the light brown desk;
+	now the blue flower is on the moderately brown desk;
+	now the blue day planner is on the moderately brown desk;
+	now the pint glass is on the dark brown desk;
+	now the grey day planner is on the dark brown desk;
+	now your crumpled jacket is in the cardboard box;
+	now the cardboard box is closed;
+	now the scribbled note is off-stage;
+	now RomScene1 is unsolved;
 	now genre_value is 1.
+	
+A planner is a kind of thing.  A planner can be openable.  A planner is openable.  A planner can be open or closed.  A planner is usually closed.
 
-RomScene2 is room with printed name "The Park: Noon".
+The light brown desk is a supporter in RomScene1.
+The description of the light brown desk is "[RED LETTERS]One of many such wooden desks that fill the floors of Charles & Charles.  This one is a light, beigeish color.[BLACK LETTERS]".
+
+The pink flower is a thing on the light brown desk.
+The description is "[RED LETTERS]A pink carnation in a round glass bowl.  Charming.[BLACK LETTERS]".
+
+The pink day planner is a planner on the light brown desk.
+
+The moderately brown desk is a supporter in RomScene1.
+The description of the moderately brown desk is "[RED LETTERS]One of the hated wooden desks that define the workplace experience for your colleagues and yourself.  This one has a middling, uninspired brown hue to it.[BLACK LETTERS]".
+
+The blue flower is a thing on the moderately brown desk.
+The description is "[RED LETTERS]A blue blossom in a hand-blown black bowl.  Blissful.[BLACK LETTERS]".
+
+The old computer is a thing on the moderately brown desk.
+The description is "[RED LETTERS]An IBM model almost as old as you are.  Its screen is dark, dusty, and flecked with the greyish residue of long-dry spittle.  Lovely.[BLACK LETTERS]".
+
+The blue day planner is a planner on the moderately brown desk.
+
+The dark brown desk is a supporter in RomScene1.  It is fixed in place.
+The description of the dark brown desk is "[RED LETTERS]The darkest of the desks in the room, although it's less a deep oaken hue and more of an unpleasant oily patina.[BLACK LETTERS]".
+
+The pint glass is a thing on the dark brown desk.
+The description is "[RED LETTERS]A dirty pint glass, it's sides webbed with dry foam.[BLACK LETTERS]".
+
+The grey day planner is a planner on the dark brown desk.
+
+The cardboard box is a container in RomScene1.  The cardboard box is fixed in place, openable, opaque, and closed.
+The description is "[RED LETTERS]A white cardboard box usually used to store paper and other such businessy nonsense.[BLACK LETTERS]".
+
+Your crumpled jacket is a thing in the cardboard box.  The crumpled jacket is wearable.
+The description is "[RED LETTERS]Your own crumpled suit jacket.  You must have thrown it aside at some point during the previous night.[BLACK LETTERS]".
+The pockets are a part of your crumpled jacket.  Understand "pocket" as pockets.
+
+The supply closet door is a thing in RomScene1.
+The description is "[RED LETTERS]The portal back to that bleak netherealm in which you spent the night.  No thank you, sir.[BLACK LETTERS]".
+
+The scribbled note is a thing.  The scribbled note can be read.  The scribbled note is not read.
+The description is "[RED LETTERS]A crumpled piece of paper in your jacket pocket.  Scrawled upon it in red ballpoint is 'CELINE M. 525-423-9820'.  You always did have a way with women while in your cups.  You card, you.[BLACK LETTERS]."
+
+Check examining pockets when the player is wearing your crumpled jacket:
+	now the scribbled note is read;
+	say "[RED LETTERS]You can feel a crumpled piece of paper in your jacket pocket.[BLACK LETTERS]" instead.
+
+Carry out examining the pink day planner:
+	if the noun is closed:
+		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:  5261 Magnolia Court — 525-180-7547'[line break]  You weren't allowed to write your names on your planners here — Mr Charles said it encouraged his staff to have too much personality.[BLACK LETTERS]";
+	if the noun is open:
+		say "[RED LETTERS]You thumb through to the entry for December 26.  It seems the owner of this planner is going to be at the roller rink tonight.  That could be fun, you think, but could it be Celine?[BLACK LETTERS]";
+
+Carry out examining the blue day planner:
+	if the noun is closed:
+		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:   925 Tulip Way — 525-282-9242'[line break]  Charles liked to keep his company's stationary as unpersonable as their business.[BLACK LETTERS]";
+	if the noun is open:
+		say "[RED LETTERS]You scan the page for today's entry.  Whoever owns this planner is going sailing this evening.  Could this be the kind of exotic good time that Celine would have invited you on?[BLACK LETTERS]";
+
+Carry out examining the grey day planner:
+	if the scribbled note is read:
+		say "[RED LETTERS]You compare the number on the cover of the grey planner with the one on the paper you found in your pocket, and your heart leaps as you match the digits.  This is Celine's planner alright!  Which means you now have her address and phone number.  Kind of creepy, perhaps, but she did invite you over, after all.  You run a hand through your hair, brush another futilely over the wrinkles in your jacket, and stride out the door.[BLACK LETTERS]";
+		now RomScene1 is solved_romance;
+		try fastforwarding instead;
+	if the noun is closed:
+		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:   8572 Bromeliad Road — 525-423-9820'[line break]  The typewritten details were no use to you without a name to pin them to.[BLACK LETTERS]" instead;
+	if the noun is open:
+		say "[RED LETTERS]You leaf through the planner to find that the pencilled in details that the owner of this planner is holding a party at their home this very night.  It sounds fun, but you can't risk gate crashing if it's not Celine's house.[BLACK LETTERS]" instead;
+
+After taking your crumpled jacket:
+	try wearing the noun instead.
+	
+Carry out wearing your crumpled jacket:
+	say "[RED LETTERS]As you pull on your rumbled old jacket, you hear something crinkle in the front pocket.[BLACK LETTERS]";
+	now the player is carrying the scribbled note.
+	
+Carry out examining the scribbled note:
+	now the scribbled note is read;
+	
+Check utilizing the pint glass:
+	try drinking the pint glass instead.
+
+Carry out drinking the pint glass:
+	say "[BLUE LETTERS]Now we're talking.  A drink was just the thing I needed. [RED LETTERS]You find nothing but dust and air at the bottom of this glass, however.[BLACK LETTERS]" instead.
+	
+Check utilizing the computer:
+	say "[RED LETTERS]The screen remains blank.  You remember that Old Man Charles keeps the power off on weekends and holidays.  As a miser and a professional bookkeeper, no opportunity to save a penny escaped his cataract-ridden gaze.[BLACK LETTERS]" instead.
+
+RomScene2 is room with printed name "The Park: Sunset".
 Understand "The Park" and "Park" and "Noon" as RomScene2.
-The description of RomScene2 is "THIS IS A TEMP DESCRIPTION!!!".
+The description of RomScene2 is
+	"[one of]
+	[RED LETTERS]Bromeliad Road is just a short walk away, so you decide to head over on foot — according to Celine's planner and your watch, the party started half an hour ago!  You had been passed out in that cupboard all afternoon, apparently, as is often the case following a good Christmas party.[line break]You decide to cut through the park on your way there.  The walk is slightly shorter, and you feel that the fresh air and trees and whatnot will do your aching skull a bit of good.  Your pace is as brisk as the winter wind, and you feel your spirits perk up as you round the duck pond and begin approaching the street that will take you to Bromeliad Road.[line break]Suddenly, a horrible thought strikes you, and you stop dead in your tracks.  You didn't write down her damn address, and the door to Charles & Charles locked automatically behind you!  You keep walking for lack of anything better to do as a single bead of sweat begins to slide coldly down behind your ear.[line break]Much to your surprise and discomfort, a second emotional blow hits you like a Mancurian drunk as you round the next corner.  There, behind those trees, next to the picnic benches, it's that damn temp girl from your floor!  Molly or Maggie or whatever her name is.  She sees you as you see her, and her face lights up with girlish glee at the sight of you.  Blast it, she's coming your way, too.  You're in no mood to make small talk, but on the bright side, she might know where Celine lives...[BLACK LETTERS]
+	[or]
+	[RED LETTERS]The local park.  Trees, benches, paths, a slightly pungent duck pond, and one damnably excitable temp who's name you can't recall at the moment.[BLACK LETTERS][stopping]".
+
+Carry out resetting when the location is RomScene2:
+	now RomScene2 is unsolved;
+	now Margaret is not introduced;
+
+Every turn when the location is RomScene2 and Margaret is not introduced:
+	try asking Margaret about "conversation_starter";
+	now Margaret is introduced;
+
+Margaret is a person in RomScene2.  Understand "Marge", "Maggie", "Molly", "Marigold", "Marilyn", "Marjory", "Margarine", and "Martleby" as Margaret.  Margaret can be introduced.  Margaret is not introduced.
+The printed name of Margaret is "[one of]Margaret[or]Maggie[or]Molly[or]Marigold[or]Marge[or]Marilyn[or]Marjory[or]Margarine[or]Martleby[then at random]".
+The description is "[RED LETTERS]The dumpy office temp who works on your floor.  She's sweet enough, although her hair is tangled and her teeth are crooked, and she is currently blocking your path to Celine's house, the address of which you still don't know.  She's watching you expectantly, which you find very offputting.[BLACK LETTERS]"
+
+CelineRom is a person with printed name "Celine".  Understand "Celine" as CelineRom.
+The description is "[one of][RED LETTERS]Celine.  Your new love, your amour, your cherished sweetling and the one hope that kept you going throughout the days events.[BLACK LETTERS][or][RED LETTERS]God, she's great, isn't she?[BLACK LETTERS][stopping]"
 
 RomScene3a is room with printed name "Celine's Bedroom".
 Understand "Celine's Bedroom" as RomScene3a.
-The ending_text of RomScene3a is "[one of]Oh my[stopping]".
-The ending_turns of RomScene3a is 1.
+The ending_text of RomScene3a is "[one of]
+	[RED LETTERS]Celine guides you into the center of the room, her hand on your wrist, and your mind continues to wonder at how you could have got so lucky.  Perhaps this is all a trick, and she's actually going to murder you?  That would seem more in line with your luck of late.[BLACK LETTERS]
+	[or]
+	[RED LETTERS]You think back to all good times you spent with Celine tonight.  She laughed at your jokes, and you at hers, you kept eachother enthralled with various anecdotes, you even teased [the printed name of Margaret] behind her back together.  And now Celine is turning off the lamp in the corner, her back to you, the cut of her dress revealing her smooth arc of her shoulder blades and the back of her long, shapely neck.[BLACK LETTERS]
+	[or]
+	[RED LETTERS]You're practically immobilized by her beauty, but Celine doesn't seem to mind.  She plants the first kiss on your lips, the next on your neck.  You try to think of something smart to say, but she knows what you're doing and places a slender finger against your lips.  Mutely, you allow her to pull you down onto the bed and into her embrace.[BLACK LETTERS]
+	[stopping]".
+The ending_turns of RomScene3a is 3.
 RomScene3a is ending_room.
-The description of RomScene3a is "THIS IS A TEMP DESCRIPTION!!!".
+The description of RomScene3a is "[one of]
+	[RED LETTERS]You're not entirely sure how you came to find yourself alone with Celine in her bedroom, the blinds drawn and the lights turned down low.  You feel a little bad about ditching poor old [the printed name of Margaret] after she showed you the way to Celine's house, but you hardly regret it.  That little cruelty filled you with a rush of confidence that carried through the entire evening, and now, somehow, it has brought you here.[BLACK LETTERS]
+	[or]
+	[RED LETTERS]Celine's bedroom.  The lights are dim, and the bed looks very comfortable.  [BLUE LETTERS]Big enough for two, as well.  Or three.[BLACK LETTERS][stopping]".
+
+Carry out resetting in RomScene3a:
+	now CelineRom is in RomScene3a;
+
+The bed is a thing in RomScene3a.  It is fixed in place.
+The description is "[RED LETTERS]Celine's bed.  It's big, white, and incredibly inviting looking.  You try not to image what she must look like sleeping in it, but do so anyway.[BLACK LETTERS]"
+
+The nightstand is a supporter in RomScene3a.
+The description is "[RED LETTERS]A simple oaken nightstand.[BLACK LETTERS]"
+
+The alarm clock is a thing on the nightstand.
+The description is "[RED LETTERS]You hate alarm clocks, but this one is Celine's, and somehow that makes you like it.  Love it, even.  Celine's great, isn't she? you sigh to yourself.  You're weird.[BLACK LETTERS]"
+
+The book is a thing on the nightstand.
+The description is "[RED LETTERS]Celine's bedtime reading.  It's a weighty tome on some French war or other — she's smart as well as beautiful.  God, you love her.[BLACK LETTERS]"
 
 RomScene3b is room with printed name "Celine's Driveway".
 Understand "Celine's Driveway" as RomScene3b.
 RomScene3b is ending_room.
-The ending_text of RomScene3b is "[one of]Oh my[stopping]".
-The ending_turns of RomScene3b is 1.
-The description of RomScene3b is "THIS IS A TEMP DESCRIPTION!!!".
+The ending_text of RomScene3b is "[one of]
+	[RED LETTERS]The evening has passed like a blur, a long streak of misfortune that made you queasy to look at it.  You look at Celine and try to make out the words that she's saying, but all you can hear are the brief moments of conversations you had earlier, awkward and aborted.  You'd tried your best to be kind and polite and interested in everything she said, but she never seemed to find your answers especially interesting, and kept slipping off to talk to someone else.  Why hadn't you hit it off like you did last night?  What on Earth could have happened?[BLACK LETTERS]
+	[or]
+	[RED LETTERS]'I'm so glad you could come,' Celine is saying now, 'It was lovely to see you outside of work. '  You wonder why, if that's the case, she showed so little interest in you all evening.  'I'm so glad we're friends,' she continues.  'You're such a nice guy.'  Ah.  There it is.[BLACK LETTERS]
+	[or]
+	[RED LETTERS]You each say your goodbyes, Celine steps back into her house, and the door shuts in your face.  You're left in the cold, staring at the woodwork on the front door of another girl you let slip through your fingers.  You start the long walk home without complaint like the nice guy you are.  As you walk, you wonder what kind of tie you'll wear to work tomorrow.[BLACK LETTERS]
+	[stopping]".
+The ending_turns of RomScene3b is 3.
+The description of RomScene3b is "[one of]
+	[RED LETTERS]You find yourself standing on Celine's front step saying your goodbyes without much of an idea as to how you got there.    You glance around and take in the dark sky, the gravel pathway, the old red brickwork that makes up the front of Celine's house.  You'd rather look at the architecture than Celine, despite her beauty.  You know in your bones that to look at Celine is to look at what you have lost.[BLACK LETTERS]
+	[or]
+	[RED LETTERS]Celine's driveway.  It's dark outside, and it doesn't seem like Celine will let you back into the warmth and light of her front room.[BLACK LETTERS][stopping]".
+Carry out resetting in RomScene3b:
+	now CelineRom is in RomScene3b;
+
+The bush is a thing in RomScene3b.  It is fixed in place.
+The description is "[RED LETTERS]A bit of topiary running along Celine's driveway.  Shapely, though not as shapely as it's owner.[BLACK LETTERS]"
+
+The car is a thing in RomScene3b.  It is fixed in place.
+The description is "[RED LETTERS]Celine's car, a sleek new two-door with great mileage.  As cars go it's stylish, classy, intelligent, and utterly out of your reach — much like Celine herself, apparently.[BLACK LETTERS]"
 
 
 Chapter V - Game Setup
