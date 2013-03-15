@@ -58,8 +58,12 @@ Instead of rewinding:
 		try resetting;
 		move the player to move_to_room;
 	otherwise:
-		say "[BLUE LETTERS]No... No turning back now. No more running.[BLACK LETTERS]";
-	
+		if genre_value is 0:
+			say "[BLUE LETTERS]There was no turning back now.[RED LETTERS] This is where you're meant to be.[BLACK LETTERS]";
+		if genre_value is less than 0:
+			say "[BLUE LETTERS]No... No turning back now. No more running.[BLACK LETTERS]";
+		if genre_value is greater than 0:
+			say "[RED LETTERS]This is where it all begins.  This is where you're meant to be.[BLACK LETTERS]";	
 
 [RESET Action]
 Resetting is an action applying to nothing.
@@ -90,22 +94,26 @@ Utilizing is an action applying to one visible thing.
 Understand "utilize [something]" as utilizing.
 Understand "use [something]" as utilizing.
 Understand "turn on [something]" as utilizing.
+Understand "write on [something]" as utilizing.
 
 [USE]
 [Use affects one object with another]
 Using is an action applying to two visible things.
 Understand "use [something] on [something]" as using.
 Understand "use [something] with [something]" as using.
+Understand "attack [something] with [something]" as using (with nouns reversed).
+Understand "kick [something] with [something]" as using (with nouns reversed).
+Understand "break [something] with [something]" as using (with nouns reversed).
 Understand "apply [something] to [something]" as using.
 
 [HELP]
 Helping is an action applying to nothing. Understand "help" as helping.
 After helping when genre_value is less than 0:
-	say "[BLUE LETTERS] Time to EXAMINE myself.  Really take a deep LOOK inside.  I was a hard man, with hard convictions.  I'd USE and TAKE, but I'd rarely ASK before I did.[BLACK LETTERS]";
+	say "[BLUE LETTERS] Time to EXAMINE myself.  Really TAKE a mental INVENTORY and have a deep LOOK inside.  I was a hard man, with hard convictions.  All I did was USE people for years.  Oh, well.  No way to REWIND time now.[BLACK LETTERS]";
 After helping when genre_value is 0:
-	say "This is generic help text.";
+	say "[RED LETTERS]Maybe you do need to EXAMINE your priorities.[BLUE LETTERS] Really TAKE a mental INVENTORY and have a deep LOOK inside. [RED LETTERS] If only you could REWIND time, you think, but then you'd probably only make things worse, and what would be the USE of that?[BLACK LETTERS]";
 After helping when genre_value is greater than 0:
-	say "This is romantic help text.";
+	say "[RED LETTERS]Maybe you do need to EXAMINE your life.  TAKE a moment to get your thoughts together, see what's in your romantic INVENTORY.  If only you could REWIND time, you think, but then you'd probably only make things worse, and what would be the USE of that?[BLACK LETTERS]";
 
 
 [EXAMINE ME]
@@ -118,8 +126,8 @@ Instead of examining player when genre_value is greater than 0: say "Romance des
 [GO N/S/E/W]
 
 Instead of going when genre_value is less than 0: say "[BLUE LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
-Instead of going when genre_value is 0: say "[RED LETTERS]Oh, bother!  You still have [BLUE LETTERS]work to do.  Messy work.[BLACK LETTERS]".
-Instead of going when genre_value is greater than 0: say "Romance going."
+Instead of going when genre_value is 0: say "[RED LETTERS]Slow down, cowboy.  There's still [BLUE LETTERS]work to do.  Messy work.[BLACK LETTERS]".
+Instead of going when genre_value is greater than 0: say "[RED LETTERS]Slow down, cowboy.  There's still something to do here before you go running off.[BLACK LETTERS]"
 
 [Instead of doing something other than looking, examining, asking, telling, or going, say "HAHAHA NO."]
 
@@ -227,8 +235,8 @@ Rooms can be ending_room. A room is usually not ending_room.
 	Table of Rewind Descriptions
 	curr_room		description
 	Intro			--
-	NoirScene1		"[BLUE LETTERS] Like the Stygian Void, my memories are a whirlpool of uncertainty. Perhaps we should revisit them once more.[BLACK LETTERS]"
-	NoirScene2		"[BLUE LETTERS] I feel close to the end, but as my fear overwhelms me - I can't help but wonder if that was really how it all happened. Shall we try again?[BLACK LETTERS]"
+	NoirScene1		"[BLUE LETTERS] Like the Stygian Void, my memories are a whirlpool of uncertainty. [RED LETTERS] This story's getting darker than that closet.  Better head back and see if we can't change it.[BLACK LETTERS]"
+	NoirScene2		"[BLUE LETTERS] I feel close to the end, but as my fear overwhelms me - I can't help but wonder if that was really how it all happened. [RED LETTERS]In fact, you know it wasn't.  Let's try it again, shall we?[BLACK LETTERS]"
 	RomScene1		"[RED LETTERS]Wait, don't — [BLUE LETTERS]I shook the quaint, weirdly English daydream from my head.  Clearly I'd been hitting the pills too hard again.  Now, where was I?[BLACK LETTERS]"
 	RomScene2		"[RED LETTERS]That's not quite how it happened, though, was it?  Let's try that last bit again…[BLACK LETTERS]"
 
@@ -297,8 +305,14 @@ Carry out examining crumpled paper:
 	otherwise:
 		say "[RED LETTERS]A ratty piece of paper with the word HELP scrawled across it in stinking mop goo.[BLACK LETTERS]" instead.
 
+Check utilizing crumpled paper:
+	if crumpled paper is not written on:
+		say "[RED LETTERS]You need something to write on it with.  A pencil or ink, or at least something vaguely ink-like.[BLACK LETTERS]" instead;
+	otherwise:
+		say "[RED LETTERS]You've done as much as you can with this paper.  Now you just need somewhere to put it...[BLACK LETTERS]" instead.	
+
 Carry out taking the mop:
-	say "[RED LETTERS]You stifle a yelp as a splinter a centimeter long embeds itself in your palm.[BLACK LETTERS]."
+	say "[RED LETTERS]You pick up the mop, gingerly avoiding the inky black goop that's worked into the head and oozing down the handle.[BLACK LETTERS]."
 				
 Carry out pushing the closet door: 
 	say "[RED LETTERS]You press your shoulder against the wood and heave.  You achieve nothing more than a stiff back.[BLACK LETTERS]" instead.
@@ -334,12 +348,19 @@ Check utilizing:
 
 [ ----- Noir Solution for Intro ----- ]
 	
-The pair of boots are a thing in Intro. The description is "[BLUE LETTERS]So this is where I left my trusty pair of boots. Kind of a strange place, but hey - they could come in handy. Just looking at them reminds me of the good times we had together, kicking down doors to gangster's houses and the such.[BLACK LETTERS]".
-The flimsy doorknob is a thing in Intro. The description is "[BLUE LETTERS]When you run a PI firm, you don't really have the kind of money to fix doorknobs.  This one has always been especially flimsy.[BLACK LETTERS]".
+The pair of boots are a thing in Intro.  It is wearable.  The description is "[BLUE LETTERS]So this is where I left my trusty pair of boots.  [RED LETTERS] Sort of a strange place, but you suppose they could come in handy.[BLUE LETTERS] Just looking at them reminds me of the good times we had together, kicking down doors to gangster's houses and the such. [BLACK LETTERS]".
+The flimsy doorknob is a thing in Intro. The description is "[BLUE LETTERS][RED LETTERS]Where you work,[BLUE LETTERS] you don't really have the kind of money to fix doorknobs.  This one has always been especially flimsy.[BLACK LETTERS]".
 The flimsy doorknob is fixed in place.
-The gun safe is a container in Intro. The description is "[BLUE LETTERS]Ahhh, the gun safe. I never kept it locked because honestly, if someone broke into my office - I deserve to be shot. Better to keep it unlocked and grab that loaded revolver in times of emergency.[BLACK LETTERS]".
+The gun safe is a container in Intro. The description is "[BLUE LETTERS]Ahhh, the gun safe. I never kept it locked because honestly, if someone broke into my office - I deserve to be shot. [RED LETTERS] Why would you say that?  What kind of horrible story is this? [BLACK LETTERS] Better to keep it unlocked and grab that loaded revolver in times of emergency.[BLACK LETTERS]".
 The gun safe is openable, closed, opaque and fixed in place.
-The loaded gun is a thing in the gun safe. The description is "[BLUE LETTERS]The cold steel of the revolver is something all too familiar to my palm. While this one isn't my main weapon, she's seen me through some tough times all the same. I always keep her clean, freshly greased and ready to blow.[BLACK LETTERS]".
+The loaded gun is a thing in the gun safe. The description is "[BLUE LETTERS]The cold steel of the revolver is something all too familiar to my palm. [RED LETTERS] No, it isn't.  Your hand trembles as you pick up the unfamiliar lump of metal, so much so that you almost drop it on the floor.[BLACK LETTERS]".
+
+After taking the pair of boots:
+	say "[RED LETTERS]I hope you're not planning on kicking anything with those!  I shan't abide that kind of violence in this story.";
+	try wearing the boots instead;
+	
+Check attacking the flimsy doorknob:
+	say "[RED LETTERS]How dreadful!  [BLUE LETTERS]I didn't know what to smash it with.[BLACK LETTERS]" instead.
 
 Check using: 
 	if the noun is pair of boots and the second noun is the flimsy doorknob:
@@ -355,7 +376,7 @@ Check using:
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
-The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that I so, truly  loved. It was cozy, dimly light and always had a slight, frigid bite that kept my nerves just the right amount on edge. The fan overhead cut through the dry air with every beat of my own black heart leaving shadows dancing around the room. It was time I got back to the business at hand, finding Celine. Last I remember, I had three vital pieces of information on her. Unfortunately, after coming onto my secretary last week, she hasn't been back to clean up my mess, women. Who knows where those files could be, better start looking.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celine.[BLACK LETTERS][stopping]".
+The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that I so, truly loved. It was cozy, dimly light and always had a slight, frigid bite that kept my nerves just the right amount on edge. The fan overhead cut through the dry air with every beat of my own black heart leaving shadows dancing around the room. It was time I got back to the business at hand, finding Celine. [RED LETTERS]Now we're talking.  Forget all the violence and the grunge and get back to finding the girl. [BLACK LETTERS] Last I remember, I had three vital pieces of information on her. Unfortunately, after coming onto my secretary last week, she hasn't been back to clean up my mess… women. Who knows where those files could be, better start looking. [RED LETTERS] Or you could turn around right now and REWIND back to before things went so bloody Chinatown all over the place.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celine [RED LETTERS] or REWIND back to someplace a bit cheerier, like the inside of locked closet.[BLACK LETTERS][stopping]".
 
 clues_number is a number that varies.
 
@@ -383,9 +404,9 @@ The description is "[BLUE LETTERS]Not a single book on these shelves. I don't re
 The desk is a container in NoirScene1. It is transparent, openable, and fixed in place.
 The description is "[BLUE LETTERS]The ol' desk, exotic oak. Was imported from Brazil after helping the President with a job. But that's ancient history, back when I was still new to the game - young and spritely. Glad that's over with.[BLACK LETTERS]".
 The top drawer is a container in the desk. It is opaque, openable, closed and fixed in place.
-The description is "[BLUE LETTERS]The top drawer, used to keep a gun in there - just in case. But now-a-days, with the way this city has been, that girl rarely leaves my side.[BLACK LETTERS]".
+The description is "[BLUE LETTERS]The top drawer, used to keep a gun in there - just in case. But now-a-days, with the way this city has been, that girl rarely leaves my side. [RED LETTERS] What is going on with all the bloody guns in this story?[BLACK LETTERS]".
 The middle drawer is a container in the desk. It is opaque, openable, closed, locked and fixed in place.
-The description is "[BLUE LETTERS]I haven't the strangest idea why I still keep this locked. After I moved the whisky, I don't remember putting anything else in it. Then again, I'm always drinking to keep that darkness away...[BLACK LETTERS]".
+The description is "[BLUE LETTERS]I haven't the strongest idea why I still keep this locked. After I moved the whisky, I don't remember putting anything else in it. Then again, I'm always drinking to keep that darkness away... [RED LETTERS] You're a tortured soul now, are you?  Nice.[BLACK LETTERS]".
 The lower drawer is a container in the desk. It is opaque, openable, closed and fixed in place.
 The description is "[BLUE LETTERS]Where I hide my liquor now, my secretary will never expect a thing. It's too obvious. Then again, secretaries now-a-days do require a college education. Maybe the young girl would get wise, if she'd ever come back.[BLACK LETTERS]".
 The computer is a container in NoirScene1. The computer can be turned on. It is not turned on.
