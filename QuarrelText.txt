@@ -24,15 +24,15 @@ Instead of fastforwarding:
 		if is_next_room is true:
 			now move_to_room is the next_room_noir corresponding to a curr_room of the location in the table of room connections;
 		otherwise:
-			say "Nowhere to go.";
+			say "[BLUE LETTERS]Nowhere to go.[BLACK LETTERS]";
 	otherwise if location is solved_romance:
 		let is_next_room be whether or not there is a next_room_romance corresponding to a curr_room of the location in the table of room connections;
 		if is_next_room is true:
 			now move_to_room is the next_room_romance corresponding to a curr_room of the location in the table of room connections;
 		otherwise:
-			say "Drat!  There's nowhere for you to go.";
+			say "[RED LETTERS]Drat!  There's nowhere for you to go.[BLACK LETTERS]";
 	otherwise:
-		say "There's still work to be done here.";
+		say "[RED LETTERS]There's still work to be done here.[BLACK LETTERS]";
 	if is_next_room is true:
 		move the player to move_to_room, without printing a room description;
 		try resetting;
@@ -58,7 +58,7 @@ Instead of rewinding:
 		try resetting;
 		move the player to move_to_room;
 	otherwise:
-		say "This is where it all began…";
+		say "[BLUE LETTERS]No... No turning back now. No more running.[BLACK LETTERS]";
 	
 
 [RESET Action]
@@ -228,7 +228,7 @@ Rooms can be ending_room. A room is usually not ending_room.
 	curr_room		description
 	Intro			--
 	NoirScene1		"[BLUE LETTERS] Like the Stygian Void, my memories are a whirlpool of uncertainty. Perhaps we should revisit them once more.[BLACK LETTERS]"
-	NoirScene2		"[BLUE LETTERS] I feel close to the end, but as my fear overwhelms me - I can't help but wonder if that was really how the past happened. Shall we try again?[BLACK LETTERS]"
+	NoirScene2		"[BLUE LETTERS] I feel close to the end, but as my fear overwhelms me - I can't help but wonder if that was really how it all happened. Shall we try again?[BLACK LETTERS]"
 	RomScene1		"[RED LETTERS]Wait, don't — [BLUE LETTERS]I shook the quaint, weirdly English daydream from my head.  Clearly I'd been hitting the pills too hard again.  Now, where was I?[BLACK LETTERS]"
 	RomScene2		"[RED LETTERS]That's not quite how it happened, though, was it?  Let's try that last bit again…[BLACK LETTERS]"
 
@@ -239,7 +239,7 @@ Intro is a room with printed name "The Closet: Trapped".
 Understand "The Closet" and "Closet" as Intro.
 
 The description of Intro is "[one of]
-	[BLUE LETTERS]I find myself locked in a closet. You'd be surprised how often someone like I finds myself in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock me away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was my speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where my secretary would store all the old case files from my brilliant triumphs and utter failures. [RED LETTERS]Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
+	[BLUE LETTERS]I find myself locked in a closet. You'd be surprised how often someone like me finds themselves in these sort of situations after dealing with gangsters and thugs too soft to land the killing blow. [RED LETTERS]That's a bit rich.  More often you find yourself in situations like this when Jenkins from third floor locks the door behind you while you're looking for a fresh pen.[BLUE LETTERS] They'd just as soon lock me away and hope the chemical fumes finish the job. Too bad for them, because escaping locked rooms was my speciality. [RED LETTERS] It certainly wasn't your work.  'Tardy, easily distracted, and poor with numbers,' your last performance review had read. [BLUE LETTERS]The closet was an archive closet where my secretary would store all the old case files from my brilliant triumphs and utter failures. [RED LETTERS]Actually, it smelled more like the janitorial supply closet.  Lovely. [BLUE LETTERS]Don't bother trying the door-knob though, it was [RED LETTERS]locked tight.[BLACK  LETTERS]
 	[or][BLUE LETTERS]The closet is as dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
 
 Carry out resetting in Intro:
@@ -324,95 +324,228 @@ Check using:
 			now Intro is solved_romance;
 			try fastforwarding instead;
 	if the noun is crumpled paper and crumpled paper is not written on:
-		try utilizing crumpled paper instead;
+		try utilizing crumpled paper instead.
 
 Check utilizing:
 	if the noun is mop:
 		say "[RED LETTERS]There's nothing to clean.  Besides, that goop on the end of it would probably leave more of a mess than was already there.[BLACK LETTERS]" instead;
 	if the noun is crumpled paper:
-		say "[BLUE LETTERS]Just ancient history now.[BLACK LETTERS]";
+		say "[BLUE LETTERS]Just ancient history now.[BLACK LETTERS]".
 
 [ ----- Noir Solution for Intro ----- ]
 	
-The pair of boots are a thing in Intro. The description is "[BLUE LETTERS]So this is where you left those trusty pair of boots. Kind of a strange place, but hey - at least they're sturdy. Just looking at them reminds you of the good times you two had together, kicking down doors to gangster's houses and the such.[BLACK LETTERS]".
+The pair of boots are a thing in Intro. The description is "[BLUE LETTERS]So this is where I left my trusty pair of boots. Kind of a strange place, but hey - they could come in handy. Just looking at them reminds me of the good times we had together, kicking down doors to gangster's houses and the such.[BLACK LETTERS]".
 The flimsy doorknob is a thing in Intro. The description is "[BLUE LETTERS]When you run a PI firm, you don't really have the kind of money to fix doorknobs.  This one has always been especially flimsy.[BLACK LETTERS]".
 The flimsy doorknob is fixed in place.
-The gun safe is a container in Intro. The description is "[BLUE LETTERS]Ahhh, the gun safe. You never kept it locked because honestly, if someone broke into your Office - you deserved to be shot. Better to keep it unlocked to grab that loaded revolver in times of emergency.[BLACK LETTERS]".
+The gun safe is a container in Intro. The description is "[BLUE LETTERS]Ahhh, the gun safe. I never kept it locked because honestly, if someone broke into my office - I deserve to be shot. Better to keep it unlocked and grab that loaded revolver in times of emergency.[BLACK LETTERS]".
 The gun safe is openable, closed, opaque and fixed in place.
-The loaded gun is a thing in the gun safe. The description is "[BLUE LETTERS]The cold steel of the revolver is something all too familiar to you. While this one isn't your main weapon, she's seen you through some tough times all the same. You always keep her clean, freshly greased and ready to blow.[BLACK LETTERS]".
+The loaded gun is a thing in the gun safe. The description is "[BLUE LETTERS]The cold steel of the revolver is something all too familiar to my palm. While this one isn't my main weapon, she's seen me through some tough times all the same. I always keep her clean, freshly greased and ready to blow.[BLACK LETTERS]".
 
 Check using: 
-	if the noun is the pair of boots and the second noun is the flimsy doorknob, 
-		say "[BLUE LETTERS]Strapping the sturdy boots on your feet, you feel revitalized. With a quick heavy and hoe, that flimsy doorknob shatters straight off the door. That's about enough excitment for one day, best to strap down with a victory whiskey in your office. But I guess there's still Celine to find...[BLACK LETTERS]";
+	if the noun is pair of boots and the second noun is the flimsy doorknob:
+		say "[BLUE LETTERS]Strapping the sturdy boots on my feet, I feel revitalized. With a quick heave and hoe, that flimsy doorknob shatters straight off the door. That's about enough excitment for one day, best to strap down with a victory whiskey in my office. But I guess there's still Celine to find...[BLACK LETTERS]";
 		now Intro is solved_noir;
-		try fastforwarding;
-	if the noun is the loaded gun and the second noun is the flimsy doorknob,
-		say "[BLUE LETTERS]You look at the gun in your hand, and then to the doorknob. It seems like a simple solution, but probably not the greatest. You're gonna need a big glass of whiskey to get rid of the banging hangover that this is going to leave you with. But fuck it, you've got to get out of there somehow. *BANG*, the revolver explodes with a bright light, smoke, and a painful ringing in your ears. Obviously, there's no evidence left of the doorknob's once residence on that door. Time to get to work, right after you take care of that headache.[BLACK LETTERS]";
+		try fastforwarding instead;
+	if the noun is the loaded gun and the second noun is the flimsy doorknob:
+		say "[BLUE LETTERS]I look at the gun in my hand, and then at the doorknob. It seems like a simple solution, but probably not the greatest. I'm gonna need a big glass of whiskey to get rid of the banging headache that this is sure to give me. But fuck it, I've got to get out of there somehow... [line break][line break]*BANG*[line break][line break] The revolver explodes with a bright light, smoke, and a painful ringing in my ears. Obviously, there's no evidence left of the doorknob's once residence on the door. Time to get to work, right after I take care of this headache.[BLACK LETTERS]";
 		now Intro is solved_noir;
-		try fastforwarding;
+		try fastforwarding instead.
 
 	
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
-The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that you loved. It was cozy, dimly light and always had a slight, frigid bite that kept your nerves a bit on edge - just the way you like it. The fan overhead cut through the dry air with every beat of your own black heart leaving shadows dancing around the room from the light that hung just above it. It was time you got to business, finding Celene. Last you remember, you had three vital pieces of information on her. Unfortunately, after coming onto your secretary last week, she hasn't been back to clean up your mess. Who knows where those files could be, better start looking.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celene.[BLACK LETTERS][stopping]".
+The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that I so, truly  loved. It was cozy, dimly light and always had a slight, frigid bite that kept my nerves just the right amount on edge. The fan overhead cut through the dry air with every beat of my own black heart leaving shadows dancing around the room. It was time I got back to the business at hand, finding Celine. Last I remember, I had three vital pieces of information on her. Unfortunately, after coming onto my secretary last week, she hasn't been back to clean up my mess, women. Who knows where those files could be, better start looking.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celine.[BLACK LETTERS][stopping]".
+
+clues_number is a number that varies.
 
 Carry out resetting in NoirScene1:
-	now Celene's Secret is off-stage;
-	now empty bottle of whiskey is off-stage.
+	now clues_number is 0;
+	now top drawer is closed;
+	now middle drawer is closed;
+	now middle drawer is locked;
+	now lower drawer is closed;
+	now ball of paper is closed;
+	now ball of paper is in trash can;
+	now bronze key is in ball of paper;
+	now Celine's Picture is in middle drawer;
+	now Celine's Location is in NoirScene1;
+	now Celine's Location is off-stage;
+	now nearly finished bottle of whiskey is in lower drawer;
+	now Celine's Secret is in NoirScene1;
+	now Celine's Secret is off-stage;
+	now empty bottle of whiskey is off-stage;
+	now computer is not turned on;
+	now computer is closed;
 	
-The bookshelf is a container in NoirScene1. It is opaque, openable, closed and fixed in place.
-The description is "TEMP DESCRIPTION BOOKSHELF".
+The bookshelf is a thing in NoirScene1. It is fixed in place.
+The description is "[BLUE LETTERS]Not a single book on these shelves. I don't read much. So sue me.[BLACK LETTERS]".
 The desk is a container in NoirScene1. It is transparent, openable, and fixed in place.
-The description is "TEMP DESK DESCRIPTION".
+The description is "[BLUE LETTERS]The ol' desk, exotic oak. Was imported from Brazil after helping the President with a job. But that's ancient history, back when I was still new to the game - young and spritely. Glad that's over with.[BLACK LETTERS]".
 The top drawer is a container in the desk. It is opaque, openable, closed and fixed in place.
-The description is "TOP DRAWER DESCRIPTION".
+The description is "[BLUE LETTERS]The top drawer, used to keep a gun in there - just in case. But now-a-days, with the way this city has been, that girl rarely leaves my side.[BLACK LETTERS]".
 The middle drawer is a container in the desk. It is opaque, openable, closed, locked and fixed in place.
-The description is "MIDDLE DRAWER DESCRIPTION".
+The description is "[BLUE LETTERS]I haven't the strangest idea why I still keep this locked. After I moved the whisky, I don't remember putting anything else in it. Then again, I'm always drinking to keep that darkness away...[BLACK LETTERS]".
 The lower drawer is a container in the desk. It is opaque, openable, closed and fixed in place.
-The description is "LOWER DRAWER DESCRIPTION".
-The computer is a thing in NoirScene1. It is fixed in place.
-The description is "COMPUTER DESCRIPTION".
+The description is "[BLUE LETTERS]Where I hide my liquor now, my secretary will never expect a thing. It's too obvious. Then again, secretaries now-a-days do require a college education. Maybe the young girl would get wise, if she'd ever come back.[BLACK LETTERS]".
+The computer is a container in NoirScene1. The computer can be turned on. It is not turned on.
+The computer is opaque, closed, unopenable, and fixed in place.
+The description is "[BLUE LETTERS]My only link to the outside world now-a-days. Maybe it's my noir disposition, or maybe people are just all shit - but I don't get out much anymore. It's also the best place for me to get insider tips on the crime world. Just gotta give it a use to boot it up.[BLACK LETTERS]".
 The trash can is a container in NoirScene1.  It is transparent and fixed in place.
-The description is "TRASHCAN DESCRIPTION".
+The description is "[BLUE LETTERS]It's a trash can, where I generally throw away my crumpled-up failures.[BLACK LETTERS]".
 The ball of paper is a container in the trash can. It is opaque , openable and closed.
-The description is "BALLOFPAPER DESCRIPTION".
+The description is "[BLUE LETTERS]Seems like every other crumbled piece of paper scattered around this office.[BLACK LETTERS]".
 The bronze key is a thing in the ball of paper.
-The description is "[BLUE LETTERS]This was probably your secretaries' doing".
-The picture of Celene is in the middle drawer.
-The description is "[BLUE LETTERS]She was beautiful, no - beautiful doesn't begin to describe a gal like Celene. Asphyxiating is more like, so beautiful she'll rend the life out of every pore of your body if you even give her a second. Looking at her face feels you with a morose, solemn darkness - but is that really anything new for you?[BLACK LETTERS]".
+The description is "[BLUE LETTERS]This was probably my secretaries' doing. She always knew I liked to keep my whiskey in that locked middle drawer. Shame she didn't know I caught on and moved it a while ago.[BLACK LETTERS]".
+The Celine's Picture is in the middle drawer.
+The description is "[BLUE LETTERS]She was beautiful, no - beautiful doesn't begin to describe a gal like Celine. Asphyxiating is more like it. So beautiful she'll rend the life out of every pore of your body if you even give her a milisecond. Looking at her face fills me with a morose, solemn darkness - but I guess that's nothing new for me.[BLACK LETTERS]".
 The important email is a thing in the computer. It is fixed in place.
-The description is "[BLUE LETTERS]The email was sent from an anonymous address. It only reads 'The Park, 12:00PM.' Better check it out.[BLACK LETTERS]".
+The description is "[BLUE LETTERS]The email was sent from an anonymous address. It only reads 'The Park, 12:00PM. xoxo' Better check it out.[BLACK LETTERS]".
 The nearly finished bottle of whiskey is a thing in the lower drawer.
-The description is "[BLUE LETTERS]What's it been, three days? Maybe you have a problem, but who cares. This line of work, you're the problem if you don't have one. Speaking of, maybe you could use a drink.[BLACK LETTERS]".
-The Celene's Secret is a thing in NoirScene1.
-The description is "[BLUE LETTERS]Without even having to think about it, you know exactly what this means. It can, after-all, mean only one thing - the way you're going to get Celene.[BLACK LETTERS]".
+The description is "[BLUE LETTERS]What's it been, three days? Maybe I have a problem, but who cares. In this line of work, you're the problem if you don't have one. Speaking of, I could use a drink.[BLACK LETTERS]".
+The Celine's Secret is a thing in NoirScene1.
+The description is "[BLUE LETTERS]Without even having to think about it, I know exactly what this means. It can, after-all, mean only one thing - the way I'm going to get Celine.[BLACK LETTERS]".
 The empty bottle of whiskey is a thing in the trash can.
-The description is "[BLUE LETTERS]That trusty whiskey bottle served you well, if only for a few days. There will always be others.[BLACK LETTERS]".
+The description is "[BLUE LETTERS]That trusty whiskey bottle served me well, if only for a few days. Hopefully it won't be the last.[BLACK LETTERS]".
+The Celine's Location is a thing in NoirScene1.
+The description is "[BLUE LETTERS]Information from that email I jotted down. 'The Park, 12:00PM. xoxo'. Could this be a message from Celine?[BLACK LETTERS]".
 
 Check utilizing:
 	if the noun is nearly finished bottle of whiskey:
-		say "[BLUE LETTERS]A good drink is just what you need to get your head straight. You take a look at the small sum left, shrug, and kill it. The jarring humm in your mind that's nearly infinite is quieted down allowing you to think clearly. Just as you're about to trash the bottle of whiskey, you spy writing on the inside of the label. Looks important, better take it.[BLACK LETTERS]";
-		now Celene's Secret is on-stage;
-		try taking Celene's Secret;
+		say "[BLUE LETTERS]A good drink is just what I need to get my head straight. I take a look at the small sum left, shrug, and kill it. The jarring humm in my mind that's nearly infinite is quieted down allowing me to think clearly. Just as I'm about to trash the bottle of whiskey, I spy writing on the inside of the label. Looks important, better take it.[BLACK LETTERS]";
+		now Celine's Secret is on-stage;
+		try taking Celine's Secret;
 		now nearly finished bottle of whiskey is off-stage;
 		now empty bottle of whiskey is on-stage;
-		now empty bottle of whiskey is in the trash can.
+		now empty bottle of whiskey is in the trash can;
+		now clues_number is clues_number plus one instead;
+	if the noun is computer and the computer is not turned on:
+		say "[BLUE LETTERS]That obnoxious logo comes on with its irritating jingle to let me know the computer is booting up, how I hate that logo. Who cares honestly, just boot the damned thing up. What's this? An e-mail with the subject 'IMPORTANT'...[BLACK LETTERS]";
+		now the computer is turned on;
+		now the computer is open;
+		now the important email is in the computer instead;
+	if the noun is computer and the computer is turned on:
+		say "[BLUE LETTERS]It's already turned on, honestly - how drunk am I?[BLACK LETTERS]" instead;
 		
 Check using:
 	if the noun is bronze key and the second noun is middle drawer:
-		say "[BLUE LETTERS]**CLICK**. You unlock the drawer with ease. Sliding it out, you can hear the rain beat down on the world outside, it feels like with every motion you take, it only grows stronger. The lightning flashes outside and your eyes re-focus on the picture of the beautiful Celene staring back at you.[BLACK LETTERS]";
+		say "[BLUE LETTERS]**CLICK**. I unlock the drawer with ease. Sliding it out, I can hear the rain beat down on the world outside, it feels like with every motion I take, it only grows stronger. The lightning flashes outside and my eyes re-focus on the picture of the beautiful Celene staring back at me.[BLACK LETTERS]";
 		now the middle drawer is unlocked;
-		now the middle drawer is open.
-
+		now the middle drawer is open instead;
+		
+Carry out taking Celine's Picture:
+		say "[BLUE LETTERS]It hurts to look at her face again, but taking this may come in handy. I'd never forget her face, but at least I can show it to witnesses.[BLACK LETTERS]";
+		now clues_number is clues_number plus one.
+		
+Instead of taking important email:
+	if the player does not have Celine's Location:
+		say "[BLUE LETTERS]I better jot this down. Luckily it's still not midnight yet.[BLACK LETTERS]";
+		now Celine's Location is on-stage;
+		try taking Celine's Location;
+		now clues_number is clues_number plus one instead;
+	if the player does have Celine's Location:
+		say "[BLUE LETTERS]I already took this note down. No reason to duplicate my efforts.[BLACK LETTERS]" instead.
+		
+Every turn rule while the player is in NoirScene1:
+	if clues_number is 3:
+		say "[BLUE LETTERS]The clues were all together, now it was just a matter of following them straight to Celine. I could feel the show-down inching forward. Will this act finally crescendo? Will I finally be able to put the end to all these years of hell...[BLACK LETTERS]";
+		now NoirScene1 is solved_noir;
+		try fastforwarding instead.
+	
 
 NoirScene2 is a room with printed name "The Park: Midnight".
 Understand "The Park" and "Park" and "Midnight" as NoirScene2.
-The description of NoirScene2 is "[BLUE LETTERS]It's always sad when she gets the young ones. Staring at the most recent victim underneath this star-less nights, you can't help but look deeply into her cold, lifeless eyes  forcing you into a reflective trance. How many girls had it been, Celene? 20? 30? Will your bloodthirst never stop? This young beauty must have had the world open to her, so full of promise and you struck her down - for what? You could still smell Celene's infamous perfume in the air; she can't be far now - it's time to end this, if only you could find some clue to her whereabouts.[BLACK LETTERS]".
+The description of NoirScene2 is "[one of][BLUE LETTERS]It's always sad when she gets the young ones. Staring at the most recent victim underneath this star-less nights, I can't help but look deeply into her cold, lifeless eyes  forcing me into that all-too-familiar trance. How many girls had it been, Celine? 20? 30? Will your bloodthirst never stop? This young beauty must have had the world open to her, so full of promise and you struck her down - for what? I could still smell Celine's infamous perfume in the air; she can't be far now - it's time to end this, if only I could find some clue to her whereabouts.[BLACK LETTERS][or][BLUE LETTERS]Sitting around here only reminds me of the horrible things Celine has done for all these years. This poor young girl's corpse stinks of the strange mixture of Celine's perfume and the absolute of death. Better find that lead and get out of here.[BLACK LETTERS][stopping]".
+
+rom_item_value is a number that varies.
+noir_item_value is a number that varies.
+
+Carry out resetting in NoirScene2:
+	now rom_item_value is 0;
+	now noir_item_value is 0;
+
+A thing can be droppable or undroppable.
+A thing is usually droppable.
+The kiss mark is a thing in NoirScene2. [ROMANCE]
+The kiss mark is undroppable.
+The description is "[BLUE LETTERS]I'd recognize those lips anywhere. And that shade of lipstick, well I still dream about it. Oh Celine, where do you go wrong... I just want to take that beautiful mark from this poor girl's cheek with me. If only rubbing away the mark would bring Celine back to me, maybe there wouldn't have had to be this waste of life.[BLACK LETTERS]".
+The perfume is a thing in NoirScene2. [ROMANCE]
+The perfume is undroppable.
+The description is "[BLUE LETTERS]That perfume, just the smallest amount was enough to always keep my mind enraptured about Celine. I'll never forget that smell even after the day I die. I just want to take it with me; take Celine with me. I want to be with her forever, but I know it'll never be. Things have to be made right.[BLACK LETTERS]".
+The note from Celine is a thing in NoirScene2. [ROMANCE]
+The note from Celine is undroppable.
+The description is "[BLUE LETTERS]'I know it's you, I can't wait to see you again. You know where to find me. xoxo Celine' So it was her that sent me that email. I need to set things right. I know I can save Celine. I won't make the same mistake I made back then. We'll be happy together and then I'll make ammends to it all. Just like it should be... Just like...[BLACK LETTERS]".
+The dead girl's purse is a container in NoirScene2. It is opaque, openable, closed and fixed in place.
+The description is "[BLUE LETTERS]The girl's purse, tattered and dirtied. It was probably once so pristine, but now soiled with a uncleanable dirt; much like her smile. This poor girl, no one will ever see that brilliant smile again.[BLACK LETTERS]".
+The school ID is a thing in the dead girl's purse. [NOIR]
+The school ID is undroppable.
+The description is "[BLUE LETTERS]A Wilavert High School ID. The local high school here, filled with the best and the brightest this dark town still has. One of the last bastions of hope to re-light this barren wasteland and it just lost one of its brilliant wisps of light. Celine will pay for snuffing out such a hopeful mind.[BLACK LETTERS]".
+The family photo is a thing in the dead girl's purse. [NOIR]
+The family photo is undroppable.
+The description is "[BLUE LETTERS]The family photo, every girl has to have one. It's painful to look at every time we come across one. There they all are, the girl, her brothers, her mother and father. They probably don't even know that their beloved, perfect daughter is now lying in the grass of a tall oak, battered, bruised and drained of every ounce of life she once had. Celine will know that feeling, I'll make sure of it.[BLACK LETTERS]".
+The prom ticket is in the dead girl's purse. [NOIR]
+The prom ticket is undroppable.
+The description is "[BLUE LETTERS]'I can't wait for this night! I've been waiting so long to take you out!' I guess she had a boyfriend, or at least a date. The poor guy, he'll have to live with this news for the rest of his life. So excited to take out this girl and have a wonderful, memorable night together next weekend. He'll never heal from this wound, neither will the girl and most certainly - neither will Celine.[BLACK LETTERS]".
+
+Instead of dropping something when the noun is undroppable:
+	say "[BLUE LETTERS]No... This one is with me till the end.[BLACK LETTERS]" instead;
+
+[ROMANCE ENDING ITEM RULES]
+After examining kiss mark:
+	if the player does not have the kiss mark:
+		try taking kiss mark;
+			
+After examining perfume:
+	if the player does not have the perfume:
+		try taking perfume;
+		
+After examining note from Celine:
+	if the player does not have the note from Celine:
+		try taking note from Celine;
+
+After taking kiss mark:		
+	now rom_item_value is rom_item_value plus one instead;		
+After taking perfume:
+	now rom_item_value is rom_item_value plus one instead;
+After taking note from Celine:
+	now rom_item_value is rom_item_value plus one instead;
+
+[NOIR ENDING ITEM RULES]
+After examining school ID:
+	if the player does not have the school ID:
+		try taking school ID;
+
+After examining family photo:
+	if the player does not have the family photo:
+		try taking family photo;
+		now noir_item_value is noir_item_value plus one instead;
+
+After examining prom ticket:
+	if the player does not have the prom ticket:
+		try taking prom ticket;
+		now noir_item_value is noir_item_value plus one instead;
+		
+After taking school ID:
+	now noir_item_value is noir_item_value plus one instead;
+After taking family photo:
+	now noir_item_value is noir_item_value plus one instead;
+After taking prom ticket:
+	now noir_item_value is noir_item_value plus one instead;	
+	
+Every turn rule while the player is in NoirScene2:
+	say "[rom_item_value] and [noir_item_value]";
+	if rom_item_value plus noir_item_value is three:
+		if rom_item_value is greater than noir_item_value:
+			now NoirScene2 is solved_romance;
+			try fastforwarding instead;
+		if noir_item_value is greater than rom_item_value:
+			now NoirScene2 is solved_noir;
+			try fastforwarding instead;
+	
 
 NoirScene3a is a room with printed name "Victim's House".
 Understand "Victim's House" as NoirScene3a.
-The description of NoirScene3a is "[BLUE LETTERS]You could feel it, on the otherside of the door - everything you worked for, it all culminated to what was behind that door, Celene. You had finally tracked her down and it was time for the final showdown. Taking one last deep breath, you open the door and bathed in the stark, white light that flooded the room. [line break][line break]'The Jig is up, Celene.' you claimed, brandishing your trusty six-shooter towards Celene. [line break][line break]She laughs at your petty attempts to arrest her, 'Really? The jig is up? Please, do you honestly think I wasn't prepared for you? You follow someone for this long, you know they're going to notice.' You could see her own weapon pointed straight at that sweet spot between your eyes. Your eyes couldn't help but focus down the barrel, how many poor girls had seen this same scene? [line break][line break]'I see. So I guess we have ourselves a stand-off. So tell me, Celene - why did you do it? Why so many young ladies? What did they do wrong?' your questions cut through her like razor blades of ice and it was obvious.   [line break][line break]'What did they do WRONG!? You blithering idiot, you've chased my tail for ten years and you still haven't figured that much out?' her voice was raspt, wicked with hatred. [line break][line break]'Ten years is a long time Celene. Ever since you left my bed that morning and never came back - you changed. I don't even remember who you are anymore.' you said, each word filled with memories of passion, now tinted with disgust. [line break][line break]'It is a long time. You never got over me, did you? Still you lay up at night, longing for my kiss, my touch. I can see it in your hands even as you hold that pistol. You don't have the nerve to shoot me. You'll die a sad man, never knowing what happened to your wife or why she became the greatest serial killer this world had ever seen.' she finished, her thin lips now forming into a wicked smile. It was true, everything she said. You couldn't help but notice your right-hand, gripping the pistol so tightly it shaked with fear and cowardice. But before you even had time to react, a loud bang punctuated the night. It was all over. [line break][line break]You could hear her high-heels click and clack behind you as the door closed to not only end this chapter on your life, but the whole book.[BLACK LETTERS]".
+The description of NoirScene3a is "[BLUE LETTERS]I could feel it, on the otherside of the door was everything I worked for, it all culminated to one thing; Celine. You had finally tracked her down and it was time for the final showdown. Taking one last deep breath, you open the door and bathed in the stark, white light that flooded the room. [line break][line break]'The Jig is up, Celine.' you claimed, brandishing your trusty six-shooter towards Celene. [line break][line break]She laughs at your petty attempts to arrest her, 'Really? The jig is up? Please, do you honestly think I wasn't prepared for you? You follow someone for this long, you know they're going to notice.' You could see her own weapon pointed straight at that sweet spot between your eyes. Your eyes couldn't help but focus down the barrel, how many poor girls had seen this same scene? [line break][line break]'I see. So I guess we have ourselves a stand-off. So tell me, Celene - why did you do it? Why so many young ladies? What did they do wrong?' your questions cut through her like razor blades of ice and it was obvious.   [line break][line break]'What did they do WRONG!? You blithering idiot, you've chased my tail for ten years and you still haven't figured that much out?' her voice was raspt, wicked with hatred. [line break][line break]'Ten years is a long time Celene. Ever since you left my bed that morning and never came back - you changed. I don't even remember who you are anymore.' you said, each word filled with memories of passion, now tinted with disgust. [line break][line break]'It is a long time. You never got over me, did you? Still you lay up at night, longing for my kiss, my touch. I can see it in your hands even as you hold that pistol. You don't have the nerve to shoot me. You'll die a sad man, never knowing what happened to your wife or why she became the greatest serial killer this world had ever seen.' she finished, her thin lips now forming into a wicked smile. It was true, everything she said. You couldn't help but notice your right-hand, gripping the pistol so tightly it shaked with fear and cowardice. But before you even had time to react, a loud bang punctuated the night. It was all over. [line break][line break]You could hear her high-heels click and clack behind you as the door closed to not only end this chapter on your life, but the whole book.[BLACK LETTERS]".
 
 NoirScene3b is a room with printed name "Celine's Hotel".
 Understand "Celine's Hotel" as NoirScene3b.
