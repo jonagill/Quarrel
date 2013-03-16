@@ -2,7 +2,7 @@
 
 Include Basic Screen Effects by Emily Short.
 Include Reactable Quips by Michael Martin.
-Release along with an interpreter, the source text and a website.
+Release along with the source text.
 Use no scoring.
 
 Chapter I - Values
