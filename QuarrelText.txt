@@ -117,25 +117,20 @@ After helping when genre_value is greater than 0:
 
 
 [EXAMINE ME]
-
-Instead of examining player when genre_value is less than 0: say "Noir description.";
+Instead of examining player when genre_value is less than 0: say "[BLUE LETTERS]My trusty trench coat covers all the scars I've gained in my line of work. A middle-aged man, I'm just as grit as the the city that's birth me. With a heart as dark as the city's sky, I move on each day with the seductive thought of my next drink.[BLACK LETTERS]";
 Instead of examining player when genre_value is 0: say "[RED LETTERS]Not especially young, and not especially handsome, but you'll do. [BLUE LETTERS] I get through each day with the thought of my next drink.[BLACK LETTERS]";
 Instead of examining player when genre_value is greater than 0: say "[RED LETTERS]Not especially young, and not especially handsome, but you'll do.  You're passionate, about your loves at least, if not about your work.[BLACK LETTERS]";
 
-
 [GO N/S/E/W]
-
 Instead of going when genre_value is less than 0: say "[BLUE LETTERS]Yes, part of me wanted to run.  But this was where I had to be. [BLACK LETTERS]".
 Instead of going when genre_value is 0: say "[RED LETTERS]Slow down, cowboy.  There's still [BLUE LETTERS]work to do.  Messy work.[BLACK LETTERS]".
 Instead of going when genre_value is greater than 0: say "[RED LETTERS]Slow down, cowboy.  There's still something to do here before you go running off.[BLACK LETTERS]"
 
-[Instead of doing something other than looking, examining, asking, telling, or going, say "HAHAHA NO."]
 
 Chapter III - Conversations
 
 
 [TALKING Action]
-
 Talking is an action applying to one thing.
 Understand "talk [something]" and "talk to [something]" as talking.
 Check talking: try asking the noun about "the_default".
@@ -206,14 +201,10 @@ Check telling:
 	
 
 [Quip Results]
-
 Before quipping when the current quip is romance success:
-	say "ROMANCE SUCCESS SOMEHOW";
 	now RomScene2 is solved_romance;
 Before quipping when the current quip is noir success:
 	now RomScene2 is solved_noir;
-
-Charles is a person.  The knife is an object.
 
 Chapter IV - Rooms
 
@@ -251,6 +242,7 @@ The description of Intro is "[one of]
 	[or][BLUE LETTERS]The closet is as dark and stifling as a coffin,[RED LETTERS] with a wet, vaguely antiseptic smell about it. [BLACK LETTERS][stopping]"
 
 Carry out resetting in Intro:
+	now genre_value is 0;
 	now Intro is unsolved;
 	[----RomItems----]
 	now the filing cabinet is closed;
@@ -381,6 +373,8 @@ The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. Th
 clues_number is a number that varies.
 
 Carry out resetting in NoirScene1:
+	now NoirScene1 is unsolved;
+	now genre_value is -1;
 	now clues_number is 0;
 	now top drawer is closed;
 	now middle drawer is closed;
@@ -485,6 +479,7 @@ rom_item_value is a number that varies.
 noir_item_value is a number that varies.
 
 Carry out resetting in NoirScene2:
+	now NoirScene2 is unsolved;
 	now rom_item_value is 0;
 	now noir_item_value is 0;
 
@@ -574,18 +569,19 @@ NoirScene3b is a room with printed name "Motel in Cuba".
 Understand "Motel" as NoirScene3b.
 The description of NoirScene3b is "'[RED LETTERS]I guess death wouldn't be so bad if it was started with a kiss from those wet lips of yours, Celine', [BLUE LETTERS]I whispered in her frigid, deaf ears. So this is where it all came to an end. I guess you're probably wondering how we ended up here, in a dirty motel in the middle of god-knows-where Cuba. It's not a very interesting story and one comprised of all the puzzle pieces you probably already know. [RED LETTERS]When you finally tracked down Celine, you couldn't pull the trigger.[BLUE LETTERS] Something was holding me back. Maybe it was the darkness inside of her that I could see screaming at me behind her blue eyes, or maybe it was my own abyss beating for hers, but either way - I couldn't end it there. It just wasn't right.[RED LETTERS]You needed her and she needed you.[BLUE LETTERS] We tried, really we did. But we couldn't out-run all the horrible things she had done, all the beautiful motes of life she snuffed out demanded me to make it right. Part of me didn't want to do it, really it didn't - but it was as inevitable as the cyanide that now coarsed through her veins. Poor Celine, I really think she was the real victim in this whole scenario or maybe it's just how innocent she looks laying there, with that quiet, tranquil smile on her face as the winds of Cuba blow through the window over her pristine, motionless body. There was only one last thing I had to do to make everything right; hopefully in whatever eternal plane awaits us both, we can finally be rid of these insipid poisons that cursed us for so many years.[BLACK LETTERS]".
 
-
 [Romance Scenes]
-RomScene1 is room with printed name "Accounting Office".
+RomScene1 is room with printed name "Charles and Charles, Accounting LLC".
 Understand "Office" as RomScene1.
-Understand "Accounting Office" as RomScene1.
+Understand "Accounting" as RomScene1.
 The description of RomScene1 is 
 	"[one of]
-	[RED LETTERS]The Offices of Charles and Charles, Accounting LLC.  A hateful, miserly pair, long since dead, but their legacy had been carried forth by generations of successive skinflints bearing the Charles name until it came to be held by your present boss, a certain Mister Ulysses P. Charles the Third.  He keeps the workplace he manages dingy and unadorned in a bid to save on upkeep, and it is into one of the drab floors of this uninspiring business that you find yourself stumbling after your daring escape from the supply closet.[line break]You blink and rub your eyes — after the darkness of the cupboard, even this drab half-light stings your eyes.  As you adjust to the gloom,  you notice that there is no one else around.  Even your mysterious rescuer has disappeared.  This isn't so surprising — it is Boxing Day, and even Ulysses Charles would have a hard time getting his staff to come into work the day after Christmas.  Especially with the hangovers most of them would probably be exhibiting after the Christmas party last night…[line break]The Christmas party!  Celine!  It all comes flooding back again, all except where you were supposed to find her tonight.  Looking around the office some more, you realize that you're on the third floor, where human resources — and more importantly, Celine — works.  There must be some kind of clue to where she'll be at her desk, if only you can find it.[BLACK LETTERS]
+	[RED LETTERS]The Offices of Charles and Charles, Accounting LLC.  A hateful, miserly pair, long since dead[BLUE LETTERS], shame you weren't the one to give them that release,[RED LETTERS] but their legacy had been carried forth by generations of successive skinflints bearing the Charles name until it came to be held by your present boss, a certain Mister Ulysses P. Charles the Third.  He keeps the workplace he manages dingy and unadorned in a bid to save on upkeep, and it is into one of the drab floors of this uninspiring business that you find yourself stumbling after your [BLUE LETTERS]pathetic[RED LETTERS] escape from the supply closet.[line break]You blink and rub your eyes — after the darkness of the cupboard, even this drab half-light stings your eyes.  As you adjust to the gloom,  you notice that there is no one else around[BLUE LETTERS], thankfully.[RED LETTERS]  Even your mysterious rescuer has disappeared.  This isn't so surprising — it is Boxing Day, and even Ulysses Charles would have a hard time getting his staff to come into work the day after Christmas.  Especially with the hangovers [BLUE LETTERS]they got from that pathetic excuse of a party…[RED LETTERS][line break]The Christmas party!  Celine!  It all comes flooding back again, all except where you were supposed to find her tonight.  Looking around the office some more, you realize that you're on the third floor, where human resources — and more importantly, Celine — works.  There must be some kind of clue[BLUE LETTERS], clue's my middle name, kid[RED LETTERS] to where she'll be at her desk, if only you can find it.[BLACK LETTERS]
 	[or]
-	[RED LETTERS]Your much-despised workplace.  Specifically, the offices of human resources, where Celine has her desk, which might have a clue as to where she'll be tonight.[BLACK LETTERS][stopping]".
+	[RED LETTERS]Your [BLUE LETTERS]drull, horrid[RED LETTERS] workplace.  Specifically, the offices of human resources, where Celine has her desk, which might have a clue as to where she'll be tonight.[BLACK LETTERS][stopping]".
 
-Carry out resetting when the player is in RomScene1: 
+Carry out resetting when the player is in RomScene1:
+	now RomScene1 is unsolved;
+	now genre_value is 1;
 	now the pink flower is on the light brown desk;
 	now the pink day planner is on the light brown desk;
 	now the blue flower is on the moderately brown desk;
@@ -595,13 +591,11 @@ Carry out resetting when the player is in RomScene1:
 	now your crumpled jacket is in the cardboard box;
 	now the cardboard box is closed;
 	now the scribbled note is off-stage;
-	now RomScene1 is unsolved;
-	now genre_value is 1.
 	
 A planner is a kind of thing.  A planner can be openable.  A planner is openable.  A planner can be open or closed.  A planner is usually closed.
 
 The light brown desk is a supporter in RomScene1.
-The description of the light brown desk is "[RED LETTERS]One of many such wooden desks that fill the floors of Charles & Charles.  This one is a light, beigeish color.[BLACK LETTERS]".
+The description of the light brown desk is "[RED LETTERS]One of many such wooden desks that fill the floors of Charles & Charles.  This one is a [BLUE LETTERS]disgusting, twisted oak [RED LETTERS]color.[BLACK LETTERS]".
 
 The pink flower is a thing on the light brown desk.
 The description is "[RED LETTERS]A pink carnation in a round glass bowl.  Charming.[BLACK LETTERS]".
@@ -609,10 +603,10 @@ The description is "[RED LETTERS]A pink carnation in a round glass bowl.  Charmi
 The pink day planner is a planner on the light brown desk.
 
 The moderately brown desk is a supporter in RomScene1.
-The description of the moderately brown desk is "[RED LETTERS]One of the hated wooden desks that define the workplace experience for your colleagues and yourself.  This one has a middling, uninspired brown hue to it.[BLACK LETTERS]".
+The description of the moderately brown desk is "[RED LETTERS]One of the hated wooden desks that define the workplace experience for your colleagues and yourself.  This one has a middling, uninspired brown hue to it.[BLUE LETTERS]But honestly, the brown suits you.[BLACK LETTERS]".
 
 The blue flower is a thing on the moderately brown desk.
-The description is "[RED LETTERS]A blue blossom in a hand-blown black bowl.  Blissful.[BLACK LETTERS]".
+The description is "[RED LETTERS]A blue blossom in a hand-blown black bowl.  Blissful[BLUE LETTERS]-ly disgusting.[BLACK LETTERS]".
 
 The old computer is a thing on the moderately brown desk.
 The description is "[RED LETTERS]An IBM model almost as old as you are.  Its screen is dark, dusty, and flecked with the greyish residue of long-dry spittle.  Lovely.[BLACK LETTERS]".
@@ -620,7 +614,7 @@ The description is "[RED LETTERS]An IBM model almost as old as you are.  Its scr
 The blue day planner is a planner on the moderately brown desk.
 
 The dark brown desk is a supporter in RomScene1.  It is fixed in place.
-The description of the dark brown desk is "[RED LETTERS]The darkest of the desks in the room, although it's less a deep oaken hue and more of an unpleasant oily patina.[BLACK LETTERS]".
+The description of the dark brown desk is "[RED LETTERS]The darkest [BLUE LETTERS]like the alley ways of this city, hiding the rogues and scally--[RED LETTERS]of the desks in the room, although it's less a deep oaken hue and more of an unpleasant oily patina.[BLACK LETTERS]".
 
 The pint glass is a thing on the dark brown desk.
 The description is "[RED LETTERS]A dirty pint glass, it's sides webbed with dry foam.[BLACK LETTERS]".
@@ -638,7 +632,7 @@ The supply closet door is a thing in RomScene1.
 The description is "[RED LETTERS]The portal back to that bleak netherealm in which you spent the night.  No thank you, sir.[BLACK LETTERS]".
 
 The scribbled note is a thing.  The scribbled note can be read.  The scribbled note is not read.
-The description is "[RED LETTERS]A crumpled piece of paper in your jacket pocket.  Scrawled upon it in red ballpoint is 'CELINE M. 525-423-9820'.  You always did have a way with women while in your cups.  You card, you.[BLACK LETTERS]."
+The description is "[RED LETTERS]A crumpled piece of paper in your jacket pocket.  Scrawled upon it in red ballpoint is 'CELINE M. 525-423-9820'.  You always did have a way with women while in your cups. [BLUE LETTERS]Until, of course, they use you for everything, consume you, spit you out and crush you.[RED LETTERS] You card, you.[BLACK LETTERS]."
 
 Check examining pockets when the player is wearing your crumpled jacket:
 	now the scribbled note is read;
@@ -646,7 +640,7 @@ Check examining pockets when the player is wearing your crumpled jacket:
 
 Carry out examining the pink day planner:
 	if the noun is closed:
-		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:  5261 Magnolia Court — 525-180-7547'[line break]  You weren't allowed to write your names on your planners here — Mr Charles said it encouraged his staff to have too much personality.[BLACK LETTERS]";
+		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:  5261 Magnolia Court — 525-180-7547'[line break]  You weren't allowed to write your names on your planners here [BLUE LETTERS], but fuck the rules, you hate this damned cheery-hell hole anyways[RED LETTERS] — Mr Charles said it encouraged his staff to have too much personality.[BLACK LETTERS]";
 	if the noun is open:
 		say "[RED LETTERS]You thumb through to the entry for December 26.  It seems the owner of this planner is going to be at the roller rink tonight.  That could be fun, you think, but could it be Celine?[BLACK LETTERS]";
 
@@ -654,17 +648,17 @@ Carry out examining the blue day planner:
 	if the noun is closed:
 		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:   925 Tulip Way — 525-282-9242'[line break]  Charles liked to keep his company's stationary as unpersonable as their business.[BLACK LETTERS]";
 	if the noun is open:
-		say "[RED LETTERS]You scan the page for today's entry.  Whoever owns this planner is going sailing this evening.  Could this be the kind of exotic good time that Celine would have invited you on?[BLACK LETTERS]";
+		say "[RED LETTERS]You scan the page for today's entry.  Whoever owns this planner is going sailing this evening.  Could this be the kind of exotic [BLUE LETTERS], like the seedy under-belly of this city,[RED LETTERS] good time that Celine would have invited you on?[BLACK LETTERS]";
 
 Carry out examining the grey day planner:
 	if the scribbled note is read:
-		say "[RED LETTERS]You compare the number on the cover of the grey planner with the one on the paper you found in your pocket, and your heart leaps as you match the digits.  This is Celine's planner alright!  Which means you now have her address and phone number.  Kind of creepy, perhaps, but she did invite you over, after all.  You run a hand through your hair, brush another futilely over the wrinkles in your jacket, and stride out the door.[BLACK LETTERS]";
+		say "[RED LETTERS]You compare the number on the cover of the grey planner with the one on the paper you found in your pocket, and your heart leaps as you match the digits.  This is Celine's planner alright!  [BLUE LETTERS]Celine... Don't do it kid, you're only going straight to oblivion. REWIND before it's too late...[RED LETTERS] Which means you now have her address and phone number.  Kind of creepy, perhaps, but she did invite you over, after all.  You run a hand through your hair, brush another futilely over the wrinkles in your jacket, and stride out the door.[BLACK LETTERS]";
 		now RomScene1 is solved_romance;
 		try fastforwarding instead;
 	if the noun is closed:
 		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:   8572 Bromeliad Road — 525-423-9820'[line break]  The typewritten details were no use to you without a name to pin them to.[BLACK LETTERS]" instead;
 	if the noun is open:
-		say "[RED LETTERS]You leaf through the planner to find that the pencilled in details that the owner of this planner is holding a party at their home this very night.  It sounds fun, but you can't risk gate crashing if it's not Celine's house.[BLACK LETTERS]" instead;
+		say "[RED LETTERS]You leaf through the planner to find that the pencilled in details that the owner of this planner is holding a party at their home this very night.  It sounds fun, but you can't risk gate crashing if it's not Celine's house. [BLUE LETTERS]Parties weren't your scene anyways. Nothing like the sweet one-on-one company of a good bottle of Whiskey.[BLACK LETTERS]" instead;
 
 After taking your crumpled jacket:
 	try wearing the noun instead.
@@ -683,7 +677,7 @@ Carry out drinking the pint glass:
 	say "[BLUE LETTERS]Now we're talking.  A drink was just the thing I needed. [RED LETTERS]You find nothing but dust and air at the bottom of this glass, however.[BLACK LETTERS]" instead.
 	
 Check utilizing the computer:
-	say "[RED LETTERS]The screen remains blank.  You remember that Old Man Charles keeps the power off on weekends and holidays.  As a miser and a professional bookkeeper, no opportunity to save a penny escaped his cataract-ridden gaze.[BLACK LETTERS]" instead.
+	say "[RED LETTERS]The screen remains blank[BLUE LETTERS], like the void in your heart.[RED LETTERS] You remember that Old Man Charles keeps the power off on weekends and holidays.  As a miser and a professional bookkeeper, no opportunity to save a penny escaped his cataract-ridden gaze.[BLACK LETTERS]" instead.
 
 RomScene2 is room with printed name "The Park: Sunset".
 Understand "The Park" and "Park" and "Noon" as RomScene2.
@@ -703,24 +697,24 @@ Every turn when the location is RomScene2 and Margaret is not introduced:
 
 Margaret is a person in RomScene2.  Understand "Marge", "Maggie", "Molly", "Marigold", "Marilyn", "Marjory", "Margarine", and "Martleby" as Margaret.  Margaret can be introduced.  Margaret is not introduced.
 The printed name of Margaret is "[one of]Margaret[or]Maggie[or]Molly[or]Marigold[or]Marge[or]Marilyn[or]Marjory[or]Margarine[or]Martleby[then at random]".
-The description is "[RED LETTERS]The dumpy office temp who works on your floor.  She's sweet enough, although her hair is tangled and her teeth are crooked, and she is currently blocking your path to Celine's house, the address of which you still don't know.  She's watching you expectantly, which you find very offputting.[BLACK LETTERS]"
+The description is "[RED LETTERS]The dumpy office temp who works on your floor.  She's sweet enough, although her hair is rather disheveled and her teeth are [BLUE LETTERS]putrid and crooked[RED LETTERS], and she is currently blocking your path to Celine's house, the address of which you still don't know.  She's watching you expectantly, which you find very offputting.[BLACK LETTERS]"
 
 CelineRom is a person with printed name "Celine".  Understand "Celine" as CelineRom.
-The description is "[one of][RED LETTERS]Celine.  Your new love, your amour, your cherished sweetling and the one hope that kept you going throughout the days events.[BLACK LETTERS][or][RED LETTERS]God, she's great, isn't she?[BLACK LETTERS][stopping]"
+The description is "[one of][RED LETTERS]Celine.  Your new love, [BLUE LETTERS]your grave[RED LETTERS], your cherished sweetling and the one hope that kept you going throughout the days events.[BLACK LETTERS][or][RED LETTERS]God, she's great, isn't she?[BLACK LETTERS][stopping]"
 
 RomScene3a is room with printed name "Celine's Bedroom".
 Understand "Celine's Bedroom" as RomScene3a.
 The ending_text of RomScene3a is "[one of]
-	[RED LETTERS]Celine guides you into the center of the room, her hand on your wrist, and your mind continues to wonder at how you could have got so lucky.  Perhaps this is all a trick, and she's actually going to murder you?  That would seem more in line with your luck of late.[BLACK LETTERS]
+	[RED LETTERS]Celine guides you into the center of the room, her hand on your wrist, and your mind continues to wonder at how you could have got so lucky. [BLUE LETTERS]Luck? No, it was all skill.[RED LETTERS] Perhaps this is all a trick, and she's actually going to murder you? [BLUE LETTERS]No, not here.[RED LETTERS] That would seem more in line with your luck of late.[BLACK LETTERS]
 	[or]
-	[RED LETTERS]You think back to all good times you spent with Celine tonight.  She laughed at your jokes, and you at hers, you kept eachother enthralled with various anecdotes, you even teased [the printed name of Margaret] behind her back together.  And now Celine is turning off the lamp in the corner, her back to you, the cut of her dress revealing her smooth arc of her shoulder blades and the back of her long, shapely neck.[BLACK LETTERS]
+	[RED LETTERS]You think back to all good times you spent with Celine tonight[BLUE LETTERS], but still haunted by all the awful things she did... CELINE![RED LETTERS]  She laughed at your jokes, and you at hers, you kept eachother enthralled with various anecdotes, you even teased [the printed name of Margaret] behind her back together.  And now Celine is turning off the lamp in the corner, her back to you, the cut of her dress revealing her smooth arc of her shoulder blades and the back of her long, shapely neck.[BLACK LETTERS]
 	[or]
-	[RED LETTERS]You're practically immobilized by her beauty, but Celine doesn't seem to mind.  She plants the first kiss on your lips, the next on your neck.  You try to think of something smart to say, but she knows what you're doing and places a slender finger against your lips.  Mutely, you allow her to pull you down onto the bed and into her embrace.[BLACK LETTERS]
+	[RED LETTERS]You're practically immobilized by her beauty, but Celine doesn't seem to mind.  She plants the first kiss on your lips, the next on your neck.  You try to think of something smart to say, but she knows what you're doing and places a slender finger against your lips[BLUE LETTERS], she doesn't want to talk about all those girls she murdered.[RED LETTERS] Mutely, you allow her to pull you down onto the bed and into her embrace.[BLACK LETTERS]
 	[stopping]".
 The ending_turns of RomScene3a is 3.
 RomScene3a is ending_room.
 The description of RomScene3a is "[one of]
-	[RED LETTERS]You're not entirely sure how you came to find yourself alone with Celine in her bedroom, the blinds drawn and the lights turned down low.  You feel a little bad about ditching poor old [the printed name of Margaret] after she showed you the way to Celine's house, but you hardly regret it.  That little cruelty filled you with a rush of confidence that carried through the entire evening, and now, somehow, it has brought you here.[BLACK LETTERS]
+	[RED LETTERS]You're not entirely sure how you came to find yourself alone with Celine in her bedroom, the blinds drawn and the lights turned down low.  You feel a little bad about ditching poor old [the printed name of Margaret] after she showed you the way to Celine's house, [BLUE LETTERS]but you hardly regret it.[RED LETTERS] That little cruelty filled you with a rush of confidence that carried through the entire evening, and now, somehow, it has brought you here.[BLACK LETTERS]
 	[or]
 	[RED LETTERS]Celine's bedroom.  The lights are dim, and the bed looks very comfortable.  [BLUE LETTERS]Big enough for two, as well.  Or three.[BLACK LETTERS][stopping]".
 
@@ -728,30 +722,30 @@ Carry out resetting in RomScene3a:
 	now CelineRom is in RomScene3a;
 
 The bed is a thing in RomScene3a.  It is fixed in place.
-The description is "[RED LETTERS]Celine's bed.  It's big, white, and incredibly inviting looking.  You try not to image what she must look like sleeping in it, but do so anyway.[BLACK LETTERS]"
+The description is "[RED LETTERS]Celine's bed.  It's big, white, and incredibly inviting looking [BLUE LETTERS], like her black heart.[RED LETTERS] You try not to image what she must look like sleeping in it, but do so anyway.[BLACK LETTERS]"
 
 The nightstand is a supporter in RomScene3a.
 The description is "[RED LETTERS]A simple oaken nightstand.[BLACK LETTERS]"
 
 The alarm clock is a thing on the nightstand.
-The description is "[RED LETTERS]You hate alarm clocks, but this one is Celine's, and somehow that makes you like it.  Love it, even.  Celine's great, isn't she? you sigh to yourself.  You're weird.[BLACK LETTERS]"
+The description is "[RED LETTERS]You hate alarm clocks, but this one is Celine's, and somehow that makes you like it.  Love it, even.  Celine's great, isn't she? you sigh to yourself.  [BLUE LETTERS]You're sick and twisted.[BLACK LETTERS]"
 
 The book is a thing on the nightstand.
-The description is "[RED LETTERS]Celine's bedtime reading.  It's a weighty tome on some French war or other — she's smart as well as beautiful.  God, you love her.[BLACK LETTERS]"
+The description is "[RED LETTERS]Celine's bedtime reading.  It's a weighty tome on some French war or other — she's smart as well as beautiful.  God, you love her.[BLUE LETTERS]Disgusting.[BLACK LETTERS]"
 
 RomScene3b is room with printed name "Celine's Driveway".
 Understand "Celine's Driveway" as RomScene3b.
 RomScene3b is ending_room.
 The ending_text of RomScene3b is "[one of]
-	[RED LETTERS]The evening has passed like a blur, a long streak of misfortune that made you queasy to look at it.  You look at Celine and try to make out the words that she's saying, but all you can hear are the brief moments of conversations you had earlier, awkward and aborted.  You'd tried your best to be kind and polite and interested in everything she said, but she never seemed to find your answers especially interesting, and kept slipping off to talk to someone else.  Why hadn't you hit it off like you did last night?  What on Earth could have happened?[BLACK LETTERS]
+	[RED LETTERS]The evening has passed like a blur, a long streak of misfortune that made you queasy to look at it.  You look at Celine and try to make out the words that she's saying, but all you can hear are the brief moments of conversations you had earlier, [BLUE LETTERS]awkward and aborted, you loser.[RED LETTERS] You'd tried your best to be kind and polite and interested in everything she said, but she never seemed to find your answers especially interesting, and kept slipping off to talk to someone else.[BLUE LETTERS] Someone more like me.[RED LETTERS] Why hadn't you hit it off like you did last night?  What on Earth could have happened?[BLACK LETTERS]
 	[or]
-	[RED LETTERS]'I'm so glad you could come,' Celine is saying now, 'It was lovely to see you outside of work. '  You wonder why, if that's the case, she showed so little interest in you all evening.  'I'm so glad we're friends,' she continues.  'You're such a nice guy.'  Ah.  There it is.[BLACK LETTERS]
+	[RED LETTERS]'I'm so glad you could come,' Celine is saying now, 'It was lovely to see you outside of work. '  You wonder why, if that's the case, she showed so little interest in you all evening.  'I'm so glad we're friends,' she continues.  'You're such a nice guy.'  [BLUE LETTERS]Ah.  There it is.[BLACK LETTERS]
 	[or]
-	[RED LETTERS]You each say your goodbyes, Celine steps back into her house, and the door shuts in your face.  You're left in the cold, staring at the woodwork on the front door of another girl you let slip through your fingers.  You start the long walk home without complaint like the nice guy you are.  As you walk, you wonder what kind of tie you'll wear to work tomorrow.[BLACK LETTERS]
+	[RED LETTERS]You each say your goodbyes, Celine steps back into her house, and the door shuts in your face.  You're left in the cold, staring at the woodwork on the front door of another girl you let slip through your fingers.  You start the long walk home without complaint like the nice guy you are. [BLUE LETTERS]GET A BACKBONE![RED LETTERS] As you walk, you wonder what kind of tie you'll wear to work tomorrow.[BLACK LETTERS]
 	[stopping]".
 The ending_turns of RomScene3b is 3.
 The description of RomScene3b is "[one of]
-	[RED LETTERS]You find yourself standing on Celine's front step saying your goodbyes without much of an idea as to how you got there.    You glance around and take in the dark sky, the gravel pathway, the old red brickwork that makes up the front of Celine's house.  You'd rather look at the architecture than Celine, despite her beauty.  You know in your bones that to look at Celine is to look at what you have lost.[BLACK LETTERS]
+	[RED LETTERS]You find yourself standing on Celine's front step saying your goodbyes without much of an idea as to how you got there. You glance around and take in the dark sky, the gravel pathway, the old red brickwork that makes up the front of Celine's house.  You'd rather look at the architecture than Celine, despite her beauty.  You know in your bones that to look at Celine is to look at [BLUE LETTERS]what you have lost, pathetic.[BLACK LETTERS]
 	[or]
 	[RED LETTERS]Celine's driveway.  It's dark outside, and it doesn't seem like Celine will let you back into the warmth and light of her front room.[BLACK LETTERS][stopping]".
 Carry out resetting in RomScene3b:
