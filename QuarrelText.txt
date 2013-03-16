@@ -640,15 +640,15 @@ Check examining pockets when the player is wearing your crumpled jacket:
 
 Carry out examining the pink day planner:
 	if the noun is closed:
-		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:  5261 Magnolia Court — 525-180-7547'[line break]  You weren't allowed to write your names on your planners here [BLUE LETTERS], but fuck the rules, you hate this damned cheery-hell hole anyways[RED LETTERS] — Mr Charles said it encouraged his staff to have too much personality.[BLACK LETTERS]";
+		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:  5261 Magnolia Court — 525-180-7547'[line break]  You weren't allowed to write your names on your planners here [BLUE LETTERS], but fuck the rules, you hate this damned cheery-hell hole anyways[RED LETTERS] — Mr Charles said it encouraged his staff to have too much personality.[BLACK LETTERS]" instead;
 	if the noun is open:
-		say "[RED LETTERS]You thumb through to the entry for December 26.  It seems the owner of this planner is going to be at the roller rink tonight.  That could be fun, you think, but could it be Celine?[BLACK LETTERS]";
+		say "[RED LETTERS]You thumb through to the entry for December 26.  It seems the owner of this planner is going to be at the roller rink tonight.  That could be fun, you think, but could it be Celine?[BLACK LETTERS]" instead;
 
 Carry out examining the blue day planner:
 	if the noun is closed:
-		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:   925 Tulip Way — 525-282-9242'[line break]  Charles liked to keep his company's stationary as unpersonable as their business.[BLACK LETTERS]";
+		say "[RED LETTERS]The cover reads [line break]Official Employee Planner for Business and Personal Life Events[line break]Property of Charles & Charles Accounting LLC.[line break]Employee Details:   925 Tulip Way — 525-282-9242'[line break]  Charles liked to keep his company's stationary as unpersonable as their business.[BLACK LETTERS]" instead;
 	if the noun is open:
-		say "[RED LETTERS]You scan the page for today's entry.  Whoever owns this planner is going sailing this evening.  Could this be the kind of exotic [BLUE LETTERS], like the seedy under-belly of this city,[RED LETTERS] good time that Celine would have invited you on?[BLACK LETTERS]";
+		say "[RED LETTERS]You scan the page for today's entry.  Whoever owns this planner is going sailing this evening.  Could this be the kind of exotic [BLUE LETTERS], like the seedy under-belly of this city,[RED LETTERS] good time that Celine would have invited you on?[BLACK LETTERS]" instead;
 
 Carry out examining the grey day planner:
 	if the scribbled note is read:
@@ -666,7 +666,7 @@ After taking your crumpled jacket:
 Carry out wearing your crumpled jacket:
 	say "[RED LETTERS]As you pull on your rumbled old jacket, you hear something crinkle in the front pocket.[BLACK LETTERS]";
 	now the player is carrying the scribbled note.
-	
+
 Carry out examining the scribbled note:
 	now the scribbled note is read;
 	
