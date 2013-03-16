@@ -167,7 +167,7 @@ Check telling:
 	why do you ask	"[RED LETTERS]The girl's eyes narrow.  'Might be I know where Celine lives.  Why do you ask?'[BLACK LETTERS]"
 	i might know	"[RED LETTERS]She twirls a strand of her around her finger thoughtfully.  'And if I do tell you where Celine is?  What's in it for me?' she asks.[BLACK LETTERS]"
 	disappointed	"[RED LETTERS]The girl's expression turns sour at that.  'Oh.'  She says sadly.  'I don't think I can help you there, then.'  The conversation dies with her smile, and you're left gazing awkwardly about the park again.[BLACK LETTERS]"
-	noir success	"[BLUE LETTERS]The broad's smile grows so wide I wouldn't be surprised if it met round the back and half her head fell of.  'Alright, big boy,' she says, and I can barely keep from rolling my eyes.  'I'll take you to Celine's.  You'll owe me, though.  Maybe take me somewhere else after, hrm?'  I manage to hold back the gag, pulling a face that she takes for a grin.  Then she takes my hand and pulls be towards what I can only hope is Celine's.[BLACK LETTERS]"
+	noir success	"[BLUE LETTERS]The broad's smile grows so wide I wouldn't be surprised if it met round the back and half her head fell off.  'Alright, big boy,' she says, and I can barely keep from rolling my eyes.  'I'll take you to Celine's.  You'll owe me, though.  Maybe take me somewhere else after, hrm?'  I manage to hold back the gag, pulling a face that she takes for a grin.  Then she takes my hand and pulls be towards what I can only hope is Celine's.[BLACK LETTERS]"
 	romance success	"[RED LETTERS]The girl pulls a face.  'I was wrong about you.  You have to be the dullest man alive,' she comments.  You'd be insulted, but you're not sure she's wrong.  'But if you'll do me a favor like that, I suppose I may as well help you out.  Come on, I'll show you where Celine lives.  God help her if she sees anything in you, though.'  She heads off down the path, and you follow feeling slightly diminished.[BLACK LETTERS]"
 	
 
@@ -368,7 +368,7 @@ Check using:
 [Noir Scenes]
 NoirScene1 is a room with printed name "PI Office".
 Understand "PI Office" as NoirScene1.
-The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that I so, truly loved. It was [RED LETTERS]cozy,[BLUE LETTERS] dimly lit and always had a slight, frigid bite that kept my nerves just the right amount on edge. The fan overhead cut through the dry air with every beat of my own black heart leaving shadows dancing around the room. It was time I got back to the business at hand, finding Celine. [RED LETTERS]Now we're talking.  Forget all the violence and the grunge and get back to finding the girl. [BLACK LETTERS] Last I remember, I had three vital pieces of information on her. Unfortunately, after coming onto my secretary last week, she hasn't been back to clean up my mess… women. Who knows where those files could be, better start looking. [RED LETTERS] Or you could turn around right now and REWIND back to before things went so bloody Chinatown all over the place.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celine [RED LETTERS] or REWIND back to someplace a bit cheerier, like the inside of locked closet.[BLACK LETTERS][stopping]".
+The description of NoirScene1 is "[one of][BLUE LETTERS]Ahhh, the old office. This place never lacked the charm that I so, truly loved. It was [RED LETTERS]cozy,[BLUE LETTERS] dimly lit and always had a slight, frigid bite that kept my nerves just the right amount on edge. The fan overhead cut through the dry air with every beat of my own black heart leaving shadows dancing around the room. It was time I got back to the business at hand, finding Celine. [RED LETTERS]Now we're talking.  Forget all the violence and the grunge and get back to finding the girl.[BLUE LETTERS] Last I remember, I had three vital pieces of information on her. Unfortunately, after coming onto my secretary last week, she hasn't been back to clean up my mess… women. Who knows where those files could be, better start looking. [RED LETTERS] Or you could turn around right now and REWIND back to before things went so bloody Chinatown all over the place.[BLACK LETTERS][or][BLUE LETTERS]I could lose myself in here for hours, but best not to dawdle - need to find those clues on Celine [RED LETTERS] or REWIND back to someplace a bit cheerier, like the inside of a locked closet.[BLACK LETTERS][stopping]".
 
 clues_number is a number that varies.
 
@@ -405,7 +405,7 @@ The lower drawer is a container in the desk. It is opaque, openable, closed and 
 The description is "[BLUE LETTERS]Where I hide my liquor now, my secretary will never expect a thing. It's too obvious. Then again, secretaries now-a-days do require a college education. Maybe the young girl would get wise, if she'd ever come back.  [RED LETTERS]To a place like this?  Hardly.[BLACK LETTERS]".
 The computer is a container in NoirScene1. The computer can be turned on. It is not turned on.
 The computer is opaque, closed, unopenable, and fixed in place.
-The description is "[BLUE LETTERS]My only link to the outside world now-a-days. Maybe it's my disposition, or maybe people are just all shit - but I don't get out much anymore. [RED LETTERS]Clearly.[BLACK LETTERS] It's also the best place for me to get insider tips on the crime world. Just gotta give it a use to boot it up.[BLACK LETTERS]".
+The description is "[BLUE LETTERS]My only link to the outside world now-a-days. Maybe it's my disposition, or maybe people are just all shit - but I don't get out much anymore. [RED LETTERS]Clearly.[BLUE LETTERS] It's also the best place for me to get insider tips on the crime world. Just gotta give it a use to boot it up.[BLACK LETTERS]".
 The trash can is a container in NoirScene1.  It is transparent and fixed in place.
 The description is "[BLUE LETTERS]It's a trash can, where I generally throw away my crumpled-up failures.  [RED LETTERS]Like your narration.  Come on, let's REWIND this back to when I was in charge.[BLACK LETTERS]".
 The ball of paper is a container in the trash can. It is opaque , openable and closed.
@@ -413,7 +413,7 @@ The description is "[BLUE LETTERS]Seems like every other crumbled piece of paper
 The bronze key is a thing in the ball of paper.
 The description is "[BLUE LETTERS]This was probably my secretary's doing. She always knew I liked to keep my whiskey in that locked middle drawer. Shame she didn't know I caught on and moved it a while ago.[BLACK LETTERS]".
 The Celine's Picture is in the middle drawer.
-The description is "[BLUE LETTERS]She was beautiful, no - beautiful [RED LETTERS]doesn't begin to describe a girl like Celine.[BLACK LETTERS] Asphyxiating is more like it. [RED LETTERS]Charming.[BLACK LETTERS] So beautiful she'll rend the life out of every pore of your body if you even give her a milisecond. Looking at her face fills me with a morose, solemn darkness - but I guess that's nothing new for me.[BLACK LETTERS]".
+The description is "[BLUE LETTERS]She was beautiful, no - beautiful [RED LETTERS]doesn't begin to describe a girl like Celine.[BLUE LETTERS] Asphyxiating is more like it. [RED LETTERS]Charming.[BLUE LETTERS] So beautiful she'll rend the life out of every pore of your body if you even give her a milisecond. Looking at her face fills me with a morose, solemn darkness - but I guess that's nothing new for me.[BLACK LETTERS]".
 The important email is a thing in the computer. It is fixed in place.
 The description is "[BLUE LETTERS]The email was sent from an anonymous address. It only reads 'The Park, 12:00PM. xoxo' Better check it out. [RED LETTERS] You always were a sucker for hugs and kisses.[BLACK LETTERS]".
 The nearly finished bottle of whiskey is a thing in the lower drawer.
@@ -491,8 +491,8 @@ The description is "[RED LETTERS]You'd recognize those lips anywhere. [BLUE LETT
 The perfume is a thing in NoirScene2. [ROMANCE]
 The perfume is undroppable.
 The description is "[BLUE LETTERS]That perfume, just the smallest amount was enough to always keep my mind enraptured about Celine. I'll never forget that smell even after the day I die. [RED LETTERS]You just want to take it with you; take Celine with you.[BLUE LETTERS] I want to be with her forever, but I know it'll never be. Things have to be made right.[BLACK LETTERS]".
-The note from Celine is a thing in NoirScene2. [ROMANCE]
-The note from Celine is undroppable.
+The Celine's Note is a thing in NoirScene2. [ROMANCE]
+The Celine's Note is undroppable.
 The description is "[BLUE LETTERS]'I know it's you, I can't wait to see you again. You know where to find me. xoxo Celine' So it was her that sent me that email. I need to set things right. [RED LETTERS]You know you can save Celine.  You can still get this love story gone wrong back on track.[BLUE LETTERS] I won't make the same mistake I made back then. We'll be happy together and then I'll make amends for it all. [RED LETTERS]Just like it should be.[BLACK LETTERS]".
 The dead girl's purse is a container in NoirScene2. It is opaque, openable, closed and fixed in place.
 The description is "[BLUE LETTERS]The girl's purse, tattered and dirtied. It was probably once so pristine, but now soiled with a uncleanable dirt; much like her smile. This poor girl, no one will ever see that brilliant smile again.[BLACK LETTERS]".
@@ -518,15 +518,15 @@ After examining perfume:
 	if the player does not have the perfume:
 		try taking perfume;
 		
-After examining note from Celine:
-	if the player does not have the note from Celine:
-		try taking note from Celine;
+After examining Celine's Note:
+	if the player does not have the Celine's Note:
+		try taking Celine's Note;
 
 After taking kiss mark:		
 	now rom_item_value is rom_item_value plus one instead;		
 After taking perfume:
 	now rom_item_value is rom_item_value plus one instead;
-After taking note from Celine:
+After taking Celine's Note:
 	now rom_item_value is rom_item_value plus one instead;
 
 [NOIR ENDING ITEM RULES]
@@ -563,11 +563,52 @@ Every turn rule while the player is in NoirScene2:
 
 NoirScene3a is a room with printed name "Victim's House".
 Understand "Victim's House" as NoirScene3a.
-The description of NoirScene3a is "[BLUE LETTERS]I could feel it, on the otherside of the door was everything I worked for, it all culminated to one thing; Celine. I had finally tracked her down and it was time for the final showdown. [RED LETTERS]Too late to go back now.  You made you choice as to what kind of story this would be.[BLUE LETTERS] Taking one last deep breath, I open the door and become bathed in the stark, white light that flooded the room. [line break][line break]'The Jig is up, Celine.' I claimed, brandishing my trusty six-shooter towards Celene. [line break][line break]She laughs at my petty attempts to arrest her, 'Really? The jig is up? Please, do you honestly think I wasn't prepared for you? You follow someone for this long, you know they're going to notice.' I could see her own weapon pointed straight at that sweet spot between my eyes. My eyes couldn't help but focus down the barrel, how many poor girls had seen this same scene? [line break][line break]'I see. So I guess we have ourselves a stand-off. So tell me, Celine - why did you do it? Why so many young ladies? What did they do wrong?' My questions cut through her like razor blades of ice and it was obvious.   [line break][line break]'What did they do WRONG!? You blithering idiot, you've chased my tail for ten years and you still haven't figured that much out?' her voice was rasped and wicked with hatred. [line break][line break]'Ten years is a long time, Celine. Ever since you left my bed that morning and never came back - you changed. I don't even remember who you are anymore.' I said, [RED LETTERS]each word filled with memories of passion,[BLUE LETTERS] now tinted with disgust.[line break][line break]'It is a long time. You never got over me, did you? Still you lay up at night, longing for my kiss, my touch. I can see it in your hands even as you hold that pistol. You don't have the nerve to shoot me. You'll die a sad man, never knowing what happened to your wife or why she became the greatest serial killer this world had ever seen,' she finished, her thin lips now forming into that wicked smile. It was true, everything she said. I couldn't help but notice my right-hand, gripping the pistol so tightly it shook with fear and her words. But before I even had time to react, a loud bang punctuated the night. It was all over.[line break][line break]I could hear her high-heels click and clack behind me as the door closed to not only end this chapter on my life, but the whole book.[BLACK LETTERS]".
+The description of NoirScene3a is "".
+
+The ending_text of NoirScene3a is "[one of]
+	[BLUE LETTERS]I could feel it, on the otherside of the door was everything I worked for, it all culminated to one thing; Celine. I had finally tracked her down and it was time for the final showdown. [RED LETTERS]Too late to go back now.  You made your choice as to what kind of story this would be.[BLACK LETTERS]
+	[or]
+	[BLUE LETTERS]Taking one last deep breath, I open the door and become bathed in the stark, white light that flooded the room. 'The Jig is up, Celine.' I claimed, brandishing my trusty six-shooter towards Celene. She laughs at my petty attempts to arrest her, 'Really? The jig is up? Please, do you honestly think I wasn't prepared for you? You follow someone for this long, you know they're going to notice.' I could see her own weapon pointed straight at that sweet spot between my eyes. My eyes couldn't help but focus down the barrel, how many poor girls had seen this same scene?[BLACK LETTERS]
+	[or]
+	[BLUE LETTERS]'I see. So I guess we have ourselves a stand-off. So tell me, Celine - why did you do it? Why so many young ladies? What did they do wrong?' My questions cut through her like razor blades of ice and it was obvious. 'What did they do WRONG!? You blithering idiot, you've chased my tail for ten years and you still haven't figured that much out?' her voice was rasped and wicked with hatred. 'Ten years is a long time, Celine. Ever since you left my bed that morning and never came back - you changed. I don't even remember who you are anymore.' I said, [RED LETTERS]each word filled with memories of passion,[BLUE LETTERS] now tinted with disgust.[BLACK LETTERS]
+	[or]
+	[BLUE LETTERS]'It is a long time. You never got over me, did you? Still you lay up at night, longing for my kiss, my touch. I can see it in your hands even as you hold that pistol. You don't have the nerve to shoot me. You'll die a sad man, never knowing what happened to your wife or why she became the greatest serial killer this world had ever seen,' she finished, her thin lips now forming into that wicked smile. It was true, everything she said. I couldn't help but notice my right-hand, gripping the pistol so tightly it shook with fear and her words. But before I even had time to react, a loud bang punctuated the night. It was all over. I could hear her high-heels click and clack behind me as the door closed to not only end this chapter on my life, but the whole book.[BLACK LETTERS]
+	[stopping]".
+The ending_turns of NoirScene3a is 5.
+NoirScene3a is ending_room.
+
+The house is a thing in NoirScene3a. The house is fixed in place.
+The description is "[BLUE LETTERS]The final confrontation. This door is the only thing separating me, from the end.[BLACK LETTERS]".
+Celine is a person in NoirScene3a. The Celine is fixed in place.
+The description is "[BLUE LETTERS]Oh Celine, what happened to it all. You, me.... us.[BLACK LETTERS]".
+The revolver is a thing in NoirScene3a. The revolver is fixed in place.
+The description is "[BLUE LETTERS]My trusty revolver, we've been through so much together and tonight - we'll finish it all.[BLACK LETTERS]".
+The Celine's Revolver is a thing in NoirScene3a. The Celine's Revolver is fixed in place.
+The description is "[BLUE LETTERS]Looking down that barrel, I can see what we once had. My life, our life, cliche enough, is flashing before my eyes.[BLACK LETTERS]".
 
 NoirScene3b is a room with printed name "Motel in Cuba".
 Understand "Motel" as NoirScene3b.
-The description of NoirScene3b is "'[RED LETTERS]I guess death wouldn't be so bad if it was started with a kiss from those wet lips of yours, Celine', [BLUE LETTERS]I whispered in her frigid, deaf ears. So this is where it all came to an end. I guess you're probably wondering how we ended up here, in a dirty motel in the middle of god-knows-where Cuba. It's not a very interesting story and one comprised of all the puzzle pieces you probably already know. [RED LETTERS]When you finally tracked down Celine, you couldn't pull the trigger.[BLUE LETTERS] Something was holding me back. Maybe it was the darkness inside of her that I could see screaming at me behind her blue eyes, or maybe it was my own abyss beating for hers, but either way - I couldn't end it there. It just wasn't right.[RED LETTERS]You needed her and she needed you.[BLUE LETTERS] We tried, really we did. But we couldn't out-run all the horrible things she had done, all the beautiful motes of life she snuffed out demanded me to make it right. Part of me didn't want to do it, really it didn't - but it was as inevitable as the cyanide that now coarsed through her veins. Poor Celine, I really think she was the real victim in this whole scenario or maybe it's just how innocent she looks laying there, with that quiet, tranquil smile on her face as the winds of Cuba blow through the window over her pristine, motionless body. There was only one last thing I had to do to make everything right; hopefully in whatever eternal plane awaits us both, we can finally be rid of these insipid poisons that cursed us for so many years.[BLACK LETTERS]".
+The description of NoirScene3b is "".
+
+The ending_text of NoirScene3b is "[one of]
+	[RED LETTERS]'I guess death wouldn't be so bad if it was started with a kiss from those wet lips of yours, Celine', [BLUE LETTERS]I whispered in her frigid, deaf ears. So this is where it all came to an end. I guess you're probably wondering how we ended up here, in a dirty motel in the middle of god-knows-where Cuba. It's not a very interesting story and one comprised of all the puzzle pieces you probably already know.[BLACK LETTERS]
+	[or]
+	[RED LETTERS]When you finally tracked down Celine, you couldn't pull the trigger.[BLUE LETTERS] Something was holding me back. Maybe it was the darkness inside of her that I could see screaming at me behind her blue eyes, or maybe it was my own abyss beating for hers, but either way - I couldn't end it there. It just wasn't right.[RED LETTERS]You needed her and she needed you.[BLUE LETTERS] We tried, really we did. But we couldn't out-run all the horrible things she had done, all the beautiful motes of life she snuffed out demanded me to make it right.[BLACK LETTERS]
+	[or]
+	[BLUE LETTERS]Part of me didn't want to do it, really it didn't - but it was as inevitable as the cyanide that now coarsed through her veins. Poor Celine, I really think she was the real victim in this whole scenario or maybe it's just how innocent she looks laying there, with that quiet, tranquil smile on her face as the winds of Cuba blow through the window over her pristine, motionless body. There was only one last thing I had to do to make everything right; hopefully in whatever eternal plane awaits us both, we can finally be rid of these insipid poisons that cursed us for so many years.[BLACK LETTERS]
+	[stopping]".
+The ending_turns of NoirScene3b is 4.
+NoirScene3b is ending_room.
+
+The motel is a thing in NoirScene3b. The motel is fixed in place.
+The description is "[BLUE LETTERS]This motel holds our last memories together. It was wonderful. I tried. We tried. But we could never make it work.[BLACK LETTERS]".
+Celine's Corpse is a person in NoirScene3b. The Celine's Corpse is fixed in place.
+The description is "[BLUE LETTERS]Oh Celine... Why couldn't things have worked out. Why did it have to come to this... A body like your's was never meant to be this cold.[BLACK LETTERS]".
+The wine glass is a thing in NoirScene3b. The wine glass is fixed in place.
+The description is "[BLUE LETTERS]The glass, laden thick with cyanide - she had no idea. It was for the best.[BLACK LETTERS]".
+The abyss is a thing in NoirScene3b. The abyss is fixed in place.
+The description is "[BLUE LETTERS]I stare into the torrential abyss that we have both created. It was never-ending. There was nothing we could do to fix the void that we struck into this world.[BLACK LETTERS]".
+
 
 [Romance Scenes]
 RomScene1 is room with printed name "Charles and Charles, Accounting LLC".
@@ -676,7 +717,7 @@ Check utilizing the pint glass:
 Carry out drinking the pint glass:
 	say "[BLUE LETTERS]Now we're talking.  A drink was just the thing I needed. [RED LETTERS]You find nothing but dust and air at the bottom of this glass, however.[BLACK LETTERS]" instead.
 	
-Check utilizing the computer:
+Check utilizing the old computer:
 	say "[RED LETTERS]The screen remains blank[BLUE LETTERS], like the void in your heart.[RED LETTERS] You remember that Old Man Charles keeps the power off on weekends and holidays.  As a miser and a professional bookkeeper, no opportunity to save a penny escaped his cataract-ridden gaze.[BLACK LETTERS]" instead.
 
 RomScene2 is room with printed name "The Park: Sunset".
